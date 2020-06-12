@@ -1,2 +1,5 @@
-# projeto-mymovies
-Project catalog of films and series (React)
+This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+
+## MyMovies
+
+Projeto em desenvolvimento em breve mais informações...
