@@ -1,14 +1,12 @@
 import styled from 'styled-components'
+
 import { colors } from '../../styles/theme'
 import { WrapperSidebar } from '../../components/Sidebar/styles'
 
 export const Content = styled.div`
-  display: flex;
   flex-wrap: wrap;
   flex-grow: 1;
   align-items: flex-start;
-
-  padding: 2.5rem 1rem;
   background-color: ${colors.black200};
 `
 
