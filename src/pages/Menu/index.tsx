@@ -1,12 +1,17 @@
 import React from 'react'
 
 import { InternalRoutes } from '../../routes/InternalRoutes'
+import { Sidebar } from '../../components/Sidebar'
+
+import { Container, Content } from './styles'
 
 export function Menu() {
   return (
-    <div>
-      <h2>Menu</h2>
-      <InternalRoutes />
-    </div>
+    <Container>
+      <Sidebar />
+      <Content>
+        <InternalRoutes />
+      </Content>
+    </Container>
   )
 }
