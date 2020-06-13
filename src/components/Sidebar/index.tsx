@@ -9,7 +9,7 @@ import {
   ToggleSidebar,
   WrapperSidebar,
   HeaderSidebar,
-  Submenu,
+  SubmenuSidebar,
 } from './styles'
 
 export function Sidebar() {
@@ -31,14 +31,14 @@ export function Sidebar() {
       <WrapperSidebar isOpen={isOpen}>
         <HeaderSidebar>
           <span>
-            <MdMovie size={28} /> MyMoviess
+            <MdMovie size={28} /> MyMovies
           </span>
           <ToggleSidebar onClick={handleToggleSidebar}>
             <FiX size={28} />
           </ToggleSidebar>
         </HeaderSidebar>
 
-        <Submenu>
+        <SubmenuSidebar>
           <h4>Gêneros</h4>
           <ul>
             <li>
@@ -57,7 +57,7 @@ export function Sidebar() {
               <a href="/#">Crime</a>
             </li>
           </ul>
-        </Submenu>
+        </SubmenuSidebar>
       </WrapperSidebar>
     </Section>
   )
