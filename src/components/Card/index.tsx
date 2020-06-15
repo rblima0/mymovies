@@ -1,6 +1,6 @@
 import React from 'react'
 
-import logo from '../../assets/movie.jpg'
+import movie from '../../assets/movie2.jpg'
 
 import { Wrapper, ContentImage, ContentInfo } from './styles'
 
@@ -9,7 +9,7 @@ export function Card() {
     <Wrapper>
       <ContentImage>
         <a href="/#">
-          <img src={logo} alt="O Exterminador do Futuro: Destino Sombrio" />
+          <img src={movie} alt="O Exterminador do Futuro: Destino Sombrio" />
         </a>
       </ContentImage>
       <ContentInfo>

@@ -10,9 +10,18 @@ export const Wrapper = styled.div`
   background-color: ${colors.black300};
   box-shadow: 0 6px 11.31px 1.69px rgba(0, 0, 0, 0.3);
 
+  @media (max-width: 1130px) {
+    flex-direction: column;
+  }
+
   @media (max-width: 768px) {
+    flex-direction: row;
     width: 100%;
     margin: 10px 15px;
+  }
+
+  @media (max-width: 470px) {
+    flex-direction: column;
   }
 `
 
@@ -21,6 +30,11 @@ export const ContentImage = styled.div`
     img {
       opacity: 70%;
     }
+  }
+
+  @media (max-width: 470px) {
+    display: flex;
+    justify-content: center;
   }
 `
 
