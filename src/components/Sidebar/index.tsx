@@ -56,6 +56,30 @@ export function Sidebar() {
             <li>
               <a href="/#">Crime</a>
             </li>
+            <li>
+              <a href="/#">Documentário</a>
+            </li>
+            <li>
+              <a href="/#">Drama</a>
+            </li>
+            <li>
+              <a href="/#">Família</a>
+            </li>
+            <li>
+              <a href="/#">Fantasia</a>
+            </li>
+            <li>
+              <a href="/#">Terror</a>
+            </li>
+            <li>
+              <a href="/#">Mistério</a>
+            </li>
+            <li>
+              <a href="/#">Romance</a>
+            </li>
+            <li>
+              <a href="/#">Ficção científica</a>
+            </li>
           </ul>
         </SubmenuSidebar>
       </WrapperSidebar>
