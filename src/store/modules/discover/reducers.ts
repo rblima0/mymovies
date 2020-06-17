@@ -1,31 +1,31 @@
 import { Reducer } from 'redux'
-import { MovieTypes, MovieState } from './types'
+import { DiscoverTypes, DiscoverState, DiscoverData } from './types'
 
-const INITIAL_STATE: MovieState = {
-  data: [],
+const INITIAL_STATE: DiscoverState = {
+  data: {} as DiscoverData,
   error: false,
   loading: false,
 }
 
-const reducer: Reducer<MovieState> = (state = INITIAL_STATE, action) => {
+const reducer: Reducer<DiscoverState> = (state = INITIAL_STATE, action) => {
   console.log(action)
   switch (action.type) {
-    case MovieTypes.LOAD_MOVIE_REQUEST:
+    case DiscoverTypes.LOAD_DISCOVER_REQUEST:
       return {
         ...state,
         loading: true,
       }
-    case MovieTypes.LOAD_MOVIE_SUCCCES:
+    case DiscoverTypes.LOAD_DISCOVER_SUCCCES:
       return {
         ...state,
         data: action.payload,
         error: false,
         loading: false,
       }
-    case MovieTypes.LOAD_MOVIE_FAILURE:
+    case DiscoverTypes.LOAD_DISCOVER_FAILURE:
       return {
         ...state,
-        data: [],
+        data: {} as DiscoverData,
         error: true,
         loading: false,
       }

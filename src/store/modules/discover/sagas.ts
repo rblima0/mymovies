@@ -1,10 +1,10 @@
 import { call, put, takeLatest, all } from 'redux-saga/effects'
 
 import api from '../../../services/api'
-import config from '../../../config/index'
+import config from '../../../config'
 
-import { loadMovieSuccess, loadMovieFailure } from './actions'
-import { MovieTypes } from './types'
+import { loadDiscoverSuccess, loadDiscoverFailure } from './actions'
+import { DiscoverTypes } from './types'
 
 export function* loadMovie() {
   try {
@@ -15,10 +15,10 @@ export function* loadMovie() {
 
     const { data } = response
 
-    yield put(loadMovieSuccess(data))
+    yield put(loadDiscoverSuccess(data))
   } catch (err) {
-    yield put(loadMovieFailure())
+    yield put(loadDiscoverFailure())
   }
 }
 
-export default all([takeLatest(MovieTypes.LOAD_MOVIE_REQUEST, loadMovie)])
+export default all([takeLatest(DiscoverTypes.LOAD_DISCOVER_REQUEST, loadMovie)])
