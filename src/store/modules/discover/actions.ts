@@ -5,7 +5,7 @@ export const loadDiscoverRequest = () =>
   action(DiscoverTypes.LOAD_DISCOVER_REQUEST)
 
 export const loadDiscoverSuccess = (data: DiscoverData) =>
-  action(DiscoverTypes.LOAD_DISCOVER_SUCCCES, data)
+  action(DiscoverTypes.LOAD_DISCOVER_SUCCESS, data)
 
 export const loadDiscoverFailure = () =>
   action(DiscoverTypes.LOAD_DISCOVER_FAILURE)

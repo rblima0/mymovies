@@ -2,7 +2,7 @@
 
 export enum DiscoverTypes {
   LOAD_DISCOVER_REQUEST = '@discover/LOAD_DISCOVER_REQUEST',
-  LOAD_DISCOVER_SUCCCES = '@discover/LOAD_DISCOVER_SUCCCES',
+  LOAD_DISCOVER_SUCCESS = '@discover/LOAD_DISCOVER_SUCCESS',
   LOAD_DISCOVER_FAILURE = '@discover/LOAD_DISCOVER_FAILURE',
 }
 
@@ -26,10 +26,10 @@ export interface DiscoverResult {
 }
 
 export interface DiscoverData {
-  page: number
-  results: DiscoverResult[]
-  total_pages: number
-  total_results: number
+  page?: number
+  results?: DiscoverResult[]
+  total_pages?: number
+  total_results?: number
 }
 
 /* State type */

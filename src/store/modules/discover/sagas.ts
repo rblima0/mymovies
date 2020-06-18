@@ -6,7 +6,7 @@ import config from '../../../config'
 import { loadDiscoverSuccess, loadDiscoverFailure } from './actions'
 import { DiscoverTypes } from './types'
 
-export function* loadMovie() {
+export function* loadDiscover() {
   try {
     const response = yield call(
       api.get,
@@ -21,4 +21,6 @@ export function* loadMovie() {
   }
 }
 
-export default all([takeLatest(DiscoverTypes.LOAD_DISCOVER_REQUEST, loadMovie)])
+export default all([
+  takeLatest(DiscoverTypes.LOAD_DISCOVER_REQUEST, loadDiscover),
+])

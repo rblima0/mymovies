@@ -8,14 +8,13 @@ const INITIAL_STATE: DiscoverState = {
 }
 
 const reducer: Reducer<DiscoverState> = (state = INITIAL_STATE, action) => {
-  console.log(action)
   switch (action.type) {
     case DiscoverTypes.LOAD_DISCOVER_REQUEST:
       return {
         ...state,
         loading: true,
       }
-    case DiscoverTypes.LOAD_DISCOVER_SUCCCES:
+    case DiscoverTypes.LOAD_DISCOVER_SUCCESS:
       return {
         ...state,
         data: action.payload,
