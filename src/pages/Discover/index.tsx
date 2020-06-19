@@ -1,11 +1,11 @@
 import React, { useEffect } from 'react'
 
-import { DiscoverProps } from './types'
-
+import { Pagination } from '../../components/Pagination'
 import { Loader } from '../../components/shared/Loader'
 import { Card } from '../../components/shared/Card'
 import { Preview } from '../../components/Preview'
 
+import { DiscoverProps } from './types'
 import { Section } from './styles'
 
 export function Discover(props: DiscoverProps) {
@@ -20,12 +20,20 @@ export function Discover(props: DiscoverProps) {
   }
 
   return (
-    <Section>
-      {discover.data.results?.map((preview) => (
-        <Card key={preview.id}>
-          <Preview preview={preview} />
-        </Card>
-      ))}
-    </Section>
+    <>
+      <Section>
+        {discover.data.results.map((preview) => (
+          <Card key={preview.id}>
+            <Preview preview={preview} />
+          </Card>
+        ))}
+      </Section>
+
+      <Pagination
+        page={discover.data.page}
+        totalPages={discover.data.total_pages}
+        loadDiscoverRequest={loadDiscoverRequest}
+      />
+    </>
   )
 }

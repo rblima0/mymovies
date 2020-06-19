@@ -1,5 +1,10 @@
 import { Reducer } from 'redux'
-import { DiscoverTypes, DiscoverState, DiscoverData } from './types'
+import {
+  DiscoverTypes,
+  DiscoverState,
+  DiscoverData,
+  DiscoverActionTypes,
+} from './types'
 
 const INITIAL_STATE: DiscoverState = {
   data: {} as DiscoverData,
@@ -7,7 +12,10 @@ const INITIAL_STATE: DiscoverState = {
   loading: false,
 }
 
-const reducer: Reducer<DiscoverState> = (state = INITIAL_STATE, action) => {
+const reducer: Reducer<DiscoverState, DiscoverActionTypes> = (
+  state = INITIAL_STATE,
+  action
+) => {
   switch (action.type) {
     case DiscoverTypes.LOAD_DISCOVER_REQUEST:
       return {
