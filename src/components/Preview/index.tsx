@@ -1,10 +1,10 @@
 import React from 'react'
 
-import { CardProps } from './types'
-import { Wrapper, ContentImage, ContentInfo } from './styles'
+import { PreviewProps } from './types'
+import { ContentImage, ContentInfo } from './styles'
 
-export function Card(props: CardProps) {
-  const { movie } = props
+export function Preview(props: PreviewProps) {
+  const { preview } = props
 
   const limitOverview = (overview: string) => {
     const maxLength = 280
@@ -18,24 +18,24 @@ export function Card(props: CardProps) {
   }
 
   return (
-    <Wrapper>
+    <>
       <ContentImage>
         <a href="/#">
           <img
-            src={`https://image.tmdb.org/t/p/w185/${movie.poster_path}`}
-            alt={movie.title}
+            src={`https://image.tmdb.org/t/p/w185/${preview.poster_path}`}
+            alt={preview.title}
           />
         </a>
       </ContentImage>
       <ContentInfo>
         <a href="/#">
-          <h3>{movie.title}</h3>
+          <h3>{preview.title}</h3>
         </a>
-        {movie.genre_ids.map((item) => (
+        {preview.genre_ids.map((item) => (
           <span key={item}>{item}</span>
         ))}
-        <p>{limitOverview(movie.overview)}</p>
+        <p>{limitOverview(preview.overview)}</p>
       </ContentInfo>
-    </Wrapper>
+    </>
   )
 }

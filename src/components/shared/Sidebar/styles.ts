@@ -1,10 +1,7 @@
 import styled from 'styled-components'
 
-import { colors } from '../../styles/theme'
-
-interface OpenProps {
-  isOpen: boolean
-}
+import { SidebarStylesProps } from './types'
+import { colors } from '../../../styles/theme'
 
 export const Section = styled.div`
   span {
@@ -42,7 +39,7 @@ export const ToggleSidebar = styled.button`
   z-index: 1;
 `
 
-export const WrapperSidebar = styled.nav<OpenProps>`
+export const WrapperSidebar = styled.nav<SidebarStylesProps>`
   display: flex;
   flex-direction: column;
   background-color: ${colors.black100};
@@ -79,39 +76,6 @@ export const HeaderSidebar = styled.div`
   @media (max-width: 768px) {
     button {
       display: block;
-    }
-  }
-`
-
-export const SubmenuSidebar = styled.div`
-  margin-left: 25px;
-
-  h4 {
-    color: ${colors.gray200};
-    text-transform: uppercase;
-    font-size: 12px;
-    margin-top: 25px;
-    margin-bottom: 10px;
-  }
-
-  ul {
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
-    list-style-type: none;
-
-    li {
-      padding: 0.3rem 0;
-
-      a {
-        text-decoration: none;
-        color: ${colors.white};
-        font-size: 14px;
-      }
-
-      a:hover {
-        color: ${colors.primary};
-      }
     }
   }
 `
