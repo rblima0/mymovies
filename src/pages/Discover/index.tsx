@@ -2,8 +2,10 @@ import React, { useEffect } from 'react'
 
 import { DiscoverProps } from './types'
 
-import { Loader } from '../../components/Loader'
-import { Card } from '../../components/Card'
+import { Loader } from '../../components/shared/Loader'
+import { Card } from '../../components/shared/Card'
+import { Preview } from '../../components/Preview'
+
 import { Section } from './styles'
 
 export function Discover(props: DiscoverProps) {
@@ -19,8 +21,10 @@ export function Discover(props: DiscoverProps) {
 
   return (
     <Section>
-      {discover.data.results?.map((movie) => (
-        <Card key={movie.id} movie={movie} />
+      {discover.data.results?.map((preview) => (
+        <Card key={preview.id}>
+          <Preview preview={preview} />
+        </Card>
       ))}
     </Section>
   )

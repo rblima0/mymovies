@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 
 import { colors } from '../../styles/theme'
-import { WrapperSidebar } from '../../components/Sidebar/styles'
+import { WrapperSidebar } from '../../components/shared/Sidebar/styles'
 
 export const Content = styled.div`
   flex-wrap: wrap;

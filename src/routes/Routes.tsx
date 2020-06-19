@@ -7,7 +7,7 @@ export function Routes() {
   return (
     <Switch>
       <Redirect from="/" to="/dashboard" exact />
-      <Route component={Menu} path="/dashboard" />
+      <Route path="/dashboard" component={Menu} />
       <Redirect to="/not-found" />
     </Switch>
   )
