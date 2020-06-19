@@ -2,7 +2,7 @@ import styled from 'styled-components'
 
 import { colors } from '../../styles/theme'
 
-export const SubmenuSidebar = styled.div`
+export const Wrapper = styled.div`
   margin-left: 25px;
 
   h4 {
