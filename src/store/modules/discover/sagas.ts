@@ -10,7 +10,7 @@ export function* loadDiscover() {
   try {
     const response = yield call(
       api.get,
-      `/discover/movie?api_key=${config.api_key}`
+      `/discover/movie?api_key=${config.api_key}&language=pt-BR&include_adult=false&sort_by=popularity.desc`
     )
 
     const { data } = response
