@@ -4,14 +4,16 @@ import api from '../../../services/api'
 import config from '../../../config'
 
 import { loadDiscoverSuccess, loadDiscoverFailure } from './actions'
-import { DiscoverTypes } from './types'
+import { DiscoverTypes, LoadDiscoverRequest } from './types'
 
-export function* loadDiscover() {
+export function* loadDiscover({ payload }: LoadDiscoverRequest) {
+  const { page } = payload
+
+  const pageNumber = page ? `&page=${page}` : '&page=1'
+
   try {
-    const response = yield call(
-      api.get,
-      `/discover/movie?api_key=${config.api_key}&language=pt-BR&include_adult=false&sort_by=popularity.desc`
-    )
+    const url = `/discover/movie?api_key=${config.api_key}&language=pt-BR&include_adult=false&sort_by=popularity.desc&page=${pageNumber}`
+    const response = yield call(api.get, url)
 
     const { data } = response
 

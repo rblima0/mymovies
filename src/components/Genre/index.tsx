@@ -1,10 +1,10 @@
 import React from 'react'
 
-import { SubmenuSidebar } from './styles'
+import { Wrapper } from './styles'
 
 export function Genre() {
   return (
-    <SubmenuSidebar>
+    <Wrapper>
       <h4>Gêneros</h4>
       <ul>
         <li>
@@ -47,6 +47,6 @@ export function Genre() {
           <a href="/#">Ficção científica</a>
         </li>
       </ul>
-    </SubmenuSidebar>
+    </Wrapper>
   )
 }

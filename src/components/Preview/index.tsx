@@ -1,5 +1,7 @@
 import React from 'react'
 
+import imageNotFound from '../../assets/notfound.jpg'
+
 import { PreviewProps } from './types'
 import { ContentImage, ContentInfo } from './styles'
 
@@ -22,7 +24,11 @@ export function Preview(props: PreviewProps) {
       <ContentImage>
         <a href="/#">
           <img
-            src={`https://image.tmdb.org/t/p/w185/${preview.poster_path}`}
+            src={
+              preview.poster_path
+                ? `https://image.tmdb.org/t/p/w185${preview.poster_path}`
+                : imageNotFound
+            }
             alt={preview.title}
           />
         </a>
