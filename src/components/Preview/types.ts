@@ -1,5 +1,5 @@
-import { DiscoverResult } from '../../store/modules/discover/types'
+import { Discover } from '../../store/modules/discover/types'
 
 export interface PreviewProps {
-  preview: DiscoverResult
+  preview: Discover
 }
