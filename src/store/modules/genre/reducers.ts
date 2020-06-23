@@ -1,38 +1,34 @@
 import { Reducer } from 'redux'
-import {
-  DiscoverTypes,
-  DiscoverState,
-  DiscoverData,
-  DiscoverActionTypes,
-} from './types'
+import { GenreTypes, GenreState, GenreData, GenreActionTypes } from './types'
 
-const INITIAL_STATE: DiscoverState = {
-  data: {} as DiscoverData,
+const INITIAL_STATE: GenreState = {
+  data: {} as GenreData,
   loading: false,
   error: false,
 }
 
-const reducer: Reducer<DiscoverState, DiscoverActionTypes> = (
+const reducer: Reducer<GenreState, GenreActionTypes> = (
   state = INITIAL_STATE,
   action
 ) => {
+  console.log(action)
   switch (action.type) {
-    case DiscoverTypes.LOAD_DISCOVER_REQUEST:
+    case GenreTypes.LOAD_GENRE_REQUEST:
       return {
         ...state,
         loading: true,
       }
-    case DiscoverTypes.LOAD_DISCOVER_SUCCESS:
+    case GenreTypes.LOAD_GENRE_SUCCESS:
       return {
         ...state,
         data: action.payload,
         loading: false,
         error: false,
       }
-    case DiscoverTypes.LOAD_DISCOVER_FAILURE:
+    case GenreTypes.LOAD_GENRE_FAILURE:
       return {
         ...state,
-        data: {} as DiscoverData,
+        data: {} as GenreData,
         loading: false,
         error: true,
       }

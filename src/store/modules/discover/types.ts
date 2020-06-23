@@ -22,12 +22,12 @@ export interface DiscoverPayload {
 
 export interface DiscoverData {
   page: number
-  results: DiscoverResult[]
+  results: Discover[]
   total_pages: number
   total_results: number
 }
 
-export interface DiscoverResult {
+export interface Discover {
   adult: boolean
   backdrop_path: string | undefined
   genre_ids: number[]
