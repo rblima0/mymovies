@@ -38,9 +38,10 @@ export function Discover(props: DiscoverProps) {
       </Section>
 
       <Pagination
+        loadDiscoverRequest={loadDiscoverRequest}
+        totalPages={discover.data.total_pages}
         page={discover.data.page}
         genre={genreId}
-        loadDiscoverRequest={loadDiscoverRequest}
       />
     </>
   )

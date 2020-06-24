@@ -4,7 +4,7 @@ import { PaginationProps } from './types'
 import { Wrapper } from './styles'
 
 export function Pagination(props: PaginationProps) {
-  const { loadDiscoverRequest, page, genre } = props
+  const { loadDiscoverRequest, page, genre, totalPages } = props
 
   const handleClick = (pageNumber: number) => {
     loadDiscoverRequest(pageNumber, genre)
@@ -14,12 +14,16 @@ export function Pagination(props: PaginationProps) {
   return (
     <Wrapper>
       <ul>
-        <li onClick={() => handleClick(page - 1)}>
-          <button>Prev</button>
-        </li>
-        <li onClick={() => handleClick(page + 1)}>
-          <button>Next</button>
-        </li>
+        {page > 1 && (
+          <li onClick={() => handleClick(page - 1)}>
+            <button>Anterior</button>
+          </li>
+        )}
+        {page < totalPages && (
+          <li onClick={() => handleClick(page + 499)}>
+            <button>Proximo</button>
+          </li>
+        )}
       </ul>
     </Wrapper>
   )
