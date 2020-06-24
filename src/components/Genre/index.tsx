@@ -5,7 +5,13 @@ import { GenreProps } from './types'
 import { Wrapper } from './styles'
 
 export function Genre(props: GenreProps) {
-  const { genres } = props
+  const { genres, history } = props
+
+  const handleSelectGenre = (id: number) => {
+    history.replace({
+      pathname: `/dashboard/genre/${id}`,
+    })
+  }
 
   return (
     <Wrapper>
@@ -13,7 +19,9 @@ export function Genre(props: GenreProps) {
       <ul>
         {genres.map((genre: Genres) => (
           <li key={genre.id}>
-            <a href={`/genre/${genre.id}`}>{genre.name}</a>
+            <button type="button" onClick={() => handleSelectGenre(genre.id)}>
+              {genre.name}
+            </button>
           </li>
         ))}
       </ul>

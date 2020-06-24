@@ -1,5 +1,6 @@
 export interface PaginationProps {
-  loadDiscoverRequest(pageNumber?: number): void
+  loadDiscoverRequest(page?: number, genre?: number): void
   page: number
+  genre?: number
   totalPages: number
 }

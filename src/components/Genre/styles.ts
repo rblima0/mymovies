@@ -22,13 +22,14 @@ export const Wrapper = styled.div`
     li {
       padding: 0.3rem 0;
 
-      a {
-        text-decoration: none;
+      button {
+        border: 0;
+        background-color: transparent;
         color: ${colors.white};
         font-size: 14px;
       }
 
-      a:hover {
+      button:hover {
         color: ${colors.primary};
       }
     }

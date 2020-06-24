@@ -18,6 +18,7 @@ export interface DiscoverState {
 
 export interface DiscoverPayload {
   page?: number
+  genre?: number
 }
 
 export interface DiscoverData {

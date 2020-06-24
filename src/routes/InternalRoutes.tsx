@@ -6,7 +6,8 @@ import Discover from '../pages/Discover/container'
 export function InternalRoutes() {
   return (
     <Switch>
-      <Route path="/dashboard" component={Discover} />
+      <Route path="/dashboard" component={Discover} exact />
+      <Route path="/dashboard/genre/:genreId" component={Discover} />
     </Switch>
   )
 }

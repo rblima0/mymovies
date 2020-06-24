@@ -16,12 +16,11 @@ export const Wrapper = styled.div`
       display: flex;
       align-items: center;
       justify-content: center;
-      width: 40px;
-      height: 40px;
+      width: 70px;
+      height: 30px;
       margin: 0 5px;
       padding: 5px;
       text-align: center;
-      border-radius: 50%;
       cursor: pointer;
       background-color: ${colors.primary100};
 

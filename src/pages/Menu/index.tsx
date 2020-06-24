@@ -10,7 +10,7 @@ import { MenuProps } from './types'
 import { Container, Content } from './styles'
 
 export function Menu(props: MenuProps) {
-  const { genre, loadGenreRequest } = props
+  const { loadGenreRequest, genre, history } = props
 
   useEffect(() => {
     loadGenreRequest()
@@ -23,7 +23,7 @@ export function Menu(props: MenuProps) {
   return (
     <Container>
       <Sidebar>
-        <Genre genres={genre.data.genres} />
+        <Genre genres={genre.data.genres} history={history} />
       </Sidebar>
       <Content>
         <Header />

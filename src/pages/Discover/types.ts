@@ -1,6 +1,11 @@
 import { DiscoverState } from '../../store/modules/discover/types'
 
 export interface DiscoverProps {
+  loadDiscoverRequest(page?: number, genre?: number): void
   discover: DiscoverState
-  loadDiscoverRequest(pageNumber?: number): void
+  match: {
+    params: {
+      genreId: number
+    }
+  }
 }

@@ -1,5 +1,7 @@
 import React, { useState } from 'react'
 
+import { Link } from 'react-router-dom'
+
 import { FiMenu, FiX } from 'react-icons/fi'
 import { MdMovie } from 'react-icons/md'
 
@@ -25,16 +27,20 @@ export function Sidebar(props: SidebarProps) {
         <ToggleSidebar onClick={handleToggleSidebar}>
           <FiMenu size={28} />
         </ToggleSidebar>
-        <span>
-          <MdMovie size={28} /> MyMovies
-        </span>
+        <Link to="/dashboard">
+          <span>
+            <MdMovie size={28} /> MyMovies
+          </span>
+        </Link>
       </OpenSidebar>
 
       <WrapperSidebar isOpen={isOpen}>
         <HeaderSidebar>
-          <span>
-            <MdMovie size={28} /> MyMovies
-          </span>
+          <Link to="/dashboard">
+            <span>
+              <MdMovie size={28} /> MyMovies
+            </span>
+          </Link>
           <ToggleSidebar onClick={handleToggleSidebar}>
             <FiX size={28} />
           </ToggleSidebar>
