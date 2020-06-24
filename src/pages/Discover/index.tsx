@@ -9,11 +9,19 @@ import { DiscoverProps } from './types'
 import { Section } from './styles'
 
 export function Discover(props: DiscoverProps) {
-  const { discover, loadDiscoverRequest } = props
+  const {
+    loadDiscoverRequest,
+    discover,
+    match: {
+      params: { genreId },
+    },
+  } = props
+
+  const resetPage = 1
 
   useEffect(() => {
-    loadDiscoverRequest()
-  }, [loadDiscoverRequest])
+    loadDiscoverRequest(resetPage, genreId)
+  }, [loadDiscoverRequest, genreId])
 
   if (discover.loading || Object.entries(discover.data).length === 0) {
     return <Loader />
@@ -31,7 +39,7 @@ export function Discover(props: DiscoverProps) {
 
       <Pagination
         page={discover.data.page}
-        totalPages={discover.data.total_pages}
+        genre={genreId}
         loadDiscoverRequest={loadDiscoverRequest}
       />
     </>

@@ -4,10 +4,10 @@ import { PaginationProps } from './types'
 import { Wrapper } from './styles'
 
 export function Pagination(props: PaginationProps) {
-  const { loadDiscoverRequest, page } = props
+  const { loadDiscoverRequest, page, genre } = props
 
   const handleClick = (pageNumber: number) => {
-    loadDiscoverRequest(pageNumber)
+    loadDiscoverRequest(pageNumber, genre)
     window.scrollTo(0, 0)
   }
 
