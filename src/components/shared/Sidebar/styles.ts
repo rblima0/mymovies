@@ -19,6 +19,11 @@ export const OpenSidebar = styled.div`
     margin: 0.5rem 0.75rem 0;
   }
 
+  a {
+    text-decoration: none;
+    color: ${colors.white};
+  }
+
   @media (max-width: 768px) {
     display: flex;
     height: 5rem;
@@ -71,6 +76,15 @@ export const HeaderSidebar = styled.div`
 
   button {
     display: none;
+  }
+
+  a {
+    text-decoration: none;
+    color: ${colors.white};
+  }
+
+  a:hover {
+    color: ${colors.primary};
   }
 
   @media (max-width: 768px) {
