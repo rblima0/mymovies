@@ -2,11 +2,12 @@ import React from 'react'
 
 import imageNotFound from '../../assets/notfound.jpg'
 
+import { Genres } from '../../store/modules/genre/types'
 import { PreviewProps } from './types'
 import { ContentImage, ContentInfo } from './styles'
 
 export function Preview(props: PreviewProps) {
-  const { preview } = props
+  const { preview, genres } = props
 
   const limitOverview = (overview: string) => {
     const maxLength = 280
@@ -38,7 +39,9 @@ export function Preview(props: PreviewProps) {
           <h3>{preview.title}</h3>
         </a>
         {preview.genre_ids.map((item) => (
-          <span key={item}>{item}</span>
+          <span key={item}>
+            {genres.find(({ id }: Genres) => id === item).name}
+          </span>
         ))}
         <p>{limitOverview(preview.overview)}</p>
       </ContentInfo>
