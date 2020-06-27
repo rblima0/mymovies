@@ -3,6 +3,7 @@ import createSagaMiddleware from 'redux-saga'
 
 import { DiscoverState } from './modules/discover/types'
 import { GenreState } from './modules/genre/types'
+import { MovieState } from './modules/movie/types'
 
 import rootReducer from './modules/rootReducer'
 import rootSaga from './modules/rootSaga'
@@ -10,6 +11,7 @@ import rootSaga from './modules/rootSaga'
 export interface ApplicationState {
   discover: DiscoverState
   genre: GenreState
+  movie: MovieState
 }
 
 const sagaMiddleware = createSagaMiddleware()
