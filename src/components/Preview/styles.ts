@@ -3,7 +3,12 @@ import styled from 'styled-components'
 import { colors } from '../../styles/theme'
 
 export const ContentImage = styled.div`
-  a:hover {
+  button {
+    border: 0;
+    background-color: transparent;
+  }
+
+  button:hover {
     img {
       opacity: 70%;
     }
@@ -18,17 +23,21 @@ export const ContentImage = styled.div`
 export const ContentInfo = styled.div`
   padding: 0.5rem;
 
-  a {
+  button {
+    display: flex;
+    border: 0;
+    background-color: transparent;
     text-decoration: none;
 
     h3 {
       font-size: 16px;
       padding-bottom: 10px;
       color: ${colors.white};
+      text-align: left;
     }
   }
 
-  a:hover {
+  button:hover {
     h3 {
       color: ${colors.primary200};
     }
