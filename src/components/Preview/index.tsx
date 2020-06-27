@@ -7,7 +7,7 @@ import { PreviewProps } from './types'
 import { ContentImage, ContentInfo } from './styles'
 
 export function Preview(props: PreviewProps) {
-  const { preview, genres } = props
+  const { preview, genres, history } = props
 
   const limitOverview = (overview: string) => {
     const maxLength = 280
@@ -20,10 +20,16 @@ export function Preview(props: PreviewProps) {
     return overview
   }
 
+  const handleOpenMovie = () => {
+    history.replace({
+      pathname: `/dashboard/movie/${preview.id}`,
+    })
+  }
+
   return (
     <>
       <ContentImage>
-        <a href="/#">
+        <button type="button" onClick={handleOpenMovie}>
           <img
             src={
               preview.poster_path
@@ -32,12 +38,12 @@ export function Preview(props: PreviewProps) {
             }
             alt={preview.title}
           />
-        </a>
+        </button>
       </ContentImage>
       <ContentInfo>
-        <a href="/#">
+        <button type="button" onClick={handleOpenMovie}>
           <h3>{preview.title}</h3>
-        </a>
+        </button>
         {preview.genre_ids.map((item) => (
           <span key={item}>
             {genres.find(({ id }: Genres) => id === item).name}

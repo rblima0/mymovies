@@ -13,6 +13,7 @@ export function Discover(props: DiscoverProps) {
     loadDiscoverRequest,
     discover,
     genre,
+    history,
     match: {
       params: { genreId },
     },
@@ -33,7 +34,11 @@ export function Discover(props: DiscoverProps) {
       <Section>
         {discover.data.results.map((preview) => (
           <Card key={preview.id}>
-            <Preview preview={preview} genres={genre.data.genres} />
+            <Preview
+              preview={preview}
+              genres={genre.data.genres}
+              history={history}
+            />
           </Card>
         ))}
       </Section>
