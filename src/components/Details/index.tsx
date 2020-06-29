@@ -1,45 +1,75 @@
 import React from 'react'
 
 import { DetailsProps } from './types'
-import { Wrapper, Info } from './styles'
+import { Wrapper, Section, Image, Resume, Information } from './styles'
 
 export function Details(props: DetailsProps) {
   const { movie } = props
 
   return (
     <Wrapper>
-      <img
-        src={`https://image.tmdb.org/t/p/w300${movie.poster_path}`}
-        alt={movie.title}
-      />
-      <a href={movie.homepage} target="__blank">
-        Assistir trailer
-      </a>
+      <Section>
+        <Image>
+          <img
+            src={`https://image.tmdb.org/t/p/w300${movie.poster_path}`}
+            alt={movie.title}
+          />
+          <a href={movie.homepage} target="__blank">
+            Página Oficial
+          </a>
+          <a href={movie.homepage} target="__blank">
+            Assistir trailer
+          </a>
+        </Image>
 
-      <h2>{movie.title}</h2>
+        <Resume>
+          <h2>{movie.title}</h2>
+          <h4>{movie.original_title}</h4>
 
-      <p>{movie.overview}</p>
+          <p>{movie.overview}</p>
 
-      <p>Informações adicionais sobre o filme</p>
+          <Information>
+            <h5>Informações adicionais sobre o filme</h5>
 
-      <Info>
-        <p>Título Original: {movie.original_title}</p>
-        <p>Idioma Original: {movie.spoken_languages[0].name}</p>
-        <p>Data de Lançamento: {movie.release_date}</p>
-        <p>Duração: {movie.runtime}</p>
+            <p>
+              Título Original: <span>{movie.original_title}</span>
+            </p>
+            <p>
+              Idioma Original: <span>{movie.spoken_languages[0].name}</span>
+            </p>
+            <p>
+              Data de Lançamento: <span>{movie.release_date}</span>
+            </p>
+            <p>
+              Duração: <span>{movie.runtime}</span>
+            </p>
 
-        <br></br>
+            <br></br>
 
-        <p>IMDB: {movie.imdb_id}</p>
-        <p>Avaliação: {movie.vote_average}</p>
-        <p>Quantidade de Avaliações: {movie.vote_count}</p>
-        <p>Popularidade: {movie.popularity}</p>
+            <p>
+              IMDB: <span>{movie.imdb_id}</span>
+            </p>
+            <p>
+              Avaliação: <span>{movie.vote_average}</span>{' '}
+            </p>
+            <p>
+              Quantidade de Avaliações: <span>{movie.vote_count}</span>
+            </p>
+            <p>
+              Popularidade: <span>{movie.popularity}</span>
+            </p>
 
-        <br></br>
+            <br></br>
 
-        <p>Orçamento: U$ {movie.budget.toLocaleString('en-US')}</p>
-        <p>Receita: U$ {movie.revenue.toLocaleString()}</p>
-      </Info>
+            <p>
+              Orçamento: U$ <span>{movie.budget.toLocaleString('en-US')}</span>{' '}
+            </p>
+            <p>
+              Receita: U$ <span>{movie.revenue.toLocaleString()}</span>
+            </p>
+          </Information>
+        </Resume>
+      </Section>
     </Wrapper>
   )
 }
