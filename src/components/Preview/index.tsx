@@ -1,4 +1,5 @@
 import React from 'react'
+import { format } from 'date-fns'
 
 import imageNotFound from '../../assets/notfound.jpg'
 
@@ -41,14 +42,18 @@ export function Preview(props: PreviewProps) {
         </button>
       </ContentImage>
       <ContentInfo>
+        <h5>{format(new Date(preview.release_date), 'dd/MM/yyyy')}</h5>
+
         <button type="button" onClick={handleOpenMovie}>
           <h3>{preview.title}</h3>
         </button>
+
         {preview.genre_ids.map((item) => (
           <span key={item}>
             {genres.find(({ id }: Genres) => id === item).name}
           </span>
         ))}
+
         <p>{limitOverview(preview.overview)}</p>
       </ContentInfo>
     </>

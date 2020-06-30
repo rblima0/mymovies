@@ -55,6 +55,12 @@ export const ContentInfo = styled.div`
     display: inline-block;
   }
 
+  h5 {
+    font-size: 10px;
+    padding-bottom: 5px;
+    color: ${colors.gray300};
+  }
+
   p {
     padding: 1em 0;
     font-size: 12px;
