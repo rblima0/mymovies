@@ -20,7 +20,7 @@ export function Pagination(props: PaginationProps) {
           </li>
         )}
         {page < totalPages && (
-          <li onClick={() => handleClick(page + 499)}>
+          <li onClick={() => handleClick(page + 1)}>
             <button>Proximo</button>
           </li>
         )}
