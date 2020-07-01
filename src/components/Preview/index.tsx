@@ -1,13 +1,12 @@
 import React from 'react'
 import { format } from 'date-fns'
 
-import { GiRoundStar } from 'react-icons/gi'
 import imageNotFound from '../../assets/notfound.jpg'
 
 import { Genres } from '../../store/modules/genre/types'
 import { PreviewProps } from './types'
-import { ContentImage, ContentInfo, Rating } from './styles'
-import { colors } from '../../styles/theme'
+import { ContentImage, ContentInfo } from './styles'
+import { Rating } from '../Rating'
 
 export function Preview(props: PreviewProps) {
   const { preview, genres, history } = props
@@ -50,15 +49,10 @@ export function Preview(props: PreviewProps) {
           <h3>{preview.title}</h3>
         </button>
 
-        <Rating>
-          <GiRoundStar size={10} color={colors.primary} />
-          <GiRoundStar size={10} color={colors.primary} />
-          <GiRoundStar size={10} color={colors.primary} />
-          <GiRoundStar size={10} color={colors.primary300} />
-          <GiRoundStar size={10} color={colors.primary300} />
-          <h6>{preview.vote_average}</h6>
-          <p>({preview.vote_count} votos)</p>
-        </Rating>
+        <Rating
+          voteAverage={preview.vote_average}
+          voteCount={preview.vote_count}
+        />
 
         {preview.genre_ids.map((item) => (
           <span key={item}>
