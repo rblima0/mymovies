@@ -4,3 +4,7 @@ export interface CardProps {
   children: ReactNode
   backdrop?: string
 }
+
+export interface CardStylesProps {
+  backdrop?: string
+}
