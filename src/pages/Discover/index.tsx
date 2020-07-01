@@ -33,7 +33,7 @@ export function Discover(props: DiscoverProps) {
     <>
       <Section>
         {discover.data.results.map((preview) => (
-          <Card key={preview.id}>
+          <Card key={preview.id} backdrop={preview.backdrop_path}>
             <Preview
               preview={preview}
               genres={genre.data.genres}

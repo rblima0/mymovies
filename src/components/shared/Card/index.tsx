@@ -4,7 +4,7 @@ import { CardProps } from './types'
 import { Wrapper } from './styles'
 
 export function Card(props: CardProps) {
-  const { children } = props
+  const { children, backdrop } = props
 
-  return <Wrapper>{children}</Wrapper>
+  return <Wrapper backdrop={backdrop}>{children}</Wrapper>
 }

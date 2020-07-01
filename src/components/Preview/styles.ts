@@ -31,7 +31,6 @@ export const ContentInfo = styled.div`
 
     h3 {
       font-size: 16px;
-      padding-bottom: 10px;
       color: ${colors.white};
       text-align: left;
     }
@@ -53,6 +52,12 @@ export const ContentInfo = styled.div`
     margin-bottom: 0.3em;
     margin-right: 0.2em;
     display: inline-block;
+  }
+
+  h5 {
+    font-size: 10px;
+    padding-bottom: 5px;
+    color: ${colors.gray300};
   }
 
   p {

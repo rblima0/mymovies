@@ -14,4 +14,5 @@ export const colors = {
   primary: '#ff9800',
   primary100: '#843725',
   primary200: '#f7c70c',
+  primary300: '#ffd08a',
 }
