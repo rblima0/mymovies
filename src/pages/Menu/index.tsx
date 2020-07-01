@@ -26,7 +26,7 @@ export function Menu(props: MenuProps) {
         <Genre genres={genre.data.genres} history={history} />
       </Sidebar>
       <Content>
-        <Header />
+        <Header history={history} />
         <InternalRoutes />
       </Content>
     </Container>
