@@ -3,14 +3,14 @@ import styled from 'styled-components'
 import { colors } from '../../styles/theme'
 
 export const Wrapper = styled.div`
-  margin-left: 25px;
+  margin-left: 1.563rem;
 
   h4 {
     color: ${colors.gray200};
     text-transform: uppercase;
-    font-size: 12px;
-    margin-top: 25px;
-    margin-bottom: 10px;
+    font-size: 0.75rem;
+    margin-top: 1.563rem;
+    margin-bottom: 0.625rem;
   }
 
   ul {
@@ -26,7 +26,7 @@ export const Wrapper = styled.div`
         border: 0;
         background-color: transparent;
         color: ${colors.white};
-        font-size: 14px;
+        font-size: 0.875rem;
       }
 
       button:hover {

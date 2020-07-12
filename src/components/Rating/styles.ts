@@ -4,14 +4,14 @@ import { colors } from '../../styles/theme'
 
 export const Wrapper = styled.div`
   display: flex;
-  padding: 5px 0;
+  padding: 0.313rem 0;
 
   h6 {
     display: flex;
     align-items: center;
     color: ${colors.primary};
-    font-size: 12px;
-    padding: 0 5px;
+    font-size: 0.75rem;
+    padding: 0 0.313rem;
     font-weight: 700;
   }
 
@@ -19,7 +19,7 @@ export const Wrapper = styled.div`
     display: flex;
     padding: 0;
     font-weight: 300;
-    font-size: 10px;
+    font-size: 0.625rem;
     color: ${colors.gray300};
   }
 `

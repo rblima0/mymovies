@@ -3,11 +3,16 @@ import styled from 'styled-components'
 import { colors } from '../../styles/theme'
 
 export const Wrapper = styled.div`
-  margin: 2rem 1rem;
-  padding: 20px;
+  max-width: 1280px;
+  margin: 2rem auto;
+  padding: 1.25rem;
   background-color: ${colors.black100};
   box-shadow: 0px 2px 4px -1px rgba(0, 0, 0, 0.2),
     0px 4px 5px 0px rgba(0, 0, 0, 0.14), 0px 1px 10px 0px rgba(0, 0, 0, 0.12);
+
+  @media (max-width: 1500px) {
+    margin: 2rem 0.938rem;
+  }
 `
 
 export const Section = styled.div`
@@ -19,71 +24,58 @@ export const Image = styled.div`
   a {
     display: flex;
     justify-content: center;
-    color: ${colors.primary};
     text-decoration: none;
-    font-size: 14px;
+    font-size: 0.875rem;
     font-weight: 700;
     text-transform: uppercase;
-    border: 2px solid ${colors.primary};
-    padding: 10px 0;
-  }
+    padding: 0.625rem 0;
+    margin: 0.5rem 0;
 
-  a:hover {
-    color: ${colors.black100};
-    background-color: ${colors.primary};
-  }
-
-  a:nth-child(2) {
-    margin-bottom: 0.5rem;
     border: 2px solid ${colors.primary200};
     color: ${colors.primary200};
   }
 
-  a:hover:nth-child(2) {
+  a:hover {
     color: ${colors.black100};
     background-color: ${colors.primary200};
   }
 `
 
 export const Resume = styled.div`
-  padding: 10px;
+  padding: 0.625rem;
 
-  h2 {
+  h1 {
     font-weight: 700;
-    font-size: 22px;
+    font-size: 1.375rem;
     color: ${colors.primary};
+    margin: 0;
   }
 
-  h4 {
+  h5 {
     font-weight: 700;
-    font-size: 12px;
-    padding-bottom: 5px;
+    font-size: 0.75rem;
+    padding-bottom: 0.313rem;
     color: ${colors.gray300};
   }
 
+  span {
+    background-color: ${colors.primary100};
+    color: ${colors.white};
+    letter-spacing: 0.5px;
+    font-weight: 700;
+    text-transform: uppercase;
+    font-size: 0.625rem;
+    border-radius: 1.25rem;
+    padding: 0.4em 0.5em 0.2em 0.4em;
+    margin-bottom: 0.3em;
+    margin-right: 0.4em;
+    display: inline-block;
+  }
+
   p {
-    font-size: 15px;
+    font-size: 0.938rem;
     line-height: 1.4;
     max-width: 1000px;
-  }
-`
-
-export const Information = styled.div`
-  h5 {
-    font-size: 24px;
-    padding-top: 2rem;
-    padding-bottom: 0.5rem;
-    color: ${colors.white};
-  }
-
-  p {
-    font-size: 15px;
-    line-height: 1.4;
-    font-weight: 700;
-
-    span {
-      font-size: 14px;
-      font-weight: normal;
-    }
+    margin-top: 0.625rem;
   }
 `

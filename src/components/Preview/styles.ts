@@ -30,7 +30,7 @@ export const ContentInfo = styled.div`
     text-decoration: none;
 
     h3 {
-      font-size: 16px;
+      font-size: 1rem;
       color: ${colors.white};
       text-align: left;
     }
@@ -46,8 +46,8 @@ export const ContentInfo = styled.div`
     background-color: ${colors.primary100};
     color: ${colors.white};
     text-transform: uppercase;
-    font-size: 12px;
-    border-radius: 20px;
+    font-size: 0.75rem;
+    border-radius: 1.25rem;
     padding: 0.4em 0.5em 0.2em 0.4em;
     margin-bottom: 0.3em;
     margin-right: 0.2em;
@@ -55,14 +55,14 @@ export const ContentInfo = styled.div`
   }
 
   h5 {
-    font-size: 10px;
-    padding-bottom: 5px;
+    font-size: 0.625rem;
+    padding-bottom: 0.313rem;
     color: ${colors.gray300};
   }
 
   p {
     padding: 1em 0;
-    font-size: 12px;
-    line-height: 16px;
+    font-size: 0.75rem;
+    line-height: 1rem;
   }
 `
