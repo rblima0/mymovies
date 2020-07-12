@@ -8,6 +8,7 @@ import { MovieProps } from './types'
 export function Movie(props: MovieProps) {
   const {
     loadMovieRequest,
+    loadTrailerRequest,
     movie,
     match: {
       params: { movieId },
@@ -16,15 +17,20 @@ export function Movie(props: MovieProps) {
 
   useEffect(() => {
     loadMovieRequest(movieId)
-  }, [loadMovieRequest, movieId])
+    loadTrailerRequest(movieId)
+  }, [loadMovieRequest, loadTrailerRequest, movieId])
 
-  if (movie.loading || Object.entries(movie.data).length === 0) {
+  if (
+    movie.loading ||
+    Object.entries(movie.data).length === 0 ||
+    Object.entries(movie.trailer).length === 0
+  ) {
     return <Loader />
   }
 
   return (
     <>
-      <Details movie={movie.data} />
+      <Details movie={movie.data} trailer={movie.trailer} />
     </>
   )
 }
