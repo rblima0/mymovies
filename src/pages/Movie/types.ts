@@ -1,5 +1,4 @@
 import { MovieState } from '../../store/modules/movie/types'
-import { GenreState } from '../../store/modules/genre/types'
 
 export interface MovieProps {
   loadMovieRequest(id: number): void
