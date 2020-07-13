@@ -1,13 +1,9 @@
 import { Reducer } from 'redux'
-import {
-  DiscoverTypes,
-  DiscoverState,
-  DiscoverData,
-  DiscoverActionTypes,
-} from './types'
+import { DiscoverResponse } from '../../../entities/Discover/types'
+import { DiscoverTypes, DiscoverState, DiscoverActionTypes } from './types'
 
 const INITIAL_STATE: DiscoverState = {
-  data: {} as DiscoverData,
+  data: {} as DiscoverResponse,
   loading: false,
   error: false,
 }
@@ -32,7 +28,7 @@ const reducer: Reducer<DiscoverState, DiscoverActionTypes> = (
     case DiscoverTypes.LOAD_DISCOVER_FAILURE:
       return {
         ...state,
-        data: {} as DiscoverData,
+        data: {} as DiscoverResponse,
         loading: false,
         error: true,
       }
