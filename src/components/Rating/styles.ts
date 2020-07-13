@@ -17,7 +17,7 @@ export const Wrapper = styled.div`
 
   p {
     display: flex;
-    padding: 0;
+    padding: 0 !important;
     font-weight: 300;
     font-size: 0.625rem;
     color: ${colors.gray300};
