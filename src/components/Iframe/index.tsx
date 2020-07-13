@@ -1,34 +1,32 @@
 import React, { useState } from 'react'
 
+import { Modal } from '../shared/Modal'
 import { IframeProps } from './types'
-import { Modal, Overlay, ButtonOpen, ButtonClose } from './styles'
+import { Frame, ButtonOpen, ButtonClose } from './styles'
 
 export function Iframe(props: IframeProps) {
   const { trailer } = props
 
-  const [isOpen, setIsOpen] = useState(false)
+  const [IframeIsOpen, setIframeIsOpen] = useState(false)
 
-  const handleShowModal = () => setIsOpen(!isOpen)
+  const handleToggleModal = () => setIframeIsOpen(!IframeIsOpen)
 
   return (
     <>
       {Object.entries(trailer.results).length > 0 && (
-        <ButtonOpen onClick={handleShowModal}>Assistir Trailer</ButtonOpen>
+        <ButtonOpen onClick={handleToggleModal}>Assistir Trailer</ButtonOpen>
       )}
-      {isOpen ? (
-        <>
-          <Overlay />
-          <Modal isOpen={isOpen}>
-            <iframe
-              src={`https://www.youtube.com/embed/${trailer.results[0].key}`}
-              title={trailer.results[0].name}
-              allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
-              allowFullScreen
-            ></iframe>
-            <ButtonClose onClick={handleShowModal}>Fechar</ButtonClose>
-          </Modal>
-        </>
-      ) : null}
+      {IframeIsOpen && (
+        <Modal>
+          <Frame
+            src={`https://www.youtube.com/embed/${trailer.results[0].key}`}
+            title={trailer.results[0].name}
+            allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+            allowFullScreen
+          />
+          <ButtonClose onClick={handleToggleModal}>Fechar</ButtonClose>
+        </Modal>
+      )}
     </>
   )
 }
