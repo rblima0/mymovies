@@ -1,5 +1,5 @@
-import { Trailer } from '../../store/modules/movie/types'
+import { TrailerResponse } from '../../entities/Trailer/types'
 
 export interface IframeProps {
-  trailer: Trailer
+  trailer: TrailerResponse
 }

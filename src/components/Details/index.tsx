@@ -2,7 +2,7 @@ import React, { useEffect } from 'react'
 
 import { Iframe } from '../Iframe'
 
-import { Genres } from '../../store/modules/genre/types'
+import { Genres } from '../../entities/Genre/types'
 import { DetailsProps } from './types'
 
 import { Wrapper, Section, Image, Resume } from './styles'

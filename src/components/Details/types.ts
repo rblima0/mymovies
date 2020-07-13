@@ -1,6 +1,7 @@
-import { Movie, Trailer } from '../../store/modules/movie/types'
+import { MovieResponse } from '../../entities/Movie/types'
+import { TrailerResponse } from '../../entities/Trailer/types'
 
 export interface DetailsProps {
-  movie: Movie
-  trailer: Trailer
+  movie: MovieResponse
+  trailer: TrailerResponse
 }

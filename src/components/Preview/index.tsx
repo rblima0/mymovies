@@ -2,11 +2,12 @@ import React from 'react'
 import { format } from 'date-fns'
 
 import imageNotFound from '../../assets/notfound.jpg'
-
-import { Genres } from '../../store/modules/genre/types'
-import { PreviewProps } from './types'
-import { ContentImage, ContentInfo } from './styles'
 import { Rating } from '../Rating'
+
+import { Genres } from '../../entities/Genre/types'
+import { PreviewProps } from './types'
+
+import { ContentImage, ContentInfo } from './styles'
 
 export function Preview(props: PreviewProps) {
   const { preview, genres, history } = props
@@ -54,7 +55,7 @@ export function Preview(props: PreviewProps) {
           voteCount={preview.vote_count}
         />
 
-        {preview.genre_ids.map((item) => (
+        {preview.genre_ids.map((item: number) => (
           <span key={item}>
             {genres.find(({ id }: Genres) => id === item).name}
           </span>

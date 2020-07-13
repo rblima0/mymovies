@@ -1,5 +1,5 @@
 import { History } from 'history'
-import { Genres } from '../../store/modules/genre/types'
+import { Genres } from '../../entities/Genre/types'
 
 export interface GenreProps {
   genres: Genres[]
