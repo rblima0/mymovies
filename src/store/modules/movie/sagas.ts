@@ -3,6 +3,8 @@ import { call, put, takeLatest, all } from 'redux-saga/effects'
 import api from '../../../services/api'
 import config from '../../../config'
 
+import Movie from '../../../entities/Movie'
+
 import {
   loadMovieSuccess,
   loadMovieFailure,
@@ -11,6 +13,7 @@ import {
 } from './actions'
 
 import { MovieTypes, LoadMovieRequest, LoadTrailerRequest } from './types'
+import Trailer from '../../../entities/Trailer'
 
 export function* loadMovie({ payload }: LoadMovieRequest) {
   const { id } = payload
@@ -21,7 +24,9 @@ export function* loadMovie({ payload }: LoadMovieRequest) {
 
     const { data } = response
 
-    yield put(loadMovieSuccess(data))
+    const movie = new Movie(data)
+
+    yield put(loadMovieSuccess(movie))
   } catch (err) {
     yield put(loadMovieFailure())
   }
@@ -36,7 +41,9 @@ export function* loadTrailer({ payload }: LoadTrailerRequest) {
 
     const { data } = response
 
-    yield put(loadTrailerSuccess(data))
+    const trailer = new Trailer(data)
+
+    yield put(loadTrailerSuccess(trailer))
   } catch (err) {
     yield put(loadTrailerFailure())
   }
