@@ -1,8 +1,9 @@
 import { Reducer } from 'redux'
-import { GenreTypes, GenreState, GenreData, GenreActionTypes } from './types'
+import { GenreResponse } from '../../../entities/Genre/types'
+import { GenreTypes, GenreState, GenreActionTypes } from './types'
 
 const INITIAL_STATE: GenreState = {
-  data: {} as GenreData,
+  data: {} as GenreResponse,
   loading: false,
   error: false,
 }
@@ -28,7 +29,7 @@ const reducer: Reducer<GenreState, GenreActionTypes> = (
     case GenreTypes.LOAD_GENRE_FAILURE:
       return {
         ...state,
-        data: {} as GenreData,
+        data: {} as GenreResponse,
         loading: false,
         error: true,
       }
