@@ -7,7 +7,7 @@ export const Section = styled.div`
   span {
     display: flex;
     align-items: flex-end;
-    font-size: 18px;
+    font-size: 1.125rem;
     font-weight: 300;
   }
 `

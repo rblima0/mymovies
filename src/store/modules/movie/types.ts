@@ -6,6 +6,10 @@ export enum MovieTypes {
   LOAD_MOVIE_REQUEST = '@movie/LOAD_MOVIE_REQUEST',
   LOAD_MOVIE_SUCCESS = '@movie/LOAD_MOVIE_SUCCESS',
   LOAD_MOVIE_FAILURE = '@movie/LOAD_MOVIE_FAILURE',
+
+  LOAD_TRAILER_REQUEST = '@movie/LOAD_TRAILER_REQUEST',
+  LOAD_TRAILER_SUCCESS = '@movie/LOAD_TRAILER_SUCCESS',
+  LOAD_TRAILER_FAILURE = '@movie/LOAD_TRAILER_FAILURE',
 }
 
 /* State type */
@@ -14,6 +18,7 @@ export interface MovieState {
   readonly data: Movie
   readonly loading: boolean
   readonly error: boolean
+  readonly trailer: Trailer
 }
 
 /* Data types */
@@ -50,6 +55,11 @@ export interface Movie {
   vote_count: number
 }
 
+export interface Trailer {
+  id: number
+  results: TrailerResults[]
+}
+
 export interface MovieCompanies {
   id: number
   logo_path: any
@@ -67,6 +77,17 @@ export interface MovieLanguages {
   name: string
 }
 
+export interface TrailerResults {
+  id: string
+  iso_639_1: string
+  iso_3166_1: string
+  key: string
+  name: string
+  site: string
+  size: number
+  type: string
+}
+
 export interface LoadMovieRequest {
   type: typeof MovieTypes.LOAD_MOVIE_REQUEST
   payload: MoviePayload
@@ -81,7 +102,24 @@ export interface LoadMovieFailure {
   type: typeof MovieTypes.LOAD_MOVIE_FAILURE
 }
 
+export interface LoadTrailerRequest {
+  type: typeof MovieTypes.LOAD_TRAILER_REQUEST
+  payload: MoviePayload
+}
+
+export interface LoadTrailerSuccess {
+  type: typeof MovieTypes.LOAD_TRAILER_SUCCESS
+  payload: Trailer
+}
+
+export interface LoadTrailerFailure {
+  type: typeof MovieTypes.LOAD_TRAILER_FAILURE
+}
+
 export type MovieActionTypes =
   | LoadMovieRequest
   | LoadMovieSuccess
   | LoadMovieFailure
+  | LoadTrailerRequest
+  | LoadTrailerSuccess
+  | LoadTrailerFailure

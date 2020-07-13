@@ -23,7 +23,7 @@ export const Wrapper = styled.div<CardStylesProps>`
   @media (max-width: 768px) {
     flex-direction: row;
     width: 100%;
-    margin: 10px 15px;
+    margin: 0.625rem 0.938rem;
   }
 
   @media (max-width: 470px) {

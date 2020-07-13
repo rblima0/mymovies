@@ -1,7 +1,10 @@
 import { bindActionCreators, Dispatch } from 'redux'
 import { connect } from 'react-redux'
 
-import { loadMovieRequest } from '../../store/modules/movie/actions'
+import {
+  loadMovieRequest,
+  loadTrailerRequest,
+} from '../../store/modules/movie/actions'
 
 import { ApplicationState } from '../../store'
 import { Movie } from '.'
@@ -11,6 +14,6 @@ const mapStateToProps = (state: ApplicationState) => ({
 })
 
 const mapDispatchToProps = (dispatch: Dispatch) =>
-  bindActionCreators({ loadMovieRequest }, dispatch)
+  bindActionCreators({ loadMovieRequest, loadTrailerRequest }, dispatch)
 
 export default connect(mapStateToProps, mapDispatchToProps)(Movie)
