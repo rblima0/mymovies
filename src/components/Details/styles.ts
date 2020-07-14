@@ -109,4 +109,10 @@ export const Resume = styled.div`
     max-width: 1000px;
     margin-top: 0.625rem;
   }
+
+  @media (max-width: 525px) {
+    h1 {
+      color: ${colors.primary200};
+    }
+  }
 `
