@@ -4,6 +4,7 @@ import { Pagination } from '../../components/Pagination'
 import { Loader } from '../../components/shared/Loader'
 import { Card } from '../../components/shared/Card'
 import { Preview } from '../../components/Preview'
+import { Error } from '../../components/shared/Error'
 
 import { DiscoverProps } from './types'
 import { Section } from './styles'
@@ -24,6 +25,10 @@ export function Discover(props: DiscoverProps) {
   useEffect(() => {
     loadDiscoverRequest(resetPage, genreId)
   }, [loadDiscoverRequest, genreId])
+
+  if (discover.error) {
+    return <Error />
+  }
 
   if (discover.loading || Object.entries(discover.data).length === 0) {
     return <Loader />

@@ -2,6 +2,7 @@ import React, { useEffect } from 'react'
 
 import { Details } from '../../components/Details'
 import { Loader } from '../../components/shared/Loader'
+import { Error } from '../../components/shared/Error'
 
 import { MovieProps } from './types'
 
@@ -20,6 +21,10 @@ export function Movie(props: MovieProps) {
     loadTrailerRequest(movieId)
   }, [loadMovieRequest, loadTrailerRequest, movieId])
 
+  if (movie.error) {
+    return <Error />
+  }
+
   if (
     movie.loading ||
     Object.entries(movie.data).length === 0 ||
@@ -28,9 +33,5 @@ export function Movie(props: MovieProps) {
     return <Loader />
   }
 
-  return (
-    <>
-      <Details movie={movie.data} trailer={movie.trailer} />
-    </>
-  )
+  return <Details movie={movie.data} trailer={movie.trailer} />
 }
