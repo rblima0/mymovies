@@ -21,6 +21,11 @@ export const Section = styled.div`
 `
 
 export const Image = styled.div`
+  img {
+    border-bottom-left-radius: 30px;
+    border-top-right-radius: 30px;
+  }
+
   a {
     display: flex;
     justify-content: center;
