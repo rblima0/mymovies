@@ -6,14 +6,14 @@ import { Wrapper } from './styles'
 export function Header(props: HeaderProps) {
   const {
     history: {
-      location: { pathname },
+      location: { pathname, state },
     },
   } = props
 
   const showTitle = (path: string) => {
-    if (path.match(/genre/)) return 'Listagem por Gênero'
+    if (path.match(/genre/)) return `Listagem por Gênero: ${state}`
 
-    if (path.match(/movie/)) return 'Informações do Filme'
+    if (path.match(/movie/)) return `${state}`
 
     return 'Listagem de Filmes'
   }
@@ -21,7 +21,7 @@ export function Header(props: HeaderProps) {
   const showSubtitle = (path: string) => {
     if (path.match(/genre/)) return 'O melhor do seu gênero preferido'
 
-    if (path.match(/movie/)) return 'Muitas informações adicionais'
+    if (path.match(/movie/)) return 'Informações adicionais'
 
     return 'Conheça melhor os filmes'
   }

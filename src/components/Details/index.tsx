@@ -22,9 +22,11 @@ export function Details(props: DetailsProps) {
             src={`https://image.tmdb.org/t/p/w300${movie.poster_path}`}
             alt={movie.title}
           />
-          <a href={movie.homepage} target="__blank">
-            Página Oficial
-          </a>
+          {movie.homepage && (
+            <a href={movie.homepage} target="__blank">
+              Página Oficial
+            </a>
+          )}
           <Iframe trailer={trailer} />
         </Image>
 

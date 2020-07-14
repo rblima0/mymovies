@@ -5,3 +5,7 @@ export interface GenreProps {
   genres: Genres[]
   history: History
 }
+
+export interface GenreStylesProps {
+  selected: boolean
+}

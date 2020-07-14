@@ -26,6 +26,7 @@ export function Preview(props: PreviewProps) {
   const handleOpenMovie = () => {
     history.replace({
       pathname: `/dashboard/movie/${preview.id}`,
+      state: preview.title,
     })
   }
 
