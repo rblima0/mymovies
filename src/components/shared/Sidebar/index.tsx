@@ -2,16 +2,16 @@ import React, { useState } from 'react'
 
 import { Link } from 'react-router-dom'
 
-import { FiMenu, FiX } from 'react-icons/fi'
-import { MdMovie } from 'react-icons/md'
+import popcorn from '../../../assets/icons/popcorn.svg'
+import { MdMenu, MdClose } from 'react-icons/md'
 
 import { SidebarProps } from './types'
 import {
-  Section,
   OpenSidebar,
   ToggleSidebar,
   WrapperSidebar,
   HeaderSidebar,
+  Logo,
 } from './styles'
 
 export function Sidebar(props: SidebarProps) {
@@ -22,32 +22,32 @@ export function Sidebar(props: SidebarProps) {
   const handleToggleSidebar = () => setIsOpen(!isOpen)
 
   return (
-    <Section>
+    <>
       <OpenSidebar>
         <ToggleSidebar onClick={handleToggleSidebar}>
-          <FiMenu size={28} />
+          <MdMenu size={28} />
         </ToggleSidebar>
         <Link to="/dashboard">
-          <span>
-            <MdMovie size={28} /> MyMovies
-          </span>
+          <Logo>
+            <img src={popcorn} alt="logo" /> MyMovies
+          </Logo>
         </Link>
       </OpenSidebar>
 
       <WrapperSidebar isOpen={isOpen}>
         <HeaderSidebar>
           <Link to="/dashboard">
-            <span>
-              <MdMovie size={28} /> MyMovies
-            </span>
+            <Logo>
+              <img src={popcorn} alt="logo" /> MyMovies
+            </Logo>
           </Link>
           <ToggleSidebar onClick={handleToggleSidebar}>
-            <FiX size={28} />
+            <MdClose size={28} />
           </ToggleSidebar>
         </HeaderSidebar>
 
         {children}
       </WrapperSidebar>
-    </Section>
+    </>
   )
 }
