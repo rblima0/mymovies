@@ -1,3 +1,8 @@
+import {
+  DiscoverPayload,
+  DiscoverResponse,
+} from '../../../entities/Discover/types'
+
 /* Action types */
 
 export enum DiscoverTypes {
@@ -9,41 +14,12 @@ export enum DiscoverTypes {
 /* State type */
 
 export interface DiscoverState {
-  readonly data: DiscoverData
+  readonly data: DiscoverResponse
   readonly loading: boolean
   readonly error: boolean
 }
 
 /* Data types */
-
-export interface DiscoverPayload {
-  page?: number
-  genre?: number
-}
-
-export interface DiscoverData {
-  page: number
-  results: Discover[]
-  total_pages: number
-  total_results: number
-}
-
-export interface Discover {
-  adult: boolean
-  backdrop_path: string | undefined
-  genre_ids: number[]
-  id: number
-  original_language: string
-  original_title: string
-  overview: string
-  popularity: number
-  poster_path: string | undefined
-  release_date: Date
-  title: string
-  video: boolean
-  vote_average: number
-  vote_count: number
-}
 
 export interface LoadDiscoverRequest {
   type: typeof DiscoverTypes.LOAD_DISCOVER_REQUEST
@@ -52,7 +28,7 @@ export interface LoadDiscoverRequest {
 
 export interface LoadDiscoverSuccess {
   type: typeof DiscoverTypes.LOAD_DISCOVER_SUCCESS
-  payload: DiscoverData
+  payload: DiscoverResponse
 }
 
 export interface LoadDiscoverFailure {

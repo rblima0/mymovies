@@ -1,3 +1,5 @@
+import { GenreResponse } from '../../../entities/Genre/types'
+
 /* Action types */
 
 export enum GenreTypes {
@@ -9,21 +11,12 @@ export enum GenreTypes {
 /* State type */
 
 export interface GenreState {
-  readonly data: GenreData
+  readonly data: GenreResponse
   readonly loading: boolean
   readonly error: boolean
 }
 
 /* Data types */
-
-export interface GenreData {
-  genres: Genres[]
-}
-
-export interface Genres {
-  id: number
-  name: string
-}
 
 export interface LoadGenreRequest {
   type: typeof GenreTypes.LOAD_GENRE_REQUEST
@@ -31,7 +24,7 @@ export interface LoadGenreRequest {
 
 export interface LoadGenreSuccess {
   type: typeof GenreTypes.LOAD_GENRE_SUCCESS
-  payload: GenreData
+  payload: GenreResponse
 }
 
 export interface LoadGenreFailure {

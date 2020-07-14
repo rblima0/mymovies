@@ -3,6 +3,8 @@ import { call, put, takeLatest, all } from 'redux-saga/effects'
 import api from '../../../services/api'
 import config from '../../../config'
 
+import Genre from '../../../entities/Genre'
+
 import { loadGenreSuccess, loadGenreFailure } from './actions'
 import { GenreTypes } from './types'
 
@@ -13,7 +15,9 @@ export function* loadGenre() {
 
     const { data } = response
 
-    yield put(loadGenreSuccess(data))
+    const genre = new Genre(data)
+
+    yield put(loadGenreSuccess(genre))
   } catch (err) {
     yield put(loadGenreFailure())
   }

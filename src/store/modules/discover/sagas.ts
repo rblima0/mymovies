@@ -3,6 +3,8 @@ import { call, put, takeLatest, all } from 'redux-saga/effects'
 import api from '../../../services/api'
 import config from '../../../config'
 
+import Discover from '../../../entities/Discover'
+
 import { loadDiscoverSuccess, loadDiscoverFailure } from './actions'
 import { DiscoverTypes, LoadDiscoverRequest } from './types'
 
@@ -18,7 +20,9 @@ export function* loadDiscover({ payload }: LoadDiscoverRequest) {
 
     const { data } = response
 
-    yield put(loadDiscoverSuccess(data))
+    const discover = new Discover(data)
+
+    yield put(loadDiscoverSuccess(discover))
   } catch (err) {
     yield put(loadDiscoverFailure())
   }

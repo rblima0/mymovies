@@ -1,7 +1,8 @@
 import React from 'react'
 
-import { Genres } from '../../store/modules/genre/types'
+import { Genres } from '../../entities/Genre/types'
 import { GenreProps } from './types'
+
 import { Wrapper } from './styles'
 
 export function Genre(props: GenreProps) {

@@ -1,17 +1,15 @@
 import { Reducer } from 'redux'
-import {
-  MovieTypes,
-  MovieState,
-  Movie,
-  MovieActionTypes,
-  Trailer,
-} from './types'
+
+import { MovieResponse } from '../../../entities/Movie/types'
+import { TrailerResponse } from '../../../entities/Trailer/types'
+
+import { MovieTypes, MovieState, MovieActionTypes } from './types'
 
 const INITIAL_STATE: MovieState = {
-  data: {} as Movie,
+  data: {} as MovieResponse,
   loading: false,
   error: false,
-  trailer: {} as Trailer,
+  trailer: {} as TrailerResponse,
 }
 
 const reducer: Reducer<MovieState, MovieActionTypes> = (
@@ -34,7 +32,7 @@ const reducer: Reducer<MovieState, MovieActionTypes> = (
     case MovieTypes.LOAD_MOVIE_FAILURE:
       return {
         ...state,
-        data: {} as Movie,
+        data: {} as MovieResponse,
         loading: false,
         error: true,
       }
@@ -53,7 +51,7 @@ const reducer: Reducer<MovieState, MovieActionTypes> = (
       return {
         ...state,
         loading: false,
-        trailer: {} as Trailer,
+        trailer: {} as TrailerResponse,
       }
     default:
       return state

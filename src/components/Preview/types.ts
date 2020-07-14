@@ -1,9 +1,9 @@
 import { History } from 'history'
-import { Discover } from '../../store/modules/discover/types'
-import { Genres } from '../../store/modules/genre/types'
+import { DiscoverResult } from '../../entities/Discover/types'
+import { Genres } from '../../entities/Genre/types'
 
 export interface PreviewProps {
-  preview: Discover
+  preview: DiscoverResult
   genres: Genres[] | any
   history: History
 }
