@@ -27,6 +27,15 @@ export const ButtonOpen = styled.button`
     color: ${colors.black100};
     background-color: ${colors.primary};
   }
+
+  @media (max-width: 525px) {
+    width: 200px;
+    font-size: 0.75rem;
+    margin: 0.3rem auto;
+
+    border-bottom-left-radius: 1.875rem;
+    border-top-right-radius: 1.875rem;
+  }
 `
 
 export const ButtonClose = styled.button`
