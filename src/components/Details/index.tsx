@@ -1,11 +1,13 @@
 import React, { useEffect } from 'react'
 
+import { MdArrowBack } from 'react-icons/md'
 import { Iframe } from '../Iframe'
 
 import { Genres } from '../../entities/Genre/types'
 import { DetailsProps } from './types'
 
-import { Wrapper, Section, Image, Resume } from './styles'
+import { colors } from '../../styles/theme'
+import { Wrapper, Section, Image, Resume, ButtonBack } from './styles'
 
 export function Details(props: DetailsProps) {
   const { movie, trailer } = props
@@ -16,6 +18,10 @@ export function Details(props: DetailsProps) {
 
   return (
     <Wrapper>
+      <ButtonBack type="button" onClick={() => {}}>
+        <MdArrowBack size={24} color={colors.gray200} />
+      </ButtonBack>
+
       <Section>
         <Image>
           <img
