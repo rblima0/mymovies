@@ -4,6 +4,7 @@ import api from '../../../services/api'
 import config from '../../../config'
 
 import Movie from '../../../entities/Movie'
+import Trailer from '../../../entities/Trailer'
 
 import {
   loadMovieSuccess,
@@ -13,7 +14,6 @@ import {
 } from './actions'
 
 import { MovieTypes, LoadMovieRequest, LoadTrailerRequest } from './types'
-import Trailer from '../../../entities/Trailer'
 
 export function* loadMovie({ payload }: LoadMovieRequest) {
   const { id } = payload

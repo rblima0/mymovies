@@ -18,9 +18,18 @@ export const Wrapper = styled.div`
 export const Section = styled.div`
   display: flex;
   flex-direction: row;
+
+  @media (max-width: 525px) {
+    flex-direction: column;
+  }
 `
 
 export const Image = styled.div`
+  img {
+    border-bottom-left-radius: 30px;
+    border-top-right-radius: 30px;
+  }
+
   a {
     display: flex;
     justify-content: center;
@@ -38,6 +47,28 @@ export const Image = styled.div`
   a:hover {
     color: ${colors.black100};
     background-color: ${colors.primary200};
+  }
+
+  @media (max-width: 975px) {
+    img {
+      width: 200px;
+    }
+  }
+
+  @media (max-width: 525px) {
+    img {
+      display: flex;
+      margin: 0 auto;
+    }
+
+    a {
+      width: 200px;
+      font-size: 0.75rem;
+      margin: 0.3rem auto;
+
+      border-bottom-left-radius: 1.875rem;
+      border-top-right-radius: 1.875rem;
+    }
   }
 `
 
@@ -77,5 +108,11 @@ export const Resume = styled.div`
     line-height: 1.4;
     max-width: 1000px;
     margin-top: 0.625rem;
+  }
+
+  @media (max-width: 525px) {
+    h1 {
+      color: ${colors.primary200};
+    }
   }
 `

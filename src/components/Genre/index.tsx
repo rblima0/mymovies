@@ -3,14 +3,15 @@ import React from 'react'
 import { Genres } from '../../entities/Genre/types'
 import { GenreProps } from './types'
 
-import { Wrapper } from './styles'
+import { Wrapper, Button } from './styles'
 
 export function Genre(props: GenreProps) {
   const { genres, history } = props
 
-  const handleSelectGenre = (id: number) => {
+  const handleSelectGenre = (id: number, name?: string) => {
     history.replace({
       pathname: `/dashboard/genre/${id}`,
+      state: name,
     })
   }
 
@@ -20,9 +21,13 @@ export function Genre(props: GenreProps) {
       <ul>
         {genres.map((genre: Genres) => (
           <li key={genre.id}>
-            <button type="button" onClick={() => handleSelectGenre(genre.id)}>
+            <Button
+              selected={genre.name === history.location.state}
+              onClick={() => handleSelectGenre(genre.id, genre.name)}
+              type="button"
+            >
               {genre.name}
-            </button>
+            </Button>
           </li>
         ))}
       </ul>

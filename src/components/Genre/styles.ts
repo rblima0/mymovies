@@ -1,6 +1,7 @@
 import styled from 'styled-components'
 
 import { colors } from '../../styles/theme'
+import { GenreStylesProps } from './types'
 
 export const Wrapper = styled.div`
   margin-left: 1.563rem;
@@ -21,17 +22,17 @@ export const Wrapper = styled.div`
 
     li {
       padding: 0.3rem 0;
-
-      button {
-        border: 0;
-        background-color: transparent;
-        color: ${colors.white};
-        font-size: 0.875rem;
-      }
-
-      button:hover {
-        color: ${colors.primary};
-      }
     }
+  }
+`
+
+export const Button = styled.button<GenreStylesProps>`
+  border: 0;
+  background-color: transparent;
+  font-size: 0.875rem;
+  color: ${(props) => (props.selected ? colors.primary : colors.white)};
+
+  :hover {
+    color: ${colors.primary};
   }
 `

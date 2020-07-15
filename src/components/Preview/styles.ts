@@ -6,6 +6,11 @@ export const ContentImage = styled.div`
   button {
     border: 0;
     background-color: transparent;
+
+    img {
+      border-bottom-left-radius: 25px;
+      border-top-right-radius: 25px;
+    }
   }
 
   button:hover {

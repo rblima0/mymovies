@@ -3,15 +3,6 @@ import styled from 'styled-components'
 import { SidebarStylesProps } from './types'
 import { colors } from '../../../styles/theme'
 
-export const Section = styled.div`
-  span {
-    display: flex;
-    align-items: flex-end;
-    font-size: 1.125rem;
-    font-weight: 300;
-  }
-`
-
 export const OpenSidebar = styled.div`
   display: none;
 
@@ -83,13 +74,25 @@ export const HeaderSidebar = styled.div`
     color: ${colors.white};
   }
 
-  a:hover {
-    color: ${colors.primary};
-  }
-
   @media (max-width: 768px) {
     button {
       display: block;
     }
+  }
+`
+
+export const Logo = styled.span`
+  display: flex;
+  align-items: flex-end;
+  font-size: 1.5rem;
+  font-weight: 700;
+  text-shadow: 1px 1px 0px ${colors.primary};
+
+  img {
+    width: 50px;
+  }
+
+  :hover {
+    opacity: 0.75;
   }
 `
