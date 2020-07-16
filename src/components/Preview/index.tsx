@@ -1,7 +1,7 @@
 import React from 'react'
 import { format } from 'date-fns'
 
-import imageNotFound from '../../assets/notfound.jpg'
+import notFound from '../../assets/not-found.jpg'
 import { Rating } from '../Rating'
 
 import { Genres } from '../../entities/Genre/types'
@@ -38,7 +38,7 @@ export function Preview(props: PreviewProps) {
             src={
               preview.poster_path
                 ? `https://image.tmdb.org/t/p/w185${preview.poster_path}`
-                : imageNotFound
+                : notFound
             }
             alt={preview.title}
           />
