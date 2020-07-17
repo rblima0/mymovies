@@ -13,7 +13,7 @@ export function Header(props: HeaderProps) {
   const showTitle = (path: string) => {
     if (path.match(/genre/)) return `Listagem por Gênero: ${state}`
 
-    if (path.match(/movie/)) return `${state}`
+    if (path.match(/movie/)) return `${state ? state : 'Conheça o filme'}`
 
     return 'Listagem de Filmes'
   }

@@ -1,34 +1,34 @@
 import { Reducer } from 'redux'
-import { MovieResponse } from '../../../entities/Movie/types'
-import { MovieTypes, MovieState, MovieActionTypes } from './types'
+import { TrailerResponse } from '../../../entities/Trailer/types'
+import { TrailerTypes, TrailerState, TrailerActionTypes } from './types'
 
-const INITIAL_STATE: MovieState = {
-  data: {} as MovieResponse,
+const INITIAL_STATE: TrailerState = {
+  data: {} as TrailerResponse,
   loading: false,
   error: false,
 }
 
-const reducer: Reducer<MovieState, MovieActionTypes> = (
+const reducer: Reducer<TrailerState, TrailerActionTypes> = (
   state = INITIAL_STATE,
   action
 ) => {
   switch (action.type) {
-    case MovieTypes.LOAD_MOVIE_REQUEST:
+    case TrailerTypes.LOAD_TRAILER_REQUEST:
       return {
         ...state,
         loading: true,
       }
-    case MovieTypes.LOAD_MOVIE_SUCCESS:
+    case TrailerTypes.LOAD_TRAILER_SUCCESS:
       return {
         ...state,
         data: action.payload,
         loading: false,
         error: false,
       }
-    case MovieTypes.LOAD_MOVIE_FAILURE:
+    case TrailerTypes.LOAD_TRAILER_FAILURE:
       return {
         ...state,
-        data: {} as MovieResponse,
+        data: {} as TrailerResponse,
         loading: false,
         error: true,
       }

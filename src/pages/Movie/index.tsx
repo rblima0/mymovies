@@ -11,6 +11,7 @@ export function Movie(props: MovieProps) {
     loadMovieRequest,
     loadTrailerRequest,
     movie,
+    trailer,
     match: {
       params: { movieId },
     },
@@ -27,11 +28,12 @@ export function Movie(props: MovieProps) {
 
   if (
     movie.loading ||
+    trailer.loading ||
     Object.entries(movie.data).length === 0 ||
-    Object.entries(movie.trailer).length === 0
+    Object.entries(trailer.data).length === 0
   ) {
     return <Loader />
   }
 
-  return <Details movie={movie.data} trailer={movie.trailer} />
+  return <Details movie={movie.data} trailer={trailer.data} />
 }

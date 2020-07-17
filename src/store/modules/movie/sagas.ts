@@ -4,16 +4,9 @@ import api from '../../../services/api'
 import config from '../../../config'
 
 import Movie from '../../../entities/Movie'
-import Trailer from '../../../entities/Trailer'
 
-import {
-  loadMovieSuccess,
-  loadMovieFailure,
-  loadTrailerSuccess,
-  loadTrailerFailure,
-} from './actions'
-
-import { MovieTypes, LoadMovieRequest, LoadTrailerRequest } from './types'
+import { loadMovieSuccess, loadMovieFailure } from './actions'
+import { MovieTypes, LoadMovieRequest } from './types'
 
 export function* loadMovie({ payload }: LoadMovieRequest) {
   const { id } = payload
@@ -32,24 +25,4 @@ export function* loadMovie({ payload }: LoadMovieRequest) {
   }
 }
 
-export function* loadTrailer({ payload }: LoadTrailerRequest) {
-  const { id } = payload
-
-  try {
-    const url = `/movie/${id}/videos?api_key=${config.api_key}&language=pt-BR`
-    const response = yield call(api.get, url)
-
-    const { data } = response
-
-    const trailer = new Trailer(data)
-
-    yield put(loadTrailerSuccess(trailer))
-  } catch (err) {
-    yield put(loadTrailerFailure())
-  }
-}
-
-export default all([
-  takeLatest(MovieTypes.LOAD_MOVIE_REQUEST, loadMovie),
-  takeLatest(MovieTypes.LOAD_TRAILER_REQUEST, loadTrailer),
-])
+export default all([takeLatest(MovieTypes.LOAD_MOVIE_REQUEST, loadMovie)])
