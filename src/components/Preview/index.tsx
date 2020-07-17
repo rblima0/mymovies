@@ -35,12 +35,16 @@ export function Preview(props: PreviewProps) {
       <ContentImage>
         <button type="button" onClick={handleOpenMovie}>
           <img
+            alt={preview.title}
             src={
               preview.poster_path
                 ? `https://image.tmdb.org/t/p/w185${preview.poster_path}`
                 : notFound
             }
-            alt={preview.title}
+            onError={(e: any) => {
+              e.target.onerror = null
+              e.target.src = notFound
+            }}
           />
         </button>
       </ContentImage>

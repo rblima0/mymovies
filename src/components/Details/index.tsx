@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react'
 
+import notFound from '../../assets/not-found.jpg'
 import { MdArrowBack } from 'react-icons/md'
 import { Iframe } from '../Iframe'
 
@@ -25,8 +26,12 @@ export function Details(props: DetailsProps) {
       <Section>
         <Image>
           <img
-            src={`https://image.tmdb.org/t/p/w300${movie.poster_path}`}
             alt={movie.title}
+            src={`https://image.tmdb.org/t/p/w300${movie.poster_path}`}
+            onError={(e: any) => {
+              e.target.onerror = null
+              e.target.src = notFound
+            }}
           />
           {movie.homepage && (
             <a href={movie.homepage} target="__blank">
