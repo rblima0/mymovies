@@ -24,6 +24,12 @@ export const Section = styled.div`
   }
 `
 
+export const ButtonBack = styled.button`
+  background-color: transparent;
+  border: 0;
+  margin-top: 0.5rem;
+`
+
 export const Image = styled.div`
   img {
     border-bottom-left-radius: 30px;
@@ -72,9 +78,11 @@ export const Image = styled.div`
   }
 `
 
-export const Resume = styled.div`
+export const Information = styled.div`
   padding: 0.625rem;
+`
 
+export const Resume = styled.div`
   h1 {
     font-weight: 700;
     font-size: 1.375rem;
@@ -89,35 +97,54 @@ export const Resume = styled.div`
     color: ${colors.gray300};
   }
 
-  span {
-    background-color: ${colors.primary100};
-    color: ${colors.white};
-    letter-spacing: 0.5px;
-    font-weight: 700;
-    text-transform: uppercase;
-    font-size: 0.625rem;
-    border-radius: 1.25rem;
-    padding: 0.4em 0.5em 0.2em 0.4em;
-    margin-bottom: 0.3em;
-    margin-right: 0.4em;
-    display: inline-block;
-  }
-
-  p {
-    font-size: 0.938rem;
-    line-height: 1.4;
-    max-width: 1000px;
-    margin-top: 0.625rem;
-  }
-
   @media (max-width: 525px) {
     h1 {
       color: ${colors.primary200};
     }
   }
 `
-export const ButtonBack = styled.button`
-  background-color: transparent;
-  border: 0;
-  margin-top: 0.5rem;
+
+export const Genre = styled.span`
+  background-color: ${colors.primary100};
+  color: ${colors.white};
+  letter-spacing: 0.5px;
+  font-weight: 700;
+  text-transform: uppercase;
+  font-size: 0.625rem;
+  border-radius: 1.25rem;
+  padding: 0.4em 0.5em 0.2em 0.4em;
+  margin-bottom: 0.3em;
+  margin-right: 0.4em;
+  display: inline-block;
+`
+
+export const Overview = styled.p`
+  font-size: 0.938rem;
+  line-height: 1.4;
+  max-width: 1000px;
+  margin-top: 0.625rem;
+`
+
+export const More = styled.div`
+  padding: 1rem 0;
+
+  h5 {
+    color: ${colors.primary200};
+    font-weight: 700;
+    font-size: 14px;
+    margin-bottom: 20px;
+  }
+
+  span {
+    display: inline-block;
+    font-size: 12px;
+    font-weight: 300;
+    color: #d8d8d8;
+    margin-right: 10px;
+    margin-bottom: 0.5rem;
+    padding: 0.5rem;
+    border: 3px solid #ffffff30;
+    border-bottom-right-radius: 10px;
+    border-top-left-radius: 10px;
+  }
 `
