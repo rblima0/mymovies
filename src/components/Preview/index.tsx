@@ -1,8 +1,8 @@
 import React from 'react'
-import { format } from 'date-fns'
 
 import notFound from '../../assets/not-found.jpg'
 import { Rating } from '../Rating'
+import { formatDate } from '../../helpers/date'
 
 import { Genres } from '../../entities/Genre/types'
 import { PreviewProps } from './types'
@@ -49,7 +49,7 @@ export function Preview(props: PreviewProps) {
         </button>
       </ContentImage>
       <ContentInfo>
-        <h5>{format(new Date(preview.release_date), 'dd/MM/yyyy')}</h5>
+        <h5>{formatDate(preview.release_date)}</h5>
 
         <button type="button" onClick={handleOpenMovie}>
           <h3>{preview.title}</h3>
