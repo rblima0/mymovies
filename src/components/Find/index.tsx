@@ -2,25 +2,26 @@ import React, { useState, ChangeEvent, FormEvent } from 'react'
 
 import { MdSearch } from 'react-icons/md'
 
+import { FindProps } from './types'
 import { colors } from '../../styles/theme'
-import { SearchProps } from './types'
 import { Wrapper } from './styles'
 
-export function Search(props: SearchProps) {
-  const { loadSearchRequest } = props
+export function Find(props: FindProps) {
+  const { history } = props
 
   const [entry, setEntry] = useState('')
-  const defaultPage = 1
 
   const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
-    setEntry(e.target.value)
+    setEntry(e.target.value.toLowerCase())
   }
 
   const handleSubmit = (e: FormEvent) => {
-    if (entry.length > 3) {
-      loadSearchRequest(defaultPage, entry)
-    }
+    history.replace({
+      pathname: `/dashboard/search/${entry}`,
+      state: entry,
+    })
 
+    setEntry('')
     e.preventDefault()
   }
 

@@ -4,7 +4,7 @@ import { PaginationProps } from './types'
 import { Wrapper } from './styles'
 
 export function Pagination(props: PaginationProps) {
-  const { loadDiscoverRequest, page, genre, totalPages } = props
+  const { loadDiscoverRequest, genre, page, totalPages } = props
 
   const handleClick = (pageNumber: number) => {
     loadDiscoverRequest(pageNumber, genre)

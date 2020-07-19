@@ -1,34 +1,34 @@
 import { Reducer } from 'redux'
-import { DiscoverResponse } from '../../../entities/Discover/types'
-import { DiscoverTypes, DiscoverState, DiscoverActionTypes } from './types'
+import { SearchResponse } from '../../../entities/Search/types'
+import { SearchTypes, SearchState, SearchActionTypes } from './types'
 
-const INITIAL_STATE: DiscoverState = {
-  data: {} as DiscoverResponse,
+const INITIAL_STATE: SearchState = {
+  data: {} as SearchResponse,
   loading: false,
   error: false,
 }
 
-const reducer: Reducer<DiscoverState, DiscoverActionTypes> = (
+const reducer: Reducer<SearchState, SearchActionTypes> = (
   state = INITIAL_STATE,
   action
 ) => {
   switch (action.type) {
-    case DiscoverTypes.LOAD_DISCOVER_REQUEST:
+    case SearchTypes.LOAD_SEARCH_REQUEST:
       return {
         ...state,
         loading: true,
       }
-    case DiscoverTypes.LOAD_DISCOVER_SUCCESS:
+    case SearchTypes.LOAD_SEARCH_SUCCESS:
       return {
         ...state,
         data: action.payload,
         loading: false,
         error: false,
       }
-    case DiscoverTypes.LOAD_DISCOVER_FAILURE:
+    case SearchTypes.LOAD_SEARCH_FAILURE:
       return {
         ...state,
-        data: {} as DiscoverResponse,
+        data: {} as SearchResponse,
         loading: false,
         error: true,
       }

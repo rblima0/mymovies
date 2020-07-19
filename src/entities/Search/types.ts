@@ -1,16 +1,16 @@
-export interface DiscoverPayload {
+export interface SearchPayload {
   page?: number
-  genre?: number
+  query?: string
 }
 
-export interface DiscoverResponse {
+export interface SearchResponse {
   page: number
-  results: DiscoverResult[]
+  results: SearchResult[]
   total_pages: number
   total_results: number
 }
 
-export interface DiscoverResult {
+export interface SearchResult {
   adult: boolean
   backdrop_path: string | undefined
   genre_ids: number[]

@@ -1,12 +1,12 @@
 import React from 'react'
 
-import Search from '../Search/container'
-
+import { Find } from '../Find'
 import { HeaderProps } from './types'
 import { Wrapper, Section } from './styles'
 
 export function Header(props: HeaderProps) {
   const {
+    history,
     history: {
       location: { pathname, state },
     },
@@ -17,6 +17,8 @@ export function Header(props: HeaderProps) {
 
     if (path.match(/movie/)) return `${state ? state : 'Conheça o filme'}`
 
+    if (path.match(/search/)) return `Pesquisando: ${state}`
+
     return 'Listagem de Filmes'
   }
 
@@ -24,6 +26,8 @@ export function Header(props: HeaderProps) {
     if (path.match(/genre/)) return 'O melhor do seu gênero preferido'
 
     if (path.match(/movie/)) return 'Informações adicionais'
+
+    if (path.match(/search/)) return 'Veja o que encontramos'
 
     return 'Conheça melhor os filmes'
   }
@@ -36,7 +40,7 @@ export function Header(props: HeaderProps) {
       </Section>
 
       <Section>
-        <Search />
+        <Find history={history} />
       </Section>
     </Wrapper>
   )
