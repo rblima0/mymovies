@@ -32,6 +32,11 @@ const reducer: Reducer<DiscoverState, DiscoverActionTypes> = (
         loading: false,
         error: true,
       }
+    case DiscoverTypes.LOAD_SEARCH_REQUEST:
+      return {
+        ...state,
+        loading: true,
+      }
     default:
       return state
   }

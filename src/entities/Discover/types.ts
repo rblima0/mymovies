@@ -3,6 +3,11 @@ export interface DiscoverPayload {
   genre?: number
 }
 
+export interface SearchPayload {
+  page?: number
+  entry?: string
+}
+
 export interface DiscoverResponse {
   page: number
   results: DiscoverResult[]

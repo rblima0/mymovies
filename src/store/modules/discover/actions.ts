@@ -13,3 +13,9 @@ export const loadDiscoverSuccess = (data: DiscoverResponse) =>
 
 export const loadDiscoverFailure = () =>
   action(DiscoverTypes.LOAD_DISCOVER_FAILURE)
+
+export const loadSearchRequest = (page?: number, entry?: string) =>
+  action(DiscoverTypes.LOAD_SEARCH_REQUEST, {
+    page,
+    entry,
+  })
