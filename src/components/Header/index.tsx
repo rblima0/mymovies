@@ -1,7 +1,9 @@
 import React from 'react'
 
+import Search from '../Search/container'
+
 import { HeaderProps } from './types'
-import { Wrapper } from './styles'
+import { Wrapper, Section } from './styles'
 
 export function Header(props: HeaderProps) {
   const {
@@ -28,8 +30,14 @@ export function Header(props: HeaderProps) {
 
   return (
     <Wrapper>
-      <h2>{showTitle(pathname)}</h2>
-      <p>{showSubtitle(pathname)}</p>
+      <Section>
+        <h2>{showTitle(pathname)}</h2>
+        <p>{showSubtitle(pathname)}</p>
+      </Section>
+
+      <Section>
+        <Search />
+      </Section>
     </Wrapper>
   )
 }
