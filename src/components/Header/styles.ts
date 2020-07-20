@@ -21,3 +21,16 @@ export const Section = styled.div`
     font-size: 0.75rem;
   }
 `
+
+export const Container = styled.div`
+  display: flex;
+`
+
+export const ToggleFind = styled.button`
+  width: 3.125rem;
+  background-color: transparent;
+  color: ${colors.white};
+  opacity: 0.75;
+  border: none;
+  z-index: 1;
+`
