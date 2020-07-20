@@ -26,11 +26,15 @@ export function Search(props: SearchProps) {
   }, [loadSearchRequest, query])
 
   if (search.error) {
-    return <Error />
+    return <Error title="Tivemos um problema" />
   }
 
   if (search.loading || Object.entries(search.data).length === 0) {
     return <Loader />
+  }
+
+  if (search.data.results.length === 0) {
+    return <Error title="Não encontramos resultados para a busca" />
   }
 
   return (

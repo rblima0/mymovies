@@ -23,7 +23,7 @@ export function Movie(props: MovieProps) {
   }, [loadMovieRequest, loadTrailerRequest, movieId])
 
   if (movie.error) {
-    return <Error />
+    return <Error title="Tivemos um problema" />
   }
 
   if (

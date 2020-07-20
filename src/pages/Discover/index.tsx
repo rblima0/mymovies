@@ -27,7 +27,7 @@ export function Discover(props: DiscoverProps) {
   }, [loadDiscoverRequest, genreId])
 
   if (discover.error) {
-    return <Error />
+    return <Error title="Tivemos um problema" />
   }
 
   if (discover.loading || Object.entries(discover.data).length === 0) {
