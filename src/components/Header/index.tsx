@@ -4,8 +4,14 @@ import { MdSearch, MdClose } from 'react-icons/md'
 import { Find } from '../Find'
 
 import { HeaderProps } from './types'
-import { Wrapper, Section, Container, ToggleFind } from './styles'
 import { colors } from '../../styles/theme'
+import {
+  Wrapper,
+  Section,
+  ContainerButton,
+  ContainerForm,
+  ToggleFind,
+} from './styles'
 
 export function Header(props: HeaderProps) {
   const {
@@ -18,6 +24,8 @@ export function Header(props: HeaderProps) {
   const [isOpen, setIsOpen] = useState(false)
 
   const handleToggleFind = () => setIsOpen(!isOpen)
+
+  const showSearch = pathname.indexOf('movie') > -1
 
   const showTitle = (path: string) => {
     if (path.match(/genre/)) return `Listagem por Gênero: ${state}`
@@ -46,20 +54,24 @@ export function Header(props: HeaderProps) {
         <p>{showSubtitle(pathname)}</p>
       </Section>
 
-      <Section>
-        {!isOpen ? (
-          <ToggleFind onClick={handleToggleFind}>
-            <MdSearch size={20} color={colors.white} />
-          </ToggleFind>
-        ) : (
-          <Container>
-            <ToggleFind onClick={handleToggleFind}>
-              <MdClose size={20} color={colors.white} />
-            </ToggleFind>
-            <Find history={history} />
-          </Container>
-        )}
-      </Section>
+      {!showSearch && (
+        <Section>
+          {!isOpen ? (
+            <ContainerButton>
+              <ToggleFind onClick={handleToggleFind}>
+                <MdSearch size={20} color={colors.white} />
+              </ToggleFind>
+            </ContainerButton>
+          ) : (
+            <ContainerForm>
+              <Find history={history} />
+              <ToggleFind onClick={handleToggleFind}>
+                <MdClose size={20} color={colors.white} />
+              </ToggleFind>
+            </ContainerForm>
+          )}
+        </Section>
+      )}
     </Wrapper>
   )
 }

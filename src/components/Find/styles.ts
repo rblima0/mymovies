@@ -43,4 +43,12 @@ export const Form = styled.form`
   button:hover {
     background-color: ${colors.primary100};
   }
+
+  @media (max-width: 500px) {
+    width: 100%;
+
+    input {
+      width: 100%;
+    }
+  }
 `
