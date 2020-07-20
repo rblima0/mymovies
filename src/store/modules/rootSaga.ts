@@ -4,7 +4,14 @@ import discoverSaga from './discover/sagas'
 import genreSaga from './genre/sagas'
 import movieSaga from './movie/sagas'
 import trailerSaga from './trailer/sagas'
+import searchSaga from './search/sagas'
 
 export default function* rootSaga() {
-  return yield all([discoverSaga, genreSaga, movieSaga, trailerSaga])
+  return yield all([
+    discoverSaga,
+    genreSaga,
+    movieSaga,
+    trailerSaga,
+    searchSaga,
+  ])
 }

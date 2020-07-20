@@ -49,10 +49,14 @@ export function Preview(props: PreviewProps) {
         </button>
       </ContentImage>
       <ContentInfo>
-        <h5>{formatDate(preview.release_date)}</h5>
+        <h5>
+          {preview.release_date
+            ? formatDate(preview.release_date)
+            : 'Data indefinida'}
+        </h5>
 
         <button type="button" onClick={handleOpenMovie}>
-          <h3>{preview.title}</h3>
+          <h3>{preview.title ? preview.title : '-'}</h3>
         </button>
 
         <Rating

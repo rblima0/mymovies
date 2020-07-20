@@ -1,59 +1,55 @@
 import React, { useEffect } from 'react'
 
-import { Pagination } from '../../components/Pagination'
 import { Loader } from '../../components/shared/Loader'
 import { Card } from '../../components/shared/Card'
 import { Preview } from '../../components/Preview'
 import { Error } from '../../components/shared/Error'
 
-import { DiscoverProps } from './types'
+import { SearchProps } from './types'
 import { Section } from './styles'
 
-export function Discover(props: DiscoverProps) {
+export function Search(props: SearchProps) {
   const {
-    loadDiscoverRequest,
-    discover,
     genre,
+    search,
     history,
+    loadSearchRequest,
     match: {
-      params: { genreId },
+      params: { query },
     },
   } = props
 
   const resetPage = 1
 
   useEffect(() => {
-    loadDiscoverRequest(resetPage, genreId)
-  }, [loadDiscoverRequest, genreId])
+    loadSearchRequest(resetPage, query)
+  }, [loadSearchRequest, query])
 
-  if (discover.error) {
+  if (search.error) {
     return <Error title="Tivemos um problema" />
   }
 
-  if (discover.loading || Object.entries(discover.data).length === 0) {
+  if (search.loading || Object.entries(search.data).length === 0) {
     return <Loader />
+  }
+
+  if (search.data.results.length === 0) {
+    return <Error title="Não encontramos resultados para a busca" />
   }
 
   return (
     <>
       <Section>
-        {discover.data.results.map((preview) => (
+        {search.data.results.map((preview) => (
           <Card key={preview.id} backdrop={preview.backdrop_path}>
             <Preview
               preview={preview}
-              genres={genre.data.genres}
               history={history}
+              genres={genre.data.genres}
             />
           </Card>
         ))}
       </Section>
-
-      <Pagination
-        loadDiscoverRequest={loadDiscoverRequest}
-        totalPages={discover.data.total_pages}
-        page={discover.data.page}
-        genre={genreId}
-      />
     </>
   )
 }
