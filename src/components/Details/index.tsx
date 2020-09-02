@@ -5,6 +5,7 @@ import notFound from '../../assets/not-found.jpg'
 import { MdArrowBack } from 'react-icons/md'
 import { Iframe } from '../Iframe'
 import { formatDate } from '../../helpers/date'
+import { Rating } from '../Rating'
 
 import { Genres } from '../../entities/Genre/types'
 import { DetailsProps } from './types'
@@ -20,8 +21,8 @@ import {
   Genre,
   Overview,
   ButtonBack,
+  Credits,
 } from './styles'
-import { Rating } from '../Rating'
 
 export function Details(props: DetailsProps) {
   const { movie, trailer } = props
@@ -71,6 +72,8 @@ export function Details(props: DetailsProps) {
             />
 
             <Overview>{movie.overview}</Overview>
+
+            <h4>{movie.tagline}</h4>
           </Resume>
 
           <More>
@@ -81,6 +84,20 @@ export function Details(props: DetailsProps) {
           </More>
         </Information>
       </Section>
+
+      <Credits>
+        {movie.credits.cast.map((item) => (
+          <img
+            key={item.cast_id}
+            alt={item.character}
+            src={`https://image.tmdb.org/t/p/w200${item.profile_path}`}
+            onError={(e: any) => {
+              e.target.onerror = null
+              e.target.src = notFound
+            }}
+          />
+        ))}
+      </Credits>
     </Wrapper>
   )
 }

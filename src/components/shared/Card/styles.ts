@@ -11,8 +11,10 @@ export const Wrapper = styled.div<CardStylesProps>`
   background-color: ${colors.black300};
   box-shadow: 0 6px 11.31px 1.69px rgba(0, 0, 0, 0.3);
 
-  background: linear-gradient(to right, rgba(17, 17, 17, 0.85), rgb(0, 0, 0)),
-    url(https://image.tmdb.org/t/p/w500${(props) => props.backdrop});
+  ${(props) =>
+    props.backdrop
+      ? `background: linear-gradient(to right, rgba(17, 17, 17, 0.85), rgb(0, 0, 0)), url(https://image.tmdb.org/t/p/w500${props.backdrop})}`
+      : `background: linear-gradient(to right, rgba(17, 17, 17, 0.85), rgb(0, 0, 0))}`}
 
   background-size: cover;
 

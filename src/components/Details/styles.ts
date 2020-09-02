@@ -97,6 +97,13 @@ export const Resume = styled.div`
     color: ${colors.gray300};
   }
 
+  h4 {
+    font-weight: 700;
+    font-size: 0.75rem;
+    padding-top: 0.313rem;
+    color: ${colors.primary200};
+  }
+
   @media (max-width: 525px) {
     h1 {
       color: ${colors.primary200};
@@ -146,5 +153,17 @@ export const More = styled.div`
     border: 3px solid #ffffff30;
     border-bottom-right-radius: 10px;
     border-top-left-radius: 10px;
+  }
+`
+
+export const Credits = styled.div`
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+
+  img {
+    width: 120px;
+    margin: 10px;
   }
 `

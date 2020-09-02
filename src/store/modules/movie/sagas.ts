@@ -12,7 +12,7 @@ export function* loadMovie({ payload }: LoadMovieRequest) {
   const { id } = payload
 
   try {
-    const url = `/movie/${id}?api_key=${config.api_key}&language=pt-BR`
+    const url = `/movie/${id}?api_key=${config.api_key}&language=pt-BR&append_to_response=credits`
     const response = yield call(api.get, url)
 
     const { data } = response

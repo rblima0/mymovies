@@ -30,6 +30,11 @@ export interface MovieResponse {
   video: boolean
   vote_average: number
   vote_count: number
+  credits: {
+    id: number
+    cast: MovieCast[]
+    crew: MovieCrew[]
+  }
 }
 
 export interface MovieCompanies {
@@ -47,4 +52,25 @@ export interface MovieCountries {
 export interface MovieLanguages {
   iso_639_1: string
   name: string
+}
+
+export interface MovieCast {
+  cast_id: number
+  character: string
+  credit_id: string
+  gender: number
+  id: number
+  name: string
+  order: number
+  profile_path: string
+}
+
+export interface MovieCrew {
+  credit_id: string
+  department: string
+  gender: number
+  id: number
+  job: string
+  name: string
+  profile_path: string | null
 }
