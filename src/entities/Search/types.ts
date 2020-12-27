@@ -1,16 +1,16 @@
-export interface SearchPayload {
+export type SearchPayload = {
   page?: number
   query?: string
 }
 
-export interface SearchResponse {
+export type SearchResponse = {
   page: number
   results: SearchResult[]
   total_pages: number
   total_results: number
 }
 
-export interface SearchResult {
+export type SearchResult = {
   adult: boolean
   backdrop_path: string | undefined
   genre_ids: number[]

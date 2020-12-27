@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react'
+import * as R from 'ramda'
 
 import { Details } from '../../components/Details'
 import { Loader } from '../../components/shared/Loader'
@@ -29,8 +30,8 @@ export function Movie(props: MovieProps) {
   if (
     movie.loading ||
     trailer.loading ||
-    Object.entries(movie.data).length === 0 ||
-    Object.entries(trailer.data).length === 0
+    R.isEmpty(movie.data) ||
+    R.isEmpty(trailer.data)
   ) {
     return <Loader />
   }

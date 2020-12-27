@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react'
+import * as R from 'ramda'
 
 import { Pagination } from '../../components/Pagination'
 import { Loader } from '../../components/shared/Loader'
@@ -30,7 +31,7 @@ export function Discover(props: DiscoverProps) {
     return <Error title="Tivemos um problema" />
   }
 
-  if (discover.loading || Object.entries(discover.data).length === 0) {
+  if (discover.loading || R.isEmpty(discover.data)) {
     return <Loader />
   }
 

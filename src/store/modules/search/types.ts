@@ -10,7 +10,7 @@ export enum SearchTypes {
 
 /* State type */
 
-export interface SearchState {
+export type SearchState = {
   readonly data: SearchResponse
   readonly loading: boolean
   readonly error: boolean
@@ -18,17 +18,17 @@ export interface SearchState {
 
 /* Data types */
 
-export interface LoadSearchRequest {
+export type LoadSearchRequest = {
   type: typeof SearchTypes.LOAD_SEARCH_REQUEST
   payload: SearchPayload
 }
 
-export interface LoadSearchSuccess {
+export type LoadSearchSuccess = {
   type: typeof SearchTypes.LOAD_SEARCH_SUCCESS
   payload: SearchResponse
 }
 
-export interface LoadSearchFailure {
+export type LoadSearchFailure = {
   type: typeof SearchTypes.LOAD_SEARCH_FAILURE
 }
 

@@ -19,13 +19,13 @@ export const ButtonOpen = styled.button`
   margin: 0.5rem 0;
   width: 100%;
 
-  border: 2px solid ${colors.primary};
-  color: ${colors.primary};
+  border: 2px solid ${colors.secondary};
+  color: ${colors.secondary};
   background-color: transparent;
 
   :hover {
     color: ${colors.black100};
-    background-color: ${colors.primary};
+    background-color: ${colors.secondary};
   }
 
   @media (max-width: 525px) {
@@ -49,11 +49,11 @@ export const ButtonClose = styled.button`
   width: 100%;
 
   border: 0;
-  color: ${colors.primary};
+  color: ${colors.secondary};
   background-color: ${colors.black300};
 
   :hover {
     color: ${colors.black100};
-    background-color: ${colors.primary};
+    background-color: ${colors.secondary};
   }
 `

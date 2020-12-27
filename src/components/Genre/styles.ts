@@ -30,9 +30,9 @@ export const Button = styled.button<GenreStylesProps>`
   border: 0;
   background-color: transparent;
   font-size: 0.875rem;
-  color: ${(props) => (props.selected ? colors.primary : colors.white)};
+  color: ${(props) => (props.selected ? colors.secondary : colors.white)};
 
   :hover {
-    color: ${colors.primary};
+    color: ${colors.secondary};
   }
 `

@@ -13,7 +13,7 @@ export enum DiscoverTypes {
 
 /* State type */
 
-export interface DiscoverState {
+export type DiscoverState = {
   readonly data: DiscoverResponse
   readonly loading: boolean
   readonly error: boolean
@@ -21,17 +21,17 @@ export interface DiscoverState {
 
 /* Data types */
 
-export interface LoadDiscoverRequest {
+export type LoadDiscoverRequest = {
   type: typeof DiscoverTypes.LOAD_DISCOVER_REQUEST
   payload: DiscoverPayload
 }
 
-export interface LoadDiscoverSuccess {
+export type LoadDiscoverSuccess = {
   type: typeof DiscoverTypes.LOAD_DISCOVER_SUCCESS
   payload: DiscoverResponse
 }
 
-export interface LoadDiscoverFailure {
+export type LoadDiscoverFailure = {
   type: typeof DiscoverTypes.LOAD_DISCOVER_FAILURE
 }
 

@@ -1,16 +1,16 @@
-export interface DiscoverPayload {
+export type DiscoverPayload = {
   page?: number
   genre?: number
 }
 
-export interface DiscoverResponse {
+export type DiscoverResponse = {
   page: number
   results: DiscoverResult[]
   total_pages: number
   total_results: number
 }
 
-export interface DiscoverResult {
+export type DiscoverResult = {
   adult: boolean
   backdrop_path: string | undefined
   genre_ids: number[]

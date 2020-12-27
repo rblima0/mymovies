@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react'
+import * as R from 'ramda'
 
 import { InternalRoutes } from '../../routes/InternalRoutes'
 import { Sidebar } from '../../components/shared/Sidebar'
@@ -16,7 +17,7 @@ export function Menu(props: MenuProps) {
     loadGenreRequest()
   }, [loadGenreRequest])
 
-  if (genre.loading || Object.entries(genre.data).length === 0) {
+  if (genre.loading || R.isEmpty(genre.data)) {
     return <Loader />
   }
 

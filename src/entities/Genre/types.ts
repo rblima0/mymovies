@@ -1,8 +1,8 @@
-export interface GenreResponse {
+export type GenreResponse = {
   genres: Genres[]
 }
 
-export interface Genres {
+export type Genres = {
   id: number
   name: string
 }

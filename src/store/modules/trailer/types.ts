@@ -13,7 +13,7 @@ export enum TrailerTypes {
 
 /* State type */
 
-export interface TrailerState {
+export type TrailerState = {
   readonly data: TrailerResponse
   readonly loading: boolean
   readonly error: boolean
@@ -21,17 +21,17 @@ export interface TrailerState {
 
 /* Data types */
 
-export interface LoadTrailerRequest {
+export type LoadTrailerRequest = {
   type: typeof TrailerTypes.LOAD_TRAILER_REQUEST
   payload: TrailerPayload
 }
 
-export interface LoadTrailerSuccess {
+export type LoadTrailerSuccess = {
   type: typeof TrailerTypes.LOAD_TRAILER_SUCCESS
   payload: TrailerResponse
 }
 
-export interface LoadTrailerFailure {
+export type LoadTrailerFailure = {
   type: typeof TrailerTypes.LOAD_TRAILER_FAILURE
 }
 

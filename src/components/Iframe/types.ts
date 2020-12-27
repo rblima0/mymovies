@@ -1,5 +1,5 @@
 import { TrailerResponse } from '../../entities/Trailer/types'
 
-export interface IframeProps {
+export type IframeProps = {
   trailer: TrailerResponse
 }

@@ -13,7 +13,7 @@ export const Form = styled.form`
     padding: 10px;
     border: 0;
     line-height: 0;
-    background-color: #1c212e;
+    background-color: ${colors.black400};
     color: ${colors.white};
 
     border-top: 1px solid ${colors.white};
@@ -32,7 +32,7 @@ export const Form = styled.form`
     cursor: pointer;
     border: 0;
     padding: 0 0.3rem;
-    background-color: ${colors.primary};
+    background-color: ${colors.secondary};
     color: ${colors.white};
 
     border-top: 1px solid ${colors.white};
@@ -41,7 +41,7 @@ export const Form = styled.form`
   }
 
   button:hover {
-    background-color: ${colors.primary100};
+    background-color: ${colors.tertiary};
   }
 
   @media (max-width: 500px) {

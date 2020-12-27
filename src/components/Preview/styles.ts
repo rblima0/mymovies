@@ -43,12 +43,12 @@ export const ContentInfo = styled.div`
 
   button:hover {
     h3 {
-      color: ${colors.primary200};
+      color: ${colors.primary};
     }
   }
 
   span {
-    background-color: ${colors.primary100};
+    background-color: ${colors.tertiary};
     color: ${colors.white};
     text-transform: uppercase;
     font-size: 0.75rem;

@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react'
+import * as R from 'ramda'
 
 import notFound from '../../assets/not-found.jpg'
 
@@ -22,6 +23,8 @@ import {
   Overview,
   ButtonBack,
   Credits,
+  CreditsContainer,
+  CreditsWrapper,
 } from './styles'
 
 export function Details(props: DetailsProps) {
@@ -86,16 +89,21 @@ export function Details(props: DetailsProps) {
       </Section>
 
       <Credits>
-        {movie.credits.cast.map((item) => (
-          <img
-            key={item.cast_id}
-            alt={item.character}
-            src={`https://image.tmdb.org/t/p/w200${item.profile_path}`}
-            onError={(e: any) => {
-              e.target.onerror = null
-              e.target.src = notFound
-            }}
-          />
+        {R.slice(0, 6, movie.credits.cast).map((item) => (
+          <CreditsContainer key={item.cast_id}>
+            <img
+              alt={item.character}
+              src={`https://image.tmdb.org/t/p/w200${item.profile_path}`}
+              onError={(e: any) => {
+                e.target.onerror = null
+                e.target.src = notFound
+              }}
+            />
+            <CreditsWrapper>
+              <p>{item.character}</p>
+              <p>{item.name}</p>
+            </CreditsWrapper>
+          </CreditsContainer>
         ))}
       </Credits>
     </Wrapper>

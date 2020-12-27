@@ -10,7 +10,7 @@ export enum MovieTypes {
 
 /* State type */
 
-export interface MovieState {
+export type MovieState = {
   readonly data: MovieResponse
   readonly loading: boolean
   readonly error: boolean
@@ -18,17 +18,17 @@ export interface MovieState {
 
 /* Data types */
 
-export interface LoadMovieRequest {
+export type LoadMovieRequest = {
   type: typeof MovieTypes.LOAD_MOVIE_REQUEST
   payload: MoviePayload
 }
 
-export interface LoadMovieSuccess {
+export type LoadMovieSuccess = {
   type: typeof MovieTypes.LOAD_MOVIE_SUCCESS
   payload: MovieResponse
 }
 
-export interface LoadMovieFailure {
+export type LoadMovieFailure = {
   type: typeof MovieTypes.LOAD_MOVIE_FAILURE
 }
 

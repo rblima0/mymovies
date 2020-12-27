@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react'
+import * as R from 'ramda'
 
 import { Loader } from '../../components/shared/Loader'
 import { Card } from '../../components/shared/Card'
@@ -29,11 +30,11 @@ export function Search(props: SearchProps) {
     return <Error title="Tivemos um problema" />
   }
 
-  if (search.loading || Object.entries(search.data).length === 0) {
+  if (search.loading || R.isEmpty(search.data)) {
     return <Loader />
   }
 
-  if (search.data.results.length === 0) {
+  if (R.isEmpty(search.data.results)) {
     return <Error title="Não encontramos resultados para a busca" />
   }
 

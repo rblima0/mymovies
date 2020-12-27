@@ -1,5 +1,5 @@
 import { History } from 'history'
 
-export interface FindProps {
+export type FindProps = {
   history: History
 }

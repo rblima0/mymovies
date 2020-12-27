@@ -1,7 +1,7 @@
 import { MovieState } from '../../store/modules/movie/types'
 import { TrailerState } from '../../store/modules/trailer/types'
 
-export interface MovieProps {
+export type MovieProps = {
   loadMovieRequest(id: number): void
   loadTrailerRequest(id: number): void
   movie: MovieState

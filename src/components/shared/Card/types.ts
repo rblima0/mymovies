@@ -1,10 +1,10 @@
 import { ReactNode } from 'react'
 
-export interface CardProps {
+export type CardProps = {
   children: ReactNode
   backdrop?: string
 }
 
-export interface CardStylesProps {
+export type CardStylesProps = {
   backdrop?: string
 }
