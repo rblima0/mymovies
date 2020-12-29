@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react'
 import * as R from 'ramda'
 
-import notFound from '../../assets/not-found.jpg'
+import notFound from '../../assets/images/not-found.jpg'
 
 import { MdArrowBack } from 'react-icons/md'
 import { Iframe } from '../Iframe'

@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useMemo } from 'react'
 import * as R from 'ramda'
 
 import { InternalRoutes } from '../../routes/InternalRoutes'
@@ -13,11 +13,15 @@ import { Container, Content } from './styles'
 export function Menu(props: MenuProps) {
   const { loadGenreRequest, genre, history } = props
 
+  const isLoading = useMemo(() => {
+    return genre.loading || R.isEmpty(genre.data)
+  }, [genre])
+
   useEffect(() => {
     loadGenreRequest()
   }, [loadGenreRequest])
 
-  if (genre.loading || R.isEmpty(genre.data)) {
+  if (isLoading) {
     return <Loader />
   }
 
