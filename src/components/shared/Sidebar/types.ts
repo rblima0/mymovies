@@ -1,9 +1,9 @@
 import { ReactNode } from 'react'
 
-export interface SidebarProps {
+export type SidebarProps = {
   children: ReactNode
 }
 
-export interface SidebarStylesProps {
+export type SidebarStylesProps = {
   isOpen: boolean
 }

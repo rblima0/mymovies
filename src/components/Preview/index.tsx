@@ -1,6 +1,6 @@
 import React from 'react'
 
-import notFound from '../../assets/not-found.jpg'
+import notFound from '../../assets/images/not-found.jpg'
 import { Rating } from '../Rating'
 import { formatDate } from '../../helpers/date'
 

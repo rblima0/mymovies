@@ -1,4 +1,5 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useMemo } from 'react'
+import * as R from 'ramda'
 
 import { Pagination } from '../../components/Pagination'
 import { Loader } from '../../components/shared/Loader'
@@ -22,6 +23,10 @@ export function Discover(props: DiscoverProps) {
 
   const resetPage = 1
 
+  const isLoading = useMemo(() => {
+    return discover.loading || R.isEmpty(discover.data)
+  }, [discover])
+
   useEffect(() => {
     loadDiscoverRequest(resetPage, genreId)
   }, [loadDiscoverRequest, genreId])
@@ -30,7 +35,7 @@ export function Discover(props: DiscoverProps) {
     return <Error title="Tivemos um problema" />
   }
 
-  if (discover.loading || Object.entries(discover.data).length === 0) {
+  if (isLoading) {
     return <Loader />
   }
 

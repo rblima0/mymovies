@@ -22,7 +22,7 @@ export const Container = styled.div`
     min-height: 100%;
     min-width: 15rem;
     z-index: 9;
-    border-right: 8px solid ${colors.primary};
+    border-right: 8px solid ${colors.secondary};
   }
 
   ${Content} {

@@ -10,7 +10,7 @@ export enum GenreTypes {
 
 /* State type */
 
-export interface GenreState {
+export type GenreState = {
   readonly data: GenreResponse
   readonly loading: boolean
   readonly error: boolean
@@ -18,16 +18,16 @@ export interface GenreState {
 
 /* Data types */
 
-export interface LoadGenreRequest {
+export type LoadGenreRequest = {
   type: typeof GenreTypes.LOAD_GENRE_REQUEST
 }
 
-export interface LoadGenreSuccess {
+export type LoadGenreSuccess = {
   type: typeof GenreTypes.LOAD_GENRE_SUCCESS
   payload: GenreResponse
 }
 
-export interface LoadGenreFailure {
+export type LoadGenreFailure = {
   type: typeof GenreTypes.LOAD_GENRE_FAILURE
 }
 

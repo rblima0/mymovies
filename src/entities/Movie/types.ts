@@ -1,10 +1,10 @@
 import { Genres } from '../Genre/types'
 
-export interface MoviePayload {
+export type MoviePayload = {
   id: number
 }
 
-export interface MovieResponse {
+export type MovieResponse = {
   adult: boolean
   backdrop_path: string
   belongs_to_collection: null | Object
@@ -30,21 +30,47 @@ export interface MovieResponse {
   video: boolean
   vote_average: number
   vote_count: number
+  credits: {
+    id: number
+    cast: MovieCast[]
+    crew: MovieCrew[]
+  }
 }
 
-export interface MovieCompanies {
+export type MovieCompanies = {
   id: number
   logo_path: any
   name: string
   origin_country: string
 }
 
-export interface MovieCountries {
+export type MovieCountries = {
   iso_3166_1: string
   name: string
 }
 
-export interface MovieLanguages {
+export type MovieLanguages = {
   iso_639_1: string
   name: string
+}
+
+export type MovieCast = {
+  cast_id: number
+  character: string
+  credit_id: string
+  gender: number
+  id: number
+  name: string
+  order: number
+  profile_path: string
+}
+
+export type MovieCrew = {
+  credit_id: string
+  department: string
+  gender: number
+  id: number
+  job: string
+  name: string
+  profile_path: string | null
 }

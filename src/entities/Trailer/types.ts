@@ -1,13 +1,13 @@
-export interface TrailerPayload {
+export type TrailerPayload = {
   id: number
 }
 
-export interface TrailerResponse {
+export type TrailerResponse = {
   id: number
   results: TrailerResult[]
 }
 
-export interface TrailerResult {
+export type TrailerResult = {
   id: string
   iso_639_1: string
   iso_3166_1: string

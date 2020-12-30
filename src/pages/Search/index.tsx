@@ -1,4 +1,5 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useMemo } from 'react'
+import * as R from 'ramda'
 
 import { Loader } from '../../components/shared/Loader'
 import { Card } from '../../components/shared/Card'
@@ -21,6 +22,10 @@ export function Search(props: SearchProps) {
 
   const resetPage = 1
 
+  const isLoading = useMemo(() => {
+    return search.loading || R.isEmpty(search.data)
+  }, [search])
+
   useEffect(() => {
     loadSearchRequest(resetPage, query)
   }, [loadSearchRequest, query])
@@ -29,27 +34,25 @@ export function Search(props: SearchProps) {
     return <Error title="Tivemos um problema" />
   }
 
-  if (search.loading || Object.entries(search.data).length === 0) {
+  if (isLoading) {
     return <Loader />
   }
 
-  if (search.data.results.length === 0) {
+  if (R.isEmpty(search.data.results)) {
     return <Error title="Não encontramos resultados para a busca" />
   }
 
   return (
-    <>
-      <Section>
-        {search.data.results.map((preview) => (
-          <Card key={preview.id} backdrop={preview.backdrop_path}>
-            <Preview
-              preview={preview}
-              history={history}
-              genres={genre.data.genres}
-            />
-          </Card>
-        ))}
-      </Section>
-    </>
+    <Section>
+      {search.data.results.map((preview) => (
+        <Card key={preview.id} backdrop={preview.backdrop_path}>
+          <Preview
+            preview={preview}
+            history={history}
+            genres={genre.data.genres}
+          />
+        </Card>
+      ))}
+    </Section>
   )
 }

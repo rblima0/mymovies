@@ -9,7 +9,7 @@ export const Wrapper = styled.div`
   h6 {
     display: flex;
     align-items: center;
-    color: ${colors.primary};
+    color: ${colors.secondary};
     font-size: 0.75rem;
     padding: 0 0.313rem;
     font-weight: 700;

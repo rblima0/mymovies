@@ -4,6 +4,8 @@ import {
   MovieCompanies,
   MovieCountries,
   MovieLanguages,
+  MovieCast,
+  MovieCrew,
 } from './types'
 
 export default class Movie {
@@ -32,6 +34,11 @@ export default class Movie {
   public video: boolean
   public vote_average: number
   public vote_count: number
+  public credits: {
+    id: number
+    cast: MovieCast[]
+    crew: MovieCrew[]
+  }
 
   constructor(data: MovieResponse) {
     this.adult = data.adult
@@ -59,5 +66,6 @@ export default class Movie {
     this.video = data.video
     this.vote_average = data.vote_average
     this.vote_count = data.vote_count
+    this.credits = data.credits
   }
 }

@@ -46,13 +46,13 @@ export const Image = styled.div`
     padding: 0.625rem 0;
     margin: 0.5rem 0;
 
-    border: 2px solid ${colors.primary200};
-    color: ${colors.primary200};
+    border: 2px solid ${colors.primary};
+    color: ${colors.primary};
   }
 
   a:hover {
     color: ${colors.black100};
-    background-color: ${colors.primary200};
+    background-color: ${colors.primary};
   }
 
   @media (max-width: 975px) {
@@ -86,7 +86,7 @@ export const Resume = styled.div`
   h1 {
     font-weight: 700;
     font-size: 1.375rem;
-    color: ${colors.primary};
+    color: ${colors.secondary};
     margin: 0;
   }
 
@@ -97,15 +97,22 @@ export const Resume = styled.div`
     color: ${colors.gray300};
   }
 
+  h4 {
+    font-weight: 700;
+    font-size: 0.75rem;
+    padding-top: 0.313rem;
+    color: ${colors.primary};
+  }
+
   @media (max-width: 525px) {
     h1 {
-      color: ${colors.primary200};
+      color: ${colors.primary};
     }
   }
 `
 
 export const Genre = styled.span`
-  background-color: ${colors.primary100};
+  background-color: ${colors.tertiary};
   color: ${colors.white};
   letter-spacing: 0.5px;
   font-weight: 700;
@@ -129,7 +136,7 @@ export const More = styled.div`
   padding: 1rem 0;
 
   h5 {
-    color: ${colors.primary200};
+    color: ${colors.primary};
     font-weight: 700;
     font-size: 14px;
     margin-bottom: 20px;
@@ -139,12 +146,54 @@ export const More = styled.div`
     display: inline-block;
     font-size: 12px;
     font-weight: 300;
-    color: #d8d8d8;
+    color: ${colors.white100};
     margin-right: 10px;
     margin-bottom: 0.5rem;
     padding: 0.5rem;
     border: 3px solid #ffffff30;
     border-bottom-right-radius: 10px;
     border-top-left-radius: 10px;
+  }
+`
+
+export const Credits = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  flex-wrap: wrap;
+
+  @media (max-width: 525px) {
+    justify-content: space-around;
+  }
+
+  img {
+    width: 120px;
+  }
+`
+
+export const CreditsContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  background-color: ${colors.primary};
+  width: 120px;
+  margin-bottom: 20px;
+
+  div {
+    justify-content: center;
+    align-items: center;
+  }
+`
+
+export const CreditsWrapper = styled.div`
+  display: flex;
+  padding: 10px 0;
+  flex-direction: column;
+  height: 80px;
+
+  p {
+    display: flex;
+    font-weight: bold;
+    color: ${colors.black};
+    text-align: center;
   }
 `

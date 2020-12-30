@@ -1,4 +1,5 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useMemo } from 'react'
+import * as R from 'ramda'
 
 import { Details } from '../../components/Details'
 import { Loader } from '../../components/shared/Loader'
@@ -17,6 +18,15 @@ export function Movie(props: MovieProps) {
     },
   } = props
 
+  const isLoading = useMemo(() => {
+    return (
+      movie.loading ||
+      trailer.loading ||
+      R.isEmpty(movie.data) ||
+      R.isEmpty(trailer.data)
+    )
+  }, [movie, trailer])
+
   useEffect(() => {
     loadMovieRequest(movieId)
     loadTrailerRequest(movieId)
@@ -26,12 +36,7 @@ export function Movie(props: MovieProps) {
     return <Error title="Tivemos um problema" />
   }
 
-  if (
-    movie.loading ||
-    trailer.loading ||
-    Object.entries(movie.data).length === 0 ||
-    Object.entries(trailer.data).length === 0
-  ) {
+  if (isLoading) {
     return <Loader />
   }
 

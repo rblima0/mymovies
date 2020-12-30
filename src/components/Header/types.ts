@@ -1,5 +1,5 @@
 import { History } from 'history'
 
-export interface HeaderProps {
+export type HeaderProps = {
   history: History
 }

@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import * as R from 'ramda'
 
 import { Modal } from '../shared/Modal'
 import { IframeProps } from './types'
@@ -6,14 +7,15 @@ import { Frame, ButtonOpen, ButtonClose } from './styles'
 
 export function Iframe(props: IframeProps) {
   const { trailer } = props
-
   const [IframeIsOpen, setIframeIsOpen] = useState(false)
 
-  const handleToggleModal = () => setIframeIsOpen(!IframeIsOpen)
+  const handleToggleModal = () => {
+    setIframeIsOpen(!IframeIsOpen)
+  }
 
   return (
     <>
-      {Object.entries(trailer.results).length > 0 && (
+      {!R.isEmpty(trailer.results) && (
         <ButtonOpen onClick={handleToggleModal}>Assistir Trailer</ButtonOpen>
       )}
       {IframeIsOpen && (

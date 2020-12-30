@@ -1,10 +1,12 @@
 import React, { useEffect } from 'react'
+import * as R from 'ramda'
 
-import notFound from '../../assets/not-found.jpg'
+import notFound from '../../assets/images/not-found.jpg'
 
 import { MdArrowBack } from 'react-icons/md'
 import { Iframe } from '../Iframe'
 import { formatDate } from '../../helpers/date'
+import { Rating } from '../Rating'
 
 import { Genres } from '../../entities/Genre/types'
 import { DetailsProps } from './types'
@@ -20,8 +22,10 @@ import {
   Genre,
   Overview,
   ButtonBack,
+  Credits,
+  CreditsContainer,
+  CreditsWrapper,
 } from './styles'
-import { Rating } from '../Rating'
 
 export function Details(props: DetailsProps) {
   const { movie, trailer } = props
@@ -71,6 +75,8 @@ export function Details(props: DetailsProps) {
             />
 
             <Overview>{movie.overview}</Overview>
+
+            <h4>{movie.tagline}</h4>
           </Resume>
 
           <More>
@@ -81,6 +87,25 @@ export function Details(props: DetailsProps) {
           </More>
         </Information>
       </Section>
+
+      <Credits>
+        {R.slice(0, 6, movie.credits.cast).map((item) => (
+          <CreditsContainer key={item.cast_id}>
+            <img
+              alt={item.character}
+              src={`https://image.tmdb.org/t/p/w200${item.profile_path}`}
+              onError={(e: any) => {
+                e.target.onerror = null
+                e.target.src = notFound
+              }}
+            />
+            <CreditsWrapper>
+              <p>{item.character}</p>
+              <p>{item.name}</p>
+            </CreditsWrapper>
+          </CreditsContainer>
+        ))}
+      </Credits>
     </Wrapper>
   )
 }

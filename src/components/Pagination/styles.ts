@@ -23,7 +23,7 @@ export const Wrapper = styled.div`
       padding: 0.313rem;
       text-align: center;
       cursor: pointer;
-      background-color: ${colors.primary100};
+      background-color: ${colors.tertiary};
 
       button {
         border: 0;
@@ -34,7 +34,7 @@ export const Wrapper = styled.div`
     }
 
     li:hover {
-      background-color: ${colors.primary};
+      background-color: ${colors.secondary};
     }
   }
 `

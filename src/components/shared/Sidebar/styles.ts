@@ -22,7 +22,7 @@ export const OpenSidebar = styled.div`
     flex-direction: row;
     align-items: center;
     background-color: ${colors.black100};
-    border-bottom: 5px solid ${colors.primary};
+    border-bottom: 5px solid ${colors.secondary};
   }
 `
 
@@ -86,7 +86,7 @@ export const Logo = styled.span`
   align-items: flex-end;
   font-size: 1.5rem;
   font-weight: 700;
-  text-shadow: 1px 1px 0px ${colors.primary};
+  text-shadow: 1px 1px 0px ${colors.secondary};
 
   img {
     width: 50px;

@@ -10,7 +10,7 @@ import { SearchState } from './modules/search/types'
 import rootReducer from './modules/rootReducer'
 import rootSaga from './modules/rootSaga'
 
-export interface ApplicationState {
+export type ApplicationState = {
   discover: DiscoverState
   genre: GenreState
   movie: MovieState

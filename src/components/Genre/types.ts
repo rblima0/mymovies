@@ -1,11 +1,11 @@
 import { History } from 'history'
 import { Genres } from '../../entities/Genre/types'
 
-export interface GenreProps {
+export type GenreProps = {
   genres: Genres[]
   history: History
 }
 
-export interface GenreStylesProps {
+export type GenreStylesProps = {
   selected: boolean
 }
