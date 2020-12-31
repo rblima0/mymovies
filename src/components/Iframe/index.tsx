@@ -1,15 +1,16 @@
-import React, { useState } from 'react'
+import React, { ReactElement, useState } from 'react'
 import * as R from 'ramda'
 
 import { Modal } from '../shared/Modal'
+
 import { IframeProps } from './types'
 import { Frame, ButtonOpen, ButtonClose } from './styles'
 
-export function Iframe(props: IframeProps) {
+export function Iframe(props: IframeProps): ReactElement {
   const { trailer } = props
   const [IframeIsOpen, setIframeIsOpen] = useState(false)
 
-  const handleToggleModal = () => {
+  const handleToggleModal = (): void => {
     setIframeIsOpen(!IframeIsOpen)
   }
 

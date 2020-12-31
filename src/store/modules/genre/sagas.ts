@@ -10,7 +10,7 @@ import { GenreTypes } from './types'
 
 export function* loadGenre() {
   try {
-    const url = `/genre/movie/list?api_key=${config.api_key}&language=pt-BR`
+    const url = `/genre/movie/list?api_key=${config.api_key}&language=pt`
     const response = yield call(api.get, url)
 
     const { data } = response

@@ -13,7 +13,7 @@ import GlobalStyle from './styles/global'
 
 const browserHistory = createBrowserHistory()
 
-export default function App() {
+export default function App(): JSX.Element {
   return (
     <Provider store={store}>
       <Router history={browserHistory}>

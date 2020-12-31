@@ -1,4 +1,4 @@
-import React, { useState, ChangeEvent, FormEvent } from 'react'
+import React, { useState, ChangeEvent, FormEvent, ReactElement } from 'react'
 
 import { MdSearch } from 'react-icons/md'
 
@@ -6,17 +6,16 @@ import { FindProps } from './types'
 import { colors } from '../../styles/theme'
 import { Form } from './styles'
 
-export function Find(props: FindProps) {
-  const { history } = props
-
+export function Find({ history }: FindProps): ReactElement {
   const [entry, setEntry] = useState('')
+  const maxLength = 3
 
-  const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
+  const handleChange = (e: ChangeEvent<HTMLInputElement>): void => {
     setEntry(e.target.value.toLowerCase())
   }
 
-  const handleSubmit = (e: FormEvent) => {
-    if (entry.length > 3) {
+  const handleSubmit = (e: FormEvent): void => {
+    if (entry.length > maxLength) {
       history.replace({
         pathname: `/dashboard/search/${entry}`,
         state: entry,

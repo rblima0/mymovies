@@ -3,7 +3,7 @@ import React, { ReactElement } from 'react'
 import { PaginationProps } from './types'
 import { Wrapper } from './styles'
 
-export function Pagination(props: PaginationProps) {
+export function Pagination(props: PaginationProps): ReactElement {
   const {
     loadDiscoverRequest,
     loadSearchRequest,

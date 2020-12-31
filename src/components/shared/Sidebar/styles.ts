@@ -53,7 +53,8 @@ export const WrapperSidebar = styled.nav<SidebarStylesProps>`
     top: 0;
     bottom: 0;
     left: 0;
-    transform: ${(p) => (p.isOpen ? 'translateX(0)' : 'translateX(-100%);')};
+    transform: ${(p): string =>
+      p.isOpen ? 'translateX(0)' : 'translateX(-100%);'};
     z-index: 1;
   }
 `

@@ -1,4 +1,4 @@
-import React, { useEffect, useMemo } from 'react'
+import React, { ReactElement, useEffect, useMemo } from 'react'
 import * as R from 'ramda'
 
 import { Pagination } from '../../components/Pagination'
@@ -10,7 +10,7 @@ import { Error } from '../../components/shared/Error'
 import { DiscoverProps } from './types'
 import { Section } from './styles'
 
-export function Discover(props: DiscoverProps) {
+export function Discover(props: DiscoverProps): ReactElement {
   const {
     loadDiscoverRequest,
     discover,

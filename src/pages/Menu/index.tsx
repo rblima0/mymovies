@@ -1,4 +1,4 @@
-import React, { useEffect, useMemo } from 'react'
+import React, { ReactElement, useEffect, useMemo } from 'react'
 import * as R from 'ramda'
 
 import { InternalRoutes } from '../../routes/InternalRoutes'
@@ -10,7 +10,7 @@ import { Genre } from '../../components/Genre'
 import { MenuProps } from './types'
 import { Container, Content } from './styles'
 
-export function Menu(props: MenuProps) {
+export function Menu(props: MenuProps): ReactElement {
   const { loadGenreRequest, genre, history } = props
 
   const isLoading = useMemo(() => {

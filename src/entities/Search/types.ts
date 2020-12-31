@@ -12,14 +12,14 @@ export type SearchResponse = {
 
 export type SearchResult = {
   adult: boolean
-  backdrop_path: string | undefined
+  backdrop_path?: string
   genre_ids: number[]
   id: number
   original_language: string
   original_title: string
   overview: string
   popularity: number
-  poster_path: string | undefined
+  poster_path?: string
   release_date: Date
   title: string
   video: boolean

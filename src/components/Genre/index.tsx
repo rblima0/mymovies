@@ -1,14 +1,14 @@
-import React from 'react'
+import React, { ReactElement } from 'react'
 
 import { Genres } from '../../entities/Genre/types'
 import { GenreProps } from './types'
 
 import { Wrapper, Button } from './styles'
 
-export function Genre(props: GenreProps) {
+export function Genre(props: GenreProps): ReactElement {
   const { genres, history } = props
 
-  const handleSelectGenre = (id: number, name?: string) => {
+  const handleSelectGenre = (id: number, name?: string): void => {
     history.replace({
       pathname: `/dashboard/genre/${id}`,
       state: name,
@@ -23,7 +23,7 @@ export function Genre(props: GenreProps) {
           <li key={genre.id}>
             <Button
               selected={genre.name === history.location.state}
-              onClick={() => handleSelectGenre(genre.id, genre.name)}
+              onClick={(): void => handleSelectGenre(genre.id, genre.name)}
               type="button"
             >
               {genre.name}
