@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { ReactElement } from 'react'
 
 import { GiRoundStar } from 'react-icons/gi'
 import { colors } from '../../styles/theme'
@@ -6,7 +6,7 @@ import { colors } from '../../styles/theme'
 import { RatingProps } from './types'
 import { Wrapper } from './styles'
 
-export function Rating(props: RatingProps) {
+export function Rating(props: RatingProps): ReactElement {
   const { voteAverage, voteCount } = props
 
   return (

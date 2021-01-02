@@ -1,4 +1,4 @@
-import React, { useEffect, useMemo } from 'react'
+import React, { ReactElement, useEffect, useMemo } from 'react'
 import * as R from 'ramda'
 
 import { Details } from '../../components/Details'
@@ -7,7 +7,7 @@ import { Error } from '../../components/shared/Error'
 
 import { MovieProps } from './types'
 
-export function Movie(props: MovieProps) {
+export function Movie(props: MovieProps): ReactElement {
   const {
     loadMovieRequest,
     loadTrailerRequest,

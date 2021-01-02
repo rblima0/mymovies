@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { ReactElement, useState } from 'react'
 
 import { MdSearch, MdClose } from 'react-icons/md'
 import { Find } from '../Find'
@@ -13,7 +13,7 @@ import {
   ToggleFind,
 } from './styles'
 
-export function Header(props: HeaderProps) {
+export function Header(props: HeaderProps): ReactElement {
   const {
     history,
     history: {
@@ -23,11 +23,9 @@ export function Header(props: HeaderProps) {
 
   const [isOpen, setIsOpen] = useState(false)
 
-  const handleToggleFind = () => setIsOpen(!isOpen)
-
   const showSearch = pathname.indexOf('movie') > -1
 
-  const showTitle = (path: string) => {
+  const showTitle = (path: string): string => {
     if (path.match(/genre/)) return `Listagem por Gênero: ${state}`
 
     if (path.match(/movie/)) return `${state ? state : 'Conheça o filme'}`
@@ -37,7 +35,7 @@ export function Header(props: HeaderProps) {
     return 'Listagem de Filmes'
   }
 
-  const showSubtitle = (path: string) => {
+  const showSubtitle = (path: string): string => {
     if (path.match(/genre/)) return 'O melhor do seu gênero preferido'
 
     if (path.match(/movie/)) return 'Informações adicionais'
@@ -45,6 +43,10 @@ export function Header(props: HeaderProps) {
     if (path.match(/search/)) return 'Veja o que encontramos'
 
     return 'Conheça melhor os filmes'
+  }
+
+  const handleToggleFind = (): void => {
+    setIsOpen(!isOpen)
   }
 
   return (

@@ -1,11 +1,11 @@
-import React from 'react'
+import React, { ReactElement } from 'react'
 
 import popcorn from '../../../assets/icons/popcorn.svg'
 
 import { ErrorProps } from './types'
 import { Wrapper } from './styles'
 
-export function Error(props: ErrorProps) {
+export function Error(props: ErrorProps): ReactElement {
   const { title } = props
 
   return (

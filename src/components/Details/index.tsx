@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React, { ReactElement, useEffect } from 'react'
 import * as R from 'ramda'
 
 import notFound from '../../assets/images/not-found.jpg'
@@ -27,7 +27,7 @@ import {
   CreditsWrapper,
 } from './styles'
 
-export function Details(props: DetailsProps) {
+export function Details(props: DetailsProps): ReactElement {
   const { movie, trailer } = props
 
   useEffect(() => {
@@ -36,7 +36,7 @@ export function Details(props: DetailsProps) {
 
   return (
     <Wrapper>
-      <ButtonBack type="button" onClick={() => {}}>
+      <ButtonBack type="button" onClick={(): void => {}}>
         <MdArrowBack size={24} color={colors.gray200} />
       </ButtonBack>
 
@@ -45,7 +45,7 @@ export function Details(props: DetailsProps) {
           <img
             alt={movie.title}
             src={`https://image.tmdb.org/t/p/w300${movie.poster_path}`}
-            onError={(e: any) => {
+            onError={(e: any): void => {
               e.target.onerror = null
               e.target.src = notFound
             }}
@@ -94,7 +94,7 @@ export function Details(props: DetailsProps) {
             <img
               alt={item.character}
               src={`https://image.tmdb.org/t/p/w200${item.profile_path}`}
-              onError={(e: any) => {
+              onError={(e: any): void => {
                 e.target.onerror = null
                 e.target.src = notFound
               }}

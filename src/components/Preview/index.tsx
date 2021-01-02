@@ -1,18 +1,18 @@
-import React from 'react'
+import React, { ReactElement } from 'react'
+import * as R from 'ramda'
 
 import notFound from '../../assets/images/not-found.jpg'
 import { Rating } from '../Rating'
 import { formatDate } from '../../helpers/date'
-
 import { Genres } from '../../entities/Genre/types'
-import { PreviewProps } from './types'
 
+import { PreviewProps } from './types'
 import { ContentImage, ContentInfo } from './styles'
 
-export function Preview(props: PreviewProps) {
+export function Preview(props: PreviewProps): ReactElement {
   const { preview, genres, history } = props
 
-  const limitOverview = (overview: string) => {
+  const limitOverview = (overview: string): string => {
     const maxLength = 280
     const endText = '...'
 
@@ -23,11 +23,27 @@ export function Preview(props: PreviewProps) {
     return overview
   }
 
-  const handleOpenMovie = () => {
+  const handleOpenMovie = (): void => {
     history.replace({
       pathname: `/dashboard/movie/${preview.id}`,
       state: preview.title,
     })
+  }
+
+  const renderGenres = (): ReactElement | null => {
+    if (R.isEmpty(genres)) {
+      return null
+    }
+
+    return (
+      <>
+        {preview.genre_ids.map((item: number) => (
+          <span key={item}>
+            {genres.find(({ id }: Genres) => id === item).name}
+          </span>
+        ))}
+      </>
+    )
   }
 
   return (
@@ -41,13 +57,14 @@ export function Preview(props: PreviewProps) {
                 ? `https://image.tmdb.org/t/p/w185${preview.poster_path}`
                 : notFound
             }
-            onError={(e: any) => {
+            onError={(e: any): void => {
               e.target.onerror = null
               e.target.src = notFound
             }}
           />
         </button>
       </ContentImage>
+
       <ContentInfo>
         <h5>
           {preview.release_date
@@ -64,11 +81,7 @@ export function Preview(props: PreviewProps) {
           voteCount={preview.vote_count}
         />
 
-        {preview.genre_ids.map((item: number) => (
-          <span key={item}>
-            {genres.find(({ id }: Genres) => id === item).name}
-          </span>
-        ))}
+        {renderGenres()}
 
         <p>{limitOverview(preview.overview)}</p>
       </ContentInfo>
