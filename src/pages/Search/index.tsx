@@ -1,6 +1,7 @@
 import React, { useEffect, useMemo } from 'react'
 import * as R from 'ramda'
 
+import { Pagination } from '../../components/Pagination'
 import { Loader } from '../../components/shared/Loader'
 import { Card } from '../../components/shared/Card'
 import { Preview } from '../../components/Preview'
@@ -43,16 +44,25 @@ export function Search(props: SearchProps) {
   }
 
   return (
-    <Section>
-      {search.data.results.map((preview) => (
-        <Card key={preview.id} backdrop={preview.backdrop_path}>
-          <Preview
-            preview={preview}
-            history={history}
-            genres={genre.data.genres}
-          />
-        </Card>
-      ))}
-    </Section>
+    <>
+      <Section>
+        {search.data.results.map((preview) => (
+          <Card key={preview.id} backdrop={preview.backdrop_path}>
+            <Preview
+              preview={preview}
+              history={history}
+              genres={genre.data.genres}
+            />
+          </Card>
+        ))}
+      </Section>
+
+      <Pagination
+        loadSearchRequest={loadSearchRequest}
+        totalPages={search.data.total_pages}
+        page={search.data.page}
+        query={query}
+      />
+    </>
   )
 }
