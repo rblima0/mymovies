@@ -1,14 +1,18 @@
 import React, { ReactElement } from 'react'
 
-import { Genres } from '../../entities/Genre/types'
-import { GenreProps } from './types'
+import { Genres } from '../../../../entities/Genre/types'
 
+import { GenreProps } from './types'
 import { Wrapper, Button } from './styles'
 
-export function Genre(props: GenreProps): ReactElement {
-  const { genres, history } = props
-
+export function Genre({
+  genres,
+  history,
+  handleToggleSidebar,
+}: GenreProps): ReactElement {
   const handleSelectGenre = (id: number, name?: string): void => {
+    handleToggleSidebar()
+
     history.replace({
       pathname: `/dashboard/genre/${id}`,
       state: name,

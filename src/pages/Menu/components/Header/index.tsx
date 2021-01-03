@@ -1,10 +1,10 @@
 import React, { ReactElement, useState } from 'react'
-
 import { MdSearch, MdClose } from 'react-icons/md'
+
+import { colors } from '../../../../styles/theme'
 import { Find } from '../Find'
 
 import { HeaderProps } from './types'
-import { colors } from '../../styles/theme'
 import {
   Wrapper,
   Section,
@@ -13,14 +13,12 @@ import {
   ToggleFind,
 } from './styles'
 
-export function Header(props: HeaderProps): ReactElement {
-  const {
-    history,
-    history: {
-      location: { pathname, state },
-    },
-  } = props
-
+export function Header({
+  history,
+  history: {
+    location: { pathname, state },
+  },
+}: HeaderProps): ReactElement {
   const [isOpen, setIsOpen] = useState(false)
 
   const showSearch = pathname.indexOf('movie') > -1

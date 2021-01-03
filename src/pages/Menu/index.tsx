@@ -1,17 +1,25 @@
-import React, { ReactElement, useEffect, useMemo } from 'react'
+import React, { ReactElement, useEffect, useMemo, useState } from 'react'
 import * as R from 'ramda'
 
 import { InternalRoutes } from '../../routes/InternalRoutes'
 import { Sidebar } from '../../components/shared/Sidebar'
 import { Loader } from '../../components/shared/Loader'
-import { Header } from '../../components/Header'
-import { Genre } from '../../components/Genre'
+import { Genre } from './components/Genre'
+import { Header } from './components/Header'
 
 import { MenuProps } from './types'
 import { Container, Content } from './styles'
 
-export function Menu(props: MenuProps): ReactElement {
-  const { loadGenreRequest, genre, history } = props
+export function Menu({
+  loadGenreRequest,
+  genre,
+  history,
+}: MenuProps): ReactElement {
+  const [isOpen, setIsOpen] = useState(false)
+
+  const handleToggleSidebar = (): void => {
+    setIsOpen(!isOpen)
+  }
 
   const isLoading = useMemo(() => {
     return genre.loading || R.isEmpty(genre.data)
@@ -27,8 +35,12 @@ export function Menu(props: MenuProps): ReactElement {
 
   return (
     <Container>
-      <Sidebar>
-        <Genre genres={genre.data.genres} history={history} />
+      <Sidebar handleToggleSidebar={handleToggleSidebar} isOpen={isOpen}>
+        <Genre
+          genres={genre.data.genres}
+          history={history}
+          handleToggleSidebar={handleToggleSidebar}
+        />
       </Sidebar>
       <Content>
         <Header history={history} />

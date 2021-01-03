@@ -1,4 +1,4 @@
-import React, { ReactElement, useState } from 'react'
+import React, { ReactElement } from 'react'
 import { Link } from 'react-router-dom'
 
 import popcorn from '../../../assets/icons/popcorn.svg'
@@ -13,15 +13,11 @@ import {
   Logo,
 } from './styles'
 
-export function Sidebar(props: SidebarProps): ReactElement {
-  const { children } = props
-
-  const [isOpen, setIsOpen] = useState(false)
-
-  const handleToggleSidebar = (): void => {
-    setIsOpen(!isOpen)
-  }
-
+export function Sidebar({
+  children,
+  handleToggleSidebar,
+  isOpen,
+}: SidebarProps): ReactElement {
   return (
     <>
       <OpenSidebar>
