@@ -21,6 +21,10 @@ export function Menu({
     setIsOpen(!isOpen)
   }
 
+  const handleCloseSidebar = (): void => {
+    setIsOpen(false)
+  }
+
   const isLoading = useMemo(() => {
     return genre.loading || R.isEmpty(genre.data)
   }, [genre])
@@ -39,7 +43,7 @@ export function Menu({
         <Genre
           genres={genre.data.genres}
           history={history}
-          handleToggleSidebar={handleToggleSidebar}
+          handleCloseSidebar={handleCloseSidebar}
         />
       </Sidebar>
       <Content>

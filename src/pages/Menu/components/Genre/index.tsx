@@ -8,10 +8,10 @@ import { Wrapper, Button } from './styles'
 export function Genre({
   genres,
   history,
-  handleToggleSidebar,
+  handleCloseSidebar,
 }: GenreProps): ReactElement {
   const handleSelectGenre = (id: number, name?: string): void => {
-    handleToggleSidebar()
+    handleCloseSidebar()
 
     history.replace({
       pathname: `/dashboard/genre/${id}`,
