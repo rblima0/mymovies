@@ -2,7 +2,7 @@
   "name": "mymovies",
   "version": "1.0.0",
   "private": true,
-  "homepage": "https://rblima0.github.io/mymovies",
+  "homepage": "https://rblima0.github.io/mymovies/",
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",

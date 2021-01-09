@@ -11,7 +11,9 @@ import store from './store'
 import 'normalize.css'
 import GlobalStyle from './styles/global'
 
-const browserHistory = createBrowserHistory()
+const browserHistory = createBrowserHistory({
+  basename: process.env.PUBLIC_URL,
+})
 
 export default function App(): JSX.Element {
   return (
