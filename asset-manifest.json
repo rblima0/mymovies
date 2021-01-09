@@ -1,23 +1,23 @@
 {
   "files": {
-    "main.js": "/mymovies/static/js/main.828ef1e6.chunk.js",
-    "main.js.map": "/mymovies/static/js/main.828ef1e6.chunk.js.map",
-    "runtime-main.js": "/mymovies/static/js/runtime-main.8bb3206b.js",
-    "runtime-main.js.map": "/mymovies/static/js/runtime-main.8bb3206b.js.map",
-    "static/css/2.764ccc25.chunk.css": "/mymovies/static/css/2.764ccc25.chunk.css",
-    "static/js/2.fb82d5da.chunk.js": "/mymovies/static/js/2.fb82d5da.chunk.js",
-    "static/js/2.fb82d5da.chunk.js.map": "/mymovies/static/js/2.fb82d5da.chunk.js.map",
-    "index.html": "/mymovies/index.html",
-    "precache-manifest.4371e3630030bfe35028853817be4279.js": "/mymovies/precache-manifest.4371e3630030bfe35028853817be4279.js",
-    "service-worker.js": "/mymovies/service-worker.js",
-    "static/css/2.764ccc25.chunk.css.map": "/mymovies/static/css/2.764ccc25.chunk.css.map",
-    "static/js/2.fb82d5da.chunk.js.LICENSE.txt": "/mymovies/static/js/2.fb82d5da.chunk.js.LICENSE.txt",
-    "static/media/popcorn.svg": "/mymovies/static/media/popcorn.bc365d35.svg"
+    "main.js": "/mymovies/dashboard/static/js/main.828ef1e6.chunk.js",
+    "main.js.map": "/mymovies/dashboard/static/js/main.828ef1e6.chunk.js.map",
+    "runtime-main.js": "/mymovies/dashboard/static/js/runtime-main.9af0c125.js",
+    "runtime-main.js.map": "/mymovies/dashboard/static/js/runtime-main.9af0c125.js.map",
+    "static/css/2.764ccc25.chunk.css": "/mymovies/dashboard/static/css/2.764ccc25.chunk.css",
+    "static/js/2.2ff74f80.chunk.js": "/mymovies/dashboard/static/js/2.2ff74f80.chunk.js",
+    "static/js/2.2ff74f80.chunk.js.map": "/mymovies/dashboard/static/js/2.2ff74f80.chunk.js.map",
+    "index.html": "/mymovies/dashboard/index.html",
+    "precache-manifest.0aeaac982b1baf930e735335cbef958e.js": "/mymovies/dashboard/precache-manifest.0aeaac982b1baf930e735335cbef958e.js",
+    "service-worker.js": "/mymovies/dashboard/service-worker.js",
+    "static/css/2.764ccc25.chunk.css.map": "/mymovies/dashboard/static/css/2.764ccc25.chunk.css.map",
+    "static/js/2.2ff74f80.chunk.js.LICENSE.txt": "/mymovies/dashboard/static/js/2.2ff74f80.chunk.js.LICENSE.txt",
+    "static/media/popcorn.svg": "/mymovies/dashboard/static/media/popcorn.bc365d35.svg"
   },
   "entrypoints": [
-    "static/js/runtime-main.8bb3206b.js",
+    "static/js/runtime-main.9af0c125.js",
     "static/css/2.764ccc25.chunk.css",
-    "static/js/2.fb82d5da.chunk.js",
+    "static/js/2.2ff74f80.chunk.js",
     "static/js/main.828ef1e6.chunk.js"
   ]
 }
