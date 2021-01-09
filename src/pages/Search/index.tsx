@@ -1,26 +1,24 @@
 import React, { ReactElement, useEffect, useMemo } from 'react'
 import * as R from 'ramda'
 
-import { Pagination } from '../../components/Pagination'
+import { Preview } from '../../components/Preview'
+import { Pagination } from '../../components/shared/Pagination'
 import { Loader } from '../../components/shared/Loader'
 import { Card } from '../../components/shared/Card'
-import { Preview } from '../../components/Preview'
 import { Error } from '../../components/shared/Error'
 
 import { SearchProps } from './types'
 import { Section } from './styles'
 
-export function Search(props: SearchProps): ReactElement {
-  const {
-    genre,
-    search,
-    history,
-    loadSearchRequest,
-    match: {
-      params: { query },
-    },
-  } = props
-
+export function Search({
+  genre,
+  search,
+  history,
+  loadSearchRequest,
+  match: {
+    params: { query },
+  },
+}: SearchProps): ReactElement {
   const resetPage = 1
 
   const isLoading = useMemo(() => {

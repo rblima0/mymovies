@@ -3,16 +3,14 @@ import React, { ReactElement } from 'react'
 import { PaginationProps } from './types'
 import { Wrapper } from './styles'
 
-export function Pagination(props: PaginationProps): ReactElement {
-  const {
-    loadDiscoverRequest,
-    loadSearchRequest,
-    genre,
-    page,
-    totalPages,
-    query,
-  } = props
-
+export function Pagination({
+  loadDiscoverRequest,
+  loadSearchRequest,
+  genre,
+  page,
+  totalPages,
+  query,
+}: PaginationProps): ReactElement {
   const handleClick = (pageNumber: number): void => {
     loadDiscoverRequest && loadDiscoverRequest(pageNumber, genre)
     loadSearchRequest && loadSearchRequest(pageNumber, query)

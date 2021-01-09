@@ -1,26 +1,24 @@
 import React, { ReactElement, useEffect, useMemo } from 'react'
 import * as R from 'ramda'
 
-import { Pagination } from '../../components/Pagination'
+import { Preview } from '../../components/Preview'
+import { Pagination } from '../../components/shared/Pagination'
 import { Loader } from '../../components/shared/Loader'
 import { Card } from '../../components/shared/Card'
-import { Preview } from '../../components/Preview'
 import { Error } from '../../components/shared/Error'
 
 import { DiscoverProps } from './types'
 import { Section } from './styles'
 
-export function Discover(props: DiscoverProps): ReactElement {
-  const {
-    loadDiscoverRequest,
-    discover,
-    genre,
-    history,
-    match: {
-      params: { genreId },
-    },
-  } = props
-
+export function Discover({
+  loadDiscoverRequest,
+  discover,
+  genre,
+  history,
+  match: {
+    params: { genreId },
+  },
+}: DiscoverProps): ReactElement {
   const resetPage = 1
 
   const isLoading = useMemo(() => {

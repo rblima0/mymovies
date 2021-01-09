@@ -1,9 +1,9 @@
 import React, { useState, ChangeEvent, FormEvent, ReactElement } from 'react'
-
 import { MdSearch } from 'react-icons/md'
 
+import { colors } from '../../../../styles/theme'
+
 import { FindProps } from './types'
-import { colors } from '../../styles/theme'
 import { Form } from './styles'
 
 export function Find({ history }: FindProps): ReactElement {

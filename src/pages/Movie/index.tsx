@@ -1,23 +1,27 @@
 import React, { ReactElement, useEffect, useMemo } from 'react'
+import { MdArrowBack } from 'react-icons/md'
 import * as R from 'ramda'
 
-import { Details } from '../../components/Details'
+import { colors } from '../../styles/theme'
+
 import { Loader } from '../../components/shared/Loader'
 import { Error } from '../../components/shared/Error'
+import { Details } from './components/Details'
+import { Credits } from './components/Credits'
+import { Informations } from './components/Informations'
 
 import { MovieProps } from './types'
+import { ButtonBack, Divisor, Wrapper, Section } from './styles'
 
-export function Movie(props: MovieProps): ReactElement {
-  const {
-    loadMovieRequest,
-    loadTrailerRequest,
-    movie,
-    trailer,
-    match: {
-      params: { movieId },
-    },
-  } = props
-
+export function Movie({
+  loadMovieRequest,
+  loadTrailerRequest,
+  movie,
+  trailer,
+  match: {
+    params: { movieId },
+  },
+}: MovieProps): ReactElement {
   const isLoading = useMemo(() => {
     return (
       movie.loading ||
@@ -30,6 +34,7 @@ export function Movie(props: MovieProps): ReactElement {
   useEffect(() => {
     loadMovieRequest(movieId)
     loadTrailerRequest(movieId)
+    window.scrollTo(0, 0)
   }, [loadMovieRequest, loadTrailerRequest, movieId])
 
   if (movie.error) {
@@ -40,5 +45,20 @@ export function Movie(props: MovieProps): ReactElement {
     return <Loader />
   }
 
-  return <Details movie={movie.data} trailer={trailer.data} />
+  return (
+    <Wrapper>
+      <ButtonBack type="button" onClick={(): void => {}}>
+        <MdArrowBack size={24} color={colors.gray200} />
+      </ButtonBack>
+
+      <Section>
+        <Details movie={movie.data} trailer={trailer.data} />
+        <Informations movie={movie.data} />
+      </Section>
+
+      <Divisor />
+
+      <Credits movie={movie.data} />
+    </Wrapper>
+  )
 }

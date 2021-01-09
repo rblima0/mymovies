@@ -9,9 +9,11 @@ import { Genres } from '../../entities/Genre/types'
 import { PreviewProps } from './types'
 import { ContentImage, ContentInfo } from './styles'
 
-export function Preview(props: PreviewProps): ReactElement {
-  const { preview, genres, history } = props
-
+export function Preview({
+  preview,
+  genres,
+  history,
+}: PreviewProps): ReactElement {
   const limitOverview = (overview: string): string => {
     const maxLength = 280
     const endText = '...'

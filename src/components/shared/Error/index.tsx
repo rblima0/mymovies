@@ -5,9 +5,7 @@ import popcorn from '../../../assets/icons/popcorn.svg'
 import { ErrorProps } from './types'
 import { Wrapper } from './styles'
 
-export function Error(props: ErrorProps): ReactElement {
-  const { title } = props
-
+export function Error({ title }: ErrorProps): ReactElement {
   return (
     <Wrapper>
       <img src={popcorn} alt="Popcorn" />
