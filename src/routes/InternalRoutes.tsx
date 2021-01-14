@@ -10,6 +10,7 @@ export function InternalRoutes() {
     <Switch>
       <Route path="/dashboard" component={Discover} exact />
       <Route path="/dashboard/genre/:genreId" component={Discover} />
+      <Route path="/dashboard/cast/:castId" component={Discover} />
       <Route path="/dashboard/movie/:movieId" component={Movie} />
       <Route path="/dashboard/search/:query" component={Search} />
     </Switch>

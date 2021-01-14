@@ -7,12 +7,13 @@ export function Pagination({
   loadDiscoverRequest,
   loadSearchRequest,
   genre,
+  cast,
   page,
   totalPages,
   query,
 }: PaginationProps): ReactElement {
   const handleClick = (pageNumber: number): void => {
-    loadDiscoverRequest && loadDiscoverRequest(pageNumber, genre)
+    loadDiscoverRequest && loadDiscoverRequest(pageNumber, genre, cast)
     loadSearchRequest && loadSearchRequest(pageNumber, query)
     window.scrollTo(0, 0)
   }

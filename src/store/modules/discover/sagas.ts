@@ -9,18 +9,17 @@ import { loadDiscoverSuccess, loadDiscoverFailure } from './actions'
 import { DiscoverTypes, LoadDiscoverRequest } from './types'
 
 export function* loadDiscover({ payload }: LoadDiscoverRequest) {
-  const { page, genre } = payload
+  const { page, genre, cast } = payload
 
-  const pageNumber = page ? `&page=${page}` : '&page=1'
-  const genreNumber = genre ? `&with_genres=${genre}` : ''
+  const showPage = `&page=${page || '1'}`
+  const showGenre = genre ? `&with_genres=${genre}` : ''
+  const showCast = cast ? `&with_cast=${cast}` : ''
 
   try {
-    const url = `/discover/movie?api_key=${config.api_key}&language=pt-BR&include_adult=false&sort_by=popularity.desc${genreNumber}${pageNumber}`
+    const url = `/discover/movie?api_key=${config.api_key}&language=pt-BR&include_adult=false&sort_by=popularity.desc${showGenre}${showCast}${showPage}`
     const response = yield call(api.get, url)
 
-    const { data } = response
-
-    const discover = new Discover(data)
+    const discover = new Discover(response.data)
 
     yield put(loadDiscoverSuccess(discover))
   } catch (err) {

@@ -16,7 +16,7 @@ export function Discover({
   genre,
   history,
   match: {
-    params: { genreId },
+    params: { genreId, castId },
   },
 }: DiscoverProps): ReactElement {
   const resetPage = 1
@@ -26,8 +26,9 @@ export function Discover({
   }, [discover])
 
   useEffect(() => {
-    loadDiscoverRequest(resetPage, genreId)
-  }, [loadDiscoverRequest, genreId])
+    loadDiscoverRequest(resetPage, genreId, castId)
+    window.scrollTo(0, 0)
+  }, [loadDiscoverRequest, genreId, castId])
 
   if (discover.error) {
     return <Error title="Tivemos um problema" />
@@ -56,6 +57,7 @@ export function Discover({
         totalPages={discover.data.total_pages}
         page={discover.data.page}
         genre={genreId}
+        cast={castId}
       />
     </>
   )

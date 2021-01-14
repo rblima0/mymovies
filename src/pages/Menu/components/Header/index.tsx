@@ -30,6 +30,8 @@ export function Header({
 
     if (path.match(/search/)) return `Pesquisando: ${state}`
 
+    if (path.match(/cast/)) return `Elenco: ${state}`
+
     return 'Listagem de Filmes'
   }
 
@@ -39,6 +41,8 @@ export function Header({
     if (path.match(/movie/)) return 'Informações adicionais'
 
     if (path.match(/search/)) return 'Veja o que encontramos'
+
+    if (path.match(/cast/)) return 'Buscando pelo elenco'
 
     return 'Conheça melhor os filmes'
   }
