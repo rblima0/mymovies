@@ -18,10 +18,18 @@ export function Movie({
   loadTrailerRequest,
   movie,
   trailer,
+  history,
   match: {
     params: { movieId },
   },
 }: MovieProps): ReactElement {
+  const handleClickCast = (id: number, name?: string): void => {
+    history.replace({
+      pathname: `/dashboard/cast/${id}`,
+      state: name,
+    })
+  }
+
   const isLoading = useMemo(() => {
     return (
       movie.loading ||
@@ -58,7 +66,7 @@ export function Movie({
 
       <Divisor />
 
-      <Credits movie={movie.data} />
+      <Credits movie={movie.data} handleClickCast={handleClickCast} />
     </Wrapper>
   )
 }

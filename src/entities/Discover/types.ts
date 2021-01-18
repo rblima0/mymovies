@@ -1,6 +1,7 @@
 export type DiscoverPayload = {
   page?: number
   genre?: number
+  cast?: number
 }
 
 export type DiscoverResponse = {

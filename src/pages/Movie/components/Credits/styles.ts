@@ -17,23 +17,27 @@ export const Container = styled.div`
   }
 `
 
-export const Wrapper = styled.div`
+export const Wrapper = styled.button`
   display: flex;
   flex-direction: column;
+  justify-content: center;
+  align-items: center;
   background-color: ${colors.primary};
-  width: 120px;
   margin-bottom: 20px;
+  width: 120px;
+  border: 0;
 
-  div {
-    justify-content: center;
-    align-items: center;
+  &:hover {
+    background-color: ${colors.secondary};
   }
 `
 
 export const Content = styled.div`
   display: flex;
-  padding: 10px 0;
   flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 10px 0;
   height: 80px;
 
   p {
