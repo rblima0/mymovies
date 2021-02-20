@@ -16,19 +16,35 @@ export function Discover({
   genre,
   history,
   match: {
-    params: { genreId, castId },
+    params: { genreId, castId, page },
   },
 }: DiscoverProps): ReactElement {
-  const resetPage = 1
+  const verifyPathname = (pageNumber: number): string => {
+    if (genreId) {
+      return `/dashboard/genre/${genreId}/page/${pageNumber}`
+    }
+
+    if (castId) {
+      return `/dashboard/cast/${castId}/page/${pageNumber}`
+    }
+
+    return `/dashboard/page/${pageNumber}`
+  }
+
+  const handlePaginate = (pageNumber: number): void => {
+    history.replace({
+      pathname: verifyPathname(pageNumber),
+    })
+  }
 
   const isLoading = useMemo(() => {
     return discover.loading || R.isEmpty(discover.data)
   }, [discover])
 
   useEffect(() => {
-    loadDiscoverRequest(resetPage, genreId, castId)
+    loadDiscoverRequest(page, genreId, castId)
     window.scrollTo(0, 0)
-  }, [loadDiscoverRequest, genreId, castId])
+  }, [loadDiscoverRequest, genreId, castId, page])
 
   if (discover.error) {
     return <Error title="Tivemos um problema" />
@@ -53,11 +69,9 @@ export function Discover({
       </Section>
 
       <Pagination
-        loadDiscoverRequest={loadDiscoverRequest}
+        handlePaginate={handlePaginate}
         totalPages={discover.data.total_pages}
         page={discover.data.page}
-        genre={genreId}
-        cast={castId}
       />
     </>
   )

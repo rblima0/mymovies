@@ -11,6 +11,7 @@ export type SearchProps = {
   match: {
     params: {
       query: string
+      page: number
     }
   }
 }

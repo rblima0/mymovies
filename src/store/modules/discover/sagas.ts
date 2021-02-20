@@ -11,7 +11,7 @@ import { DiscoverTypes, LoadDiscoverRequest } from './types'
 export function* loadDiscover({ payload }: LoadDiscoverRequest) {
   const { page, genre, cast } = payload
 
-  const showPage = `&page=${page || '1'}`
+  const showPage = page ? `&page=${page}` : '&page=1'
   const showGenre = genre ? `&with_genres=${genre}` : ''
   const showCast = cast ? `&with_cast=${cast}` : ''
 

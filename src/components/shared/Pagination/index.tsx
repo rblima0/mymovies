@@ -4,25 +4,15 @@ import { PaginationProps } from './types'
 import { Wrapper } from './styles'
 
 export function Pagination({
-  loadDiscoverRequest,
-  loadSearchRequest,
-  genre,
-  cast,
   page,
   totalPages,
-  query,
+  handlePaginate,
 }: PaginationProps): ReactElement {
-  const handleClick = (pageNumber: number): void => {
-    loadDiscoverRequest && loadDiscoverRequest(pageNumber, genre, cast)
-    loadSearchRequest && loadSearchRequest(pageNumber, query)
-    window.scrollTo(0, 0)
-  }
-
   const renderPrevious = (): ReactElement | null => {
     if (page <= 1) return null
 
     return (
-      <li onClick={() => handleClick(page - 1)}>
+      <li onClick={() => handlePaginate(page - 1)}>
         <button>Anterior</button>
       </li>
     )
@@ -32,7 +22,7 @@ export function Pagination({
     if (page >= totalPages) return null
 
     return (
-      <li onClick={() => handleClick(page + 1)}>
+      <li onClick={() => handlePaginate(page + 1)}>
         <button>Proximo</button>
       </li>
     )
@@ -43,7 +33,7 @@ export function Pagination({
 
     for (let i = page + 1; i <= page + 3 && i < totalPages; i++) {
       pages.push(
-        <li key={i} onClick={(): void => handleClick(i)}>
+        <li key={i} onClick={(): void => handlePaginate(i)}>
           <button>{i}</button>
         </li>
       )

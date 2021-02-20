@@ -12,7 +12,6 @@ const reducer: Reducer<GenreState, GenreActionTypes> = (
   state = INITIAL_STATE,
   action
 ) => {
-  /* console.log(action) */
   switch (action.type) {
     case GenreTypes.LOAD_GENRE_REQUEST:
       return {
