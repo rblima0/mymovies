@@ -34,7 +34,7 @@ export function Discover({
   const handlePaginate = (pageNumber: number): void => {
     const title = history.location.state
 
-    history.replace({
+    history.push({
       pathname: paginatePathname(pageNumber),
       state: title,
     })

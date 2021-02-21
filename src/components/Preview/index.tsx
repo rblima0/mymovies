@@ -26,7 +26,7 @@ export function Preview({
   }
 
   const handleOpenMovie = (): void => {
-    history.replace({
+    history.push({
       pathname: `/dashboard/movie/${preview.id}`,
       state: preview.title,
     })

@@ -24,7 +24,7 @@ export function Movie({
   },
 }: MovieProps): ReactElement {
   const handleClickCast = (id: number, name?: string): void => {
-    history.replace({
+    history.push({
       pathname: `/dashboard/cast/${id}`,
       state: name,
     })
@@ -55,7 +55,7 @@ export function Movie({
 
   return (
     <Wrapper>
-      <ButtonBack type="button" onClick={(): void => {}}>
+      <ButtonBack type="button" onClick={(): void => history.goBack()}>
         <MdArrowBack size={24} color={colors.gray200} />
       </ButtonBack>
 

@@ -4,9 +4,9 @@ import { colors } from '../../../styles/theme'
 
 export const Wrapper = styled.div`
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   justify-content: center;
-  margin-bottom: 2rem;
+  height: 80px;
 
   ul {
     display: flex;

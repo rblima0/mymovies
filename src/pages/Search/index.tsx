@@ -22,7 +22,7 @@ export function Search({
   const handlePaginate = (pageNumber: number): void => {
     const title = history.location.state
 
-    history.replace({
+    history.push({
       pathname: `/dashboard/search/${query}/page/${pageNumber}`,
       state: title,
     })

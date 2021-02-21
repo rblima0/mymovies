@@ -13,7 +13,7 @@ export function Genre({
   const handleSelectGenre = (id: number, name?: string): void => {
     handleCloseSidebar()
 
-    history.replace({
+    history.push({
       pathname: `/dashboard/genre/${id}`,
       state: name,
     })
