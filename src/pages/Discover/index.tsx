@@ -19,7 +19,7 @@ export function Discover({
     params: { genreId, castId, page },
   },
 }: DiscoverProps): ReactElement {
-  const verifyPathname = (pageNumber: number): string => {
+  const paginatePathname = (pageNumber: number): string => {
     if (genreId) {
       return `/dashboard/genre/${genreId}/page/${pageNumber}`
     }
@@ -32,8 +32,11 @@ export function Discover({
   }
 
   const handlePaginate = (pageNumber: number): void => {
+    const title = history.location.state
+
     history.replace({
-      pathname: verifyPathname(pageNumber),
+      pathname: paginatePathname(pageNumber),
+      state: title,
     })
   }
 

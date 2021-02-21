@@ -20,8 +20,11 @@ export function Search({
   },
 }: SearchProps): ReactElement {
   const handlePaginate = (pageNumber: number): void => {
+    const title = history.location.state
+
     history.replace({
       pathname: `/dashboard/search/${query}/page/${pageNumber}`,
+      state: title,
     })
   }
 
@@ -31,6 +34,7 @@ export function Search({
 
   useEffect(() => {
     loadSearchRequest(page, query)
+    window.scrollTo(0, 0)
   }, [loadSearchRequest, query, page])
 
   if (search.error) {
