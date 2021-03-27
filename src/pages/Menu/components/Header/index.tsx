@@ -24,27 +24,27 @@ export function Header({
   const showSearch = pathname.indexOf('movie') > -1
 
   const showTitle = (path: string): string => {
-    if (path.match(/genre/)) return `Listagem por Gênero: ${state}`
-
     if (path.match(/movie/)) return `${state ? state : 'Conheça o filme'}`
 
-    if (path.match(/search/)) return `Pesquisando: ${state}`
+    if (path.match(/genre/)) return `${state ? state : 'Listagem por Gênero'}`
 
-    if (path.match(/cast/)) return `Elenco: ${state}`
+    if (path.match(/search/)) return `${state ? state : 'Pesquisando'}`
+
+    if (path.match(/cast/)) return `${state ? state : 'Elenco'}`
 
     return 'Listagem de Filmes'
   }
 
   const showSubtitle = (path: string): string => {
-    if (path.match(/genre/)) return 'O melhor do seu gênero preferido'
-
     if (path.match(/movie/)) return 'Informações adicionais'
+
+    if (path.match(/genre/)) return 'O melhor do seu gênero preferido'
 
     if (path.match(/search/)) return 'Veja o que encontramos'
 
     if (path.match(/cast/)) return 'Buscando pelo elenco'
 
-    return 'Conheça melhor os filmes'
+    return 'Encontre diversas opções'
   }
 
   const handleToggleFind = (): void => {

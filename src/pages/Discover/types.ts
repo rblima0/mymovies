@@ -12,6 +12,7 @@ export type DiscoverProps = {
     params: {
       genreId: number
       castId: number
+      page: number
     }
   }
 }

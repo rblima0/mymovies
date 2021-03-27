@@ -16,18 +16,26 @@ export function Search({
   history,
   loadSearchRequest,
   match: {
-    params: { query },
+    params: { query, page },
   },
 }: SearchProps): ReactElement {
-  const resetPage = 1
+  const handlePaginate = (pageNumber: number): void => {
+    const title = history.location.state
+
+    history.push({
+      pathname: `/dashboard/search/${query}/page/${pageNumber}`,
+      state: title,
+    })
+  }
 
   const isLoading = useMemo(() => {
     return search.loading || R.isEmpty(search.data)
   }, [search])
 
   useEffect(() => {
-    loadSearchRequest(resetPage, query)
-  }, [loadSearchRequest, query])
+    loadSearchRequest(page, query)
+    window.scrollTo(0, 0)
+  }, [loadSearchRequest, query, page])
 
   if (search.error) {
     return <Error title="Tivemos um problema" />
@@ -56,10 +64,9 @@ export function Search({
       </Section>
 
       <Pagination
-        loadSearchRequest={loadSearchRequest}
+        handlePaginate={handlePaginate}
         totalPages={search.data.total_pages}
         page={search.data.page}
-        query={query}
       />
     </>
   )
