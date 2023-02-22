@@ -1,9 +1,9 @@
 import { bindActionCreators, Dispatch } from 'redux'
 import { connect } from 'react-redux'
 
-import { loadDiscoverRequest } from '../../store/modules/discover/actions'
+import { loadDiscoverRequest } from 'store/modules/discover/actions'
 
-import { ApplicationState } from '../../store'
+import { ApplicationState } from 'store/index'
 import { Discover } from '.'
 
 const mapStateToProps = (state: ApplicationState) => ({

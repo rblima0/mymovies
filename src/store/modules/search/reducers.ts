@@ -1,5 +1,5 @@
 import { Reducer } from 'redux'
-import { SearchResponse } from '../../../entities/Search/types'
+import { SearchResponse } from 'entities/Search/types'
 import { SearchTypes, SearchState, SearchActionTypes } from './types'
 
 const INITIAL_STATE: SearchState = {

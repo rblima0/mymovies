@@ -1,14 +1,11 @@
-import {
-  DiscoverPayload,
-  DiscoverResponse,
-} from '../../../entities/Discover/types'
+import { DiscoverPayload, DiscoverResponse } from 'entities/Discover/types'
 
 /* Action types */
 
 export enum DiscoverTypes {
-  LOAD_DISCOVER_REQUEST = '@discover/LOAD_DISCOVER_REQUEST',
-  LOAD_DISCOVER_SUCCESS = '@discover/LOAD_DISCOVER_SUCCESS',
-  LOAD_DISCOVER_FAILURE = '@discover/LOAD_DISCOVER_FAILURE',
+  LOAD_DISCOVER_REQUEST = 'discover/LOAD_DISCOVER_REQUEST',
+  LOAD_DISCOVER_SUCCESS = 'discover/LOAD_DISCOVER_SUCCESS',
+  LOAD_DISCOVER_FAILURE = 'discover/LOAD_DISCOVER_FAILURE',
 }
 
 /* State type */

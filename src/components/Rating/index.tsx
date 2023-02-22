@@ -1,7 +1,7 @@
 import React, { ReactElement } from 'react'
 
 import { GiRoundStar } from 'react-icons/gi'
-import { colors } from '../../styles/theme'
+import { colors } from 'styles/theme'
 
 import { RatingProps } from './types'
 import { Wrapper } from './styles'

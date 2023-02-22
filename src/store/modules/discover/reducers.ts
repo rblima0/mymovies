@@ -1,5 +1,5 @@
 import { Reducer } from 'redux'
-import { DiscoverResponse } from '../../../entities/Discover/types'
+import { DiscoverResponse } from 'entities/Discover/types'
 import { DiscoverTypes, DiscoverState, DiscoverActionTypes } from './types'
 
 const INITIAL_STATE: DiscoverState = {

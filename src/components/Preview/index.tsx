@@ -1,10 +1,10 @@
 import React, { ReactElement } from 'react'
 import * as R from 'ramda'
 
-import notFound from '../../assets/images/not-found.jpg'
-import { Rating } from '../Rating'
-import { formatDate } from '../../helpers/date'
-import { Genres } from '../../entities/Genre/types'
+import notFound from 'assets/images/not-found.jpg'
+import { Rating } from 'components/Rating'
+import { formatDate } from 'utils/helpers/date'
+import { Genres } from 'entities/Genre/types'
 
 import { PreviewProps } from './types'
 import { ContentImage, ContentInfo } from './styles'

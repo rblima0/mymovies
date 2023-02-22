@@ -1,11 +1,11 @@
-import { SearchPayload, SearchResponse } from '../../../entities/Search/types'
+import { SearchPayload, SearchResponse } from 'entities/Search/types'
 
 /* Action types */
 
 export enum SearchTypes {
-  LOAD_SEARCH_REQUEST = '@search/LOAD_SEARCH_REQUEST',
-  LOAD_SEARCH_SUCCESS = '@search/LOAD_SEARCH_SUCCESS',
-  LOAD_SEARCH_FAILURE = '@search/LOAD_SEARCH_FAILURE',
+  LOAD_SEARCH_REQUEST = 'search/LOAD_SEARCH_REQUEST',
+  LOAD_SEARCH_SUCCESS = 'search/LOAD_SEARCH_SUCCESS',
+  LOAD_SEARCH_FAILURE = 'search/LOAD_SEARCH_FAILURE',
 }
 
 /* State type */

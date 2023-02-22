@@ -1,7 +1,7 @@
 import React from 'react'
 import { Route, Switch, Redirect } from 'react-router-dom'
 
-import Menu from '../pages/Menu/container'
+import Menu from 'pages/Menu/container'
 
 export function Routes() {
   return (

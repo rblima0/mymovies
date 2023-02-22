@@ -1,7 +1,7 @@
 import React, { ReactElement, useState } from 'react'
 import * as R from 'ramda'
 
-import { Modal } from '../../../../components/shared/Modal'
+import { Modal } from 'components/shared/Modal'
 
 import { TrailerProps } from './types'
 import { Frame, ButtonOpen, ButtonClose } from './styles'

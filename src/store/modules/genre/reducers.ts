@@ -1,5 +1,5 @@
 import { Reducer } from 'redux'
-import { GenreResponse } from '../../../entities/Genre/types'
+import { GenreResponse } from 'entities/Genre/types'
 import { GenreTypes, GenreState, GenreActionTypes } from './types'
 
 const INITIAL_STATE: GenreState = {

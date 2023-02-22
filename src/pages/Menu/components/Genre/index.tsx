@@ -1,6 +1,6 @@
 import React, { ReactElement } from 'react'
 
-import { Genres } from '../../../../entities/Genre/types'
+import { Genres } from 'entities/Genre/types'
 
 import { GenreProps } from './types'
 import { Wrapper, Button } from './styles'

@@ -1,11 +1,11 @@
-import { GenreResponse } from '../../../entities/Genre/types'
+import { GenreResponse } from 'entities/Genre/types'
 
 /* Action types */
 
 export enum GenreTypes {
-  LOAD_GENRE_REQUEST = '@genre/LOAD_GENRE_REQUEST',
-  LOAD_GENRE_SUCCESS = '@genre/LOAD_GENRE_SUCCESS',
-  LOAD_GENRE_FAILURE = '@genre/LOAD_GENRE_FAILURE',
+  LOAD_GENRE_REQUEST = 'genre/LOAD_GENRE_REQUEST',
+  LOAD_GENRE_SUCCESS = 'genre/LOAD_GENRE_SUCCESS',
+  LOAD_GENRE_FAILURE = 'genre/LOAD_GENRE_FAILURE',
 }
 
 /* State type */

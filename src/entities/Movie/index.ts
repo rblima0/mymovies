@@ -1,4 +1,4 @@
-import { Genres } from '../Genre/types'
+import { Genres } from 'entities/Genre/types'
 import {
   MovieResponse,
   MovieCompanies,

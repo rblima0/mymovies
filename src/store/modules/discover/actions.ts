@@ -1,5 +1,5 @@
 import { action } from 'typesafe-actions'
-import { DiscoverResponse } from '../../../entities/Discover/types'
+import { DiscoverResponse } from 'entities/Discover/types'
 import { DiscoverTypes } from './types'
 
 export const loadDiscoverRequest = (

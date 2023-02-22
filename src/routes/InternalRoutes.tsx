@@ -1,9 +1,9 @@
 import React from 'react'
 import { Route, Switch } from 'react-router-dom'
 
-import Discover from '../pages/Discover/container'
-import Movie from '../pages/Movie/container'
-import Search from '../pages/Search/container'
+import Discover from 'pages/Discover/container'
+import Movie from 'pages/Movie/container'
+import Search from 'pages/Search/container'
 
 export function InternalRoutes() {
   return (

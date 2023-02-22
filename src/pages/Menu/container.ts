@@ -1,9 +1,9 @@
 import { bindActionCreators, Dispatch } from 'redux'
 import { connect } from 'react-redux'
 
-import { loadGenreRequest } from '../../store/modules/genre/actions'
+import { loadGenreRequest } from 'store/modules/genre/actions'
 
-import { ApplicationState } from '../../store'
+import { ApplicationState } from 'store/index'
 import { Menu } from '.'
 
 const mapStateToProps = (state: ApplicationState) => ({

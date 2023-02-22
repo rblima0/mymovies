@@ -1,6 +1,6 @@
 import { History } from 'history'
-import { MovieState } from '../../store/modules/movie/types'
-import { TrailerState } from '../../store/modules/trailer/types'
+import { MovieState } from 'store/modules/movie/types'
+import { TrailerState } from 'store/modules/trailer/types'
 
 export type MovieProps = {
   loadMovieRequest(id: number): void

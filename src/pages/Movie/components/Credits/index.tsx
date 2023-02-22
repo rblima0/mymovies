@@ -1,7 +1,7 @@
 import React, { ReactElement } from 'react'
 import * as R from 'ramda'
 
-import notFound from '../../../../assets/images/not-found.jpg'
+import notFound from 'assets/images/not-found.jpg'
 
 import { CreditsProps } from './types'
 import { Container, Wrapper, Content } from './styles'

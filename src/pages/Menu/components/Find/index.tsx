@@ -1,7 +1,7 @@
 import React, { useState, ChangeEvent, FormEvent, ReactElement } from 'react'
 import { MdSearch } from 'react-icons/md'
 
-import { colors } from '../../../../styles/theme'
+import { colors } from 'styles/theme'
 
 import { FindProps } from './types'
 import { Form } from './styles'

@@ -1,10 +1,10 @@
 import { bindActionCreators, Dispatch } from 'redux'
 import { connect } from 'react-redux'
 
-import { loadMovieRequest } from '../../store/modules/movie/actions'
-import { loadTrailerRequest } from '../../store/modules/trailer/actions'
+import { loadMovieRequest } from 'store/modules/movie/actions'
+import { loadTrailerRequest } from 'store/modules/trailer/actions'
 
-import { ApplicationState } from '../../store'
+import { ApplicationState } from 'store/index'
 import { Movie } from '.'
 
 const mapStateToProps = (state: ApplicationState) => ({

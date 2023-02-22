@@ -1,5 +1,5 @@
 import { action } from 'typesafe-actions'
-import { SearchResponse } from '../../../entities/Search/types'
+import { SearchResponse } from 'entities/Search/types'
 import { SearchTypes } from './types'
 
 export const loadSearchRequest = (page?: number, query?: string) =>

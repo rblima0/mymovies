@@ -1,5 +1,5 @@
 import { action } from 'typesafe-actions'
-import { GenreResponse } from '../../../entities/Genre/types'
+import { GenreResponse } from 'entities/Genre/types'
 import { GenreTypes } from './types'
 
 export const loadGenreRequest = () => action(GenreTypes.LOAD_GENRE_REQUEST)

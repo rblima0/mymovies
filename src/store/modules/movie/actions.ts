@@ -1,5 +1,5 @@
 import { action } from 'typesafe-actions'
-import { MovieResponse } from '../../../entities/Movie/types'
+import { MovieResponse } from 'entities/Movie/types'
 import { MovieTypes } from './types'
 
 export const loadMovieRequest = (id: number) =>

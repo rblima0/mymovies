@@ -1,9 +1,9 @@
 import React, { ReactElement, useEffect, useMemo, useState } from 'react'
 import * as R from 'ramda'
 
-import { InternalRoutes } from '../../routes/InternalRoutes'
-import { Sidebar } from '../../components/shared/Sidebar'
-import { Loader } from '../../components/shared/Loader'
+import { InternalRoutes } from 'routes/InternalRoutes'
+import { Sidebar } from 'components/shared/Sidebar'
+import { Loader } from 'components/shared/Loader'
 import { Genre } from './components/Genre'
 import { Header } from './components/Header'
 

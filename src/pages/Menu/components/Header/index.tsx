@@ -1,7 +1,7 @@
 import React, { ReactElement, useState } from 'react'
 import { MdSearch, MdClose } from 'react-icons/md'
 
-import { colors } from '../../../../styles/theme'
+import { colors } from 'styles/theme'
 import { Find } from '../Find'
 
 import { HeaderProps } from './types'

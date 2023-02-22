@@ -1,9 +1,9 @@
 import { bindActionCreators, Dispatch } from 'redux'
 import { connect } from 'react-redux'
 
-import { loadSearchRequest } from '../../store/modules/search/actions'
+import { loadSearchRequest } from 'store/modules/search/actions'
 
-import { ApplicationState } from '../../store'
+import { ApplicationState } from 'store/index'
 import { Search } from '.'
 
 const mapStateToProps = (state: ApplicationState) => ({

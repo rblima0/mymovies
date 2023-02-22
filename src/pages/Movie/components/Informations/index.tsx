@@ -1,9 +1,9 @@
 import React, { ReactElement } from 'react'
 import * as R from 'ramda'
 
-import { formatDate } from '../../../../helpers/date'
-import { Genres } from '../../../../entities/Genre/types'
-import { Rating } from '../../../../components/Rating'
+import { formatDate } from 'utils/helpers/date'
+import { Genres } from 'entities/Genre/types'
+import { Rating } from 'components/Rating'
 
 import { InformationsProps } from './types'
 import { Genre, Container, More, Overview, Resume, Tagline } from './styles'

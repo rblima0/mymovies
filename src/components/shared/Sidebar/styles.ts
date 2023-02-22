@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 
 import { SidebarStylesProps } from './types'
-import { colors } from '../../../styles/theme'
+import { colors } from 'styles/theme'
 
 export const OpenSidebar = styled.div`
   display: none;

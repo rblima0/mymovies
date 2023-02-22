@@ -1,9 +1,9 @@
 import { call, put, takeLatest, all } from 'redux-saga/effects'
 
-import api from '../../../services/api'
-import config from '../../../config'
+import api from 'services/api'
+import config from 'utils/config'
 
-import Discover from '../../../entities/Discover'
+import Discover from 'entities/Discover'
 
 import { loadDiscoverSuccess, loadDiscoverFailure } from './actions'
 import { DiscoverTypes, LoadDiscoverRequest } from './types'

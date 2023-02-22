@@ -1,5 +1,5 @@
 import { Reducer } from 'redux'
-import { MovieResponse } from '../../../entities/Movie/types'
+import { MovieResponse } from 'entities/Movie/types'
 import { MovieTypes, MovieState, MovieActionTypes } from './types'
 
 const INITIAL_STATE: MovieState = {

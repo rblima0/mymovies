@@ -1,14 +1,11 @@
-import {
-  TrailerResponse,
-  TrailerPayload,
-} from '../../../entities/Trailer/types'
+import { TrailerResponse, TrailerPayload } from 'entities/Trailer/types'
 
 /* Action types */
 
 export enum TrailerTypes {
-  LOAD_TRAILER_REQUEST = '@trailer/LOAD_TRAILER_REQUEST',
-  LOAD_TRAILER_SUCCESS = '@trailer/LOAD_TRAILER_SUCCESS',
-  LOAD_TRAILER_FAILURE = '@trailer/LOAD_TRAILER_FAILURE',
+  LOAD_TRAILER_REQUEST = 'trailer/LOAD_TRAILER_REQUEST',
+  LOAD_TRAILER_SUCCESS = 'trailer/LOAD_TRAILER_SUCCESS',
+  LOAD_TRAILER_FAILURE = 'trailer/LOAD_TRAILER_FAILURE',
 }
 
 /* State type */

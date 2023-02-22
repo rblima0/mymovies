@@ -1,9 +1,9 @@
 import { call, put, takeLatest, all } from 'redux-saga/effects'
 
-import api from '../../../services/api'
-import config from '../../../config'
+import api from 'services/api'
+import config from 'utils/config'
 
-import Genre from '../../../entities/Genre'
+import Genre from 'entities/Genre'
 
 import { loadGenreSuccess, loadGenreFailure } from './actions'
 import { GenreTypes } from './types'

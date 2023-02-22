@@ -1,6 +1,6 @@
 import React, { ReactElement } from 'react'
 
-import notFound from '../../../../assets/images/not-found.jpg'
+import notFound from 'assets/images/not-found.jpg'
 
 import { Trailer } from '../Trailer'
 

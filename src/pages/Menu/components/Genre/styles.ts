@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-import { colors } from '../../../../styles/theme'
+import { colors } from 'styles/theme'
 
 import { GenreStylesProps } from './types'
 

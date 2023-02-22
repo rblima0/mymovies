@@ -1,6 +1,6 @@
 import React, { ReactElement } from 'react'
 
-import popcorn from '../../../assets/icons/popcorn.svg'
+import popcorn from 'assets/icons/popcorn.svg'
 
 import { ErrorProps } from './types'
 import { Wrapper } from './styles'

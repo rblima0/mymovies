@@ -1,11 +1,11 @@
 import React, { ReactElement, useEffect, useMemo } from 'react'
 import * as R from 'ramda'
 
-import { Preview } from '../../components/Preview'
-import { Pagination } from '../../components/shared/Pagination'
-import { Loader } from '../../components/shared/Loader'
-import { Card } from '../../components/shared/Card'
-import { Error } from '../../components/shared/Error'
+import { Preview } from 'components/Preview'
+import { Pagination } from 'components/shared/Pagination'
+import { Loader } from 'components/shared/Loader'
+import { Card } from 'components/shared/Card'
+import { Error } from 'components/shared/Error'
 
 import { SearchProps } from './types'
 import { Section } from './styles'

@@ -2,10 +2,10 @@ import React, { ReactElement, useEffect, useMemo } from 'react'
 import { MdArrowBack } from 'react-icons/md'
 import * as R from 'ramda'
 
-import { colors } from '../../styles/theme'
+import { colors } from 'styles/theme'
 
-import { Loader } from '../../components/shared/Loader'
-import { Error } from '../../components/shared/Error'
+import { Loader } from 'components/shared/Loader'
+import { Error } from 'components/shared/Error'
 import { Details } from './components/Details'
 import { Credits } from './components/Credits'
 import { Informations } from './components/Informations'

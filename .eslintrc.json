@@ -29,11 +29,17 @@
     "import/no-extraneous-dependencies": "off",
     "lines-between-class-members": "off",
     "no-unused-vars": "off",
+    "import/no-unresolved": "off",
     "prettier/prettier": "warn",
     "react/jsx-filename-extension": [
       "warn",
       { "extensions": [".ts", ".tsx", ".js"] }
     ],
     "semi": ["warn", "never"]
+  },
+  "settings": {
+    "react": {
+      "version": "detect"
+    }
   }
 }
