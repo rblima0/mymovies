@@ -16,6 +16,7 @@ export function InternalRoutes() {
         component={Discover}
         exact
       />
+      <Route path="/dashboard/upcoming/page/:page" component={Discover} exact />
       <Route path="/dashboard/cast/:castId" component={Discover} exact />
       <Route
         path="/dashboard/cast/:castId/page/:page"

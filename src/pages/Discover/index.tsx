@@ -12,6 +12,7 @@ import { Section } from './styles'
 
 export function Discover({
   loadDiscoverRequest,
+  loadUpcomingRequest,
   discover,
   genre,
   history,
@@ -19,6 +20,8 @@ export function Discover({
     params: { genreId, castId, page },
   },
 }: DiscoverProps): ReactElement {
+  const historyState = history?.location?.state ?? null
+
   const paginatePathname = (pageNumber: number): string => {
     if (genreId) {
       return `/dashboard/genre/${genreId}/page/${pageNumber}`
@@ -26,6 +29,10 @@ export function Discover({
 
     if (castId) {
       return `/dashboard/cast/${castId}/page/${pageNumber}`
+    }
+
+    if (historyState === 'Upcoming') {
+      return `/dashboard/upcoming/page/${pageNumber}`
     }
 
     return `/dashboard/page/${pageNumber}`
@@ -45,9 +52,20 @@ export function Discover({
   }, [discover])
 
   useEffect(() => {
-    loadDiscoverRequest(page, genreId, castId)
+    if (historyState === 'Upcoming') {
+      loadUpcomingRequest(page)
+    } else {
+      loadDiscoverRequest(page, genreId, castId)
+    }
     window.scrollTo(0, 0)
-  }, [loadDiscoverRequest, genreId, castId, page])
+  }, [
+    loadDiscoverRequest,
+    loadUpcomingRequest,
+    genreId,
+    castId,
+    page,
+    historyState,
+  ])
 
   if (discover.error) {
     return <Error title="Tivemos um problema" />

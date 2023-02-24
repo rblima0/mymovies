@@ -13,6 +13,11 @@ const reducer: Reducer<DiscoverState, DiscoverActionTypes> = (
   action
 ) => {
   switch (action.type) {
+    case DiscoverTypes.LOAD_UPCOMING_REQUEST:
+      return {
+        ...state,
+        loading: true,
+      }
     case DiscoverTypes.LOAD_DISCOVER_REQUEST:
       return {
         ...state,

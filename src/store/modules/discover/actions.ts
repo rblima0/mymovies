@@ -2,6 +2,9 @@ import { action } from 'typesafe-actions'
 import { DiscoverResponse } from 'entities/Discover/types'
 import { DiscoverTypes } from './types'
 
+export const loadUpcomingRequest = (page?: number) =>
+  action(DiscoverTypes.LOAD_UPCOMING_REQUEST, { page })
+
 export const loadDiscoverRequest = (
   page?: number,
   genre?: number,

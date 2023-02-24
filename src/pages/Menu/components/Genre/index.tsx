@@ -19,6 +19,15 @@ export function Genre({
     })
   }
 
+  const handleSelectCategory = (): void => {
+    handleCloseSidebar()
+
+    history.push({
+      pathname: `/dashboard/upcoming/page/1`,
+      state: 'Upcoming',
+    })
+  }
+
   return (
     <Wrapper>
       <h4>Gêneros</h4>
@@ -34,6 +43,19 @@ export function Genre({
             </Button>
           </li>
         ))}
+      </ul>
+
+      <h4>Categorias</h4>
+      <ul>
+        <li key="breve">
+          <Button
+            selected={history.location.state === 'Upcoming'}
+            onClick={(): void => handleSelectCategory()}
+            type="button"
+          >
+            Em Breve
+          </Button>
+        </li>
       </ul>
     </Wrapper>
   )

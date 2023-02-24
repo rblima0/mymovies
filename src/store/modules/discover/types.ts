@@ -3,6 +3,7 @@ import { DiscoverPayload, DiscoverResponse } from 'entities/Discover/types'
 /* Action types */
 
 export enum DiscoverTypes {
+  LOAD_UPCOMING_REQUEST = 'discover/LOAD_UPCOMING_REQUEST',
   LOAD_DISCOVER_REQUEST = 'discover/LOAD_DISCOVER_REQUEST',
   LOAD_DISCOVER_SUCCESS = 'discover/LOAD_DISCOVER_SUCCESS',
   LOAD_DISCOVER_FAILURE = 'discover/LOAD_DISCOVER_FAILURE',
@@ -17,6 +18,11 @@ export type DiscoverState = {
 }
 
 /* Data types */
+
+export type LoadUpcomingRequest = {
+  type: typeof DiscoverTypes.LOAD_UPCOMING_REQUEST
+  payload: DiscoverPayload
+}
 
 export type LoadDiscoverRequest = {
   type: typeof DiscoverTypes.LOAD_DISCOVER_REQUEST
@@ -33,6 +39,7 @@ export type LoadDiscoverFailure = {
 }
 
 export type DiscoverActionTypes =
+  | LoadUpcomingRequest
   | LoadDiscoverRequest
   | LoadDiscoverSuccess
   | LoadDiscoverFailure
