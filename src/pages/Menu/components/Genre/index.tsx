@@ -1,45 +1,33 @@
 import React, { ReactElement } from 'react'
 
 import { Genres } from 'entities/Genre/types'
+import { Category } from 'pages/Menu/types'
 
-import { GenreProps, Category } from './types'
+import { GenreProps } from './types'
 import { Wrapper, Button } from './styles'
 
 export function Genre({
   genres,
+  genresSeries,
+  movieCategories,
   history,
   handleCloseSidebar,
 }: GenreProps): ReactElement {
-  const categories: Category[] = [
-    {
-      title: 'Popular',
-      name: 'popular',
-    },
-    {
-      title: 'No cinema',
-      name: 'now-playing',
-    },
-    {
-      title: 'Em breve',
-      name: 'upcoming',
-    },
-    {
-      title: 'Melhor avaliados',
-      name: 'best-rating',
-    },
-    {
-      title: 'Mais votados',
-      name: 'top-rated',
-    },
-  ]
-
-  const handleSelectGenre = (id: number, name?: string): void => {
+  const handleSelectGenre = (path: string, name?: string) => {
     handleCloseSidebar()
 
     history.push({
-      pathname: `/movies/genre/${id}`,
+      pathname: path,
       state: name,
     })
+  }
+
+  const handleSelectGenreMovie = (id: number, name?: string): void => {
+    handleSelectGenre(`/movies/genre/${id}`, name)
+  }
+
+  const handleSelectGenreSeries = (id: number, name?: string): void => {
+    handleSelectGenre(`/series/genre/${id}`, name)
   }
 
   const handleSelectCategory = (name: string): void => {
@@ -60,13 +48,13 @@ export function Genre({
 
   return (
     <Wrapper>
-      <h4>Gêneros</h4>
+      <h4>Gêneros de Filmes</h4>
       <ul>
         {genres.map((genre: Genres) => (
           <li key={genre.id}>
             <Button
               selected={genre.name === history.location.state}
-              onClick={(): void => handleSelectGenre(genre.id, genre.name)}
+              onClick={(): void => handleSelectGenreMovie(genre.id, genre.name)}
               type="button"
             >
               {genre.name}
@@ -74,17 +62,36 @@ export function Genre({
           </li>
         ))}
       </ul>
+      
+      {movieCategories && (
+        <>
+          <h4>Categorias de Filmes</h4>
+          <ul>
+            {movieCategories.map((category: Category) => (
+              <li key={category.name}>
+                <Button
+                  selected={history.location.state === category.name}
+                  onClick={(): void => handleSelectCategory(category.name)}
+                  type="button"
+                >
+                  {category.title}
+                </Button>
+              </li>
+            ))}
+          </ul>
+        </>
+      )}
 
-      <h4>Categorias</h4>
+      <h4>Gêneros de Series</h4>
       <ul>
-        {categories.map((category: Category) => (
-          <li key={category.name}>
+        {genresSeries.map((genre: Genres) => (
+          <li key={genre.id}>
             <Button
-              selected={history.location.state === category.name}
-              onClick={(): void => handleSelectCategory(category.name)}
+              selected={genre.name === history.location.state}
+              onClick={(): void => handleSelectGenreSeries(genre.id, genre.name)}
               type="button"
             >
-              {category.title}
+              {genre.name}
             </Button>
           </li>
         ))}
