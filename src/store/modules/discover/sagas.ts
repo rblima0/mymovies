@@ -14,15 +14,18 @@ export function* loadDiscover({ payload }: LoadDiscoverRequest) {
     page = 1, 
     genre = '', 
     cast = '', 
+    nowPlaying = false,
     upcoming = false, 
     bestRating =  false,
     topRated = false 
   } = payload
 
   const today = formatDate(new Date(), 'yyyy-MM-dd')
+  const sixWeeksAgo = formatDate(new Date(Date.now() - 42 * 24 * 60 * 60 * 1000), 'yyyy-MM-dd')
   const showPage = `&page=${page}`
   const showGenre = genre && `&with_genres=${genre}`
   const showCast = cast && `&with_cast=${cast}`
+  const showNowPlaying  = nowPlaying && `&release_date.gte=${sixWeeksAgo}&release_date.lte=${today}&with_release_type=3|2&region=BR`
   const showUpcoming = upcoming && `&primary_release_date.gte=${today}`
   const showBestRating = bestRating && '&sort_by=vote_average.desc&vote_count.gte=10000'
   const showTopRated = topRated && '&sort_by=vote_count.desc'
@@ -31,6 +34,7 @@ export function* loadDiscover({ payload }: LoadDiscoverRequest) {
     const url = `/discover/movie?api_key=${config.api_key}&language=pt-BR&include_adult=false${[
       showGenre,
       showCast,
+      showNowPlaying,
       showUpcoming,
       showBestRating,
       showTopRated,

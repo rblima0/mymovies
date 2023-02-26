@@ -16,13 +16,14 @@ export function Discover({
   genre,
   history,
   match: {
-    params: { genreId, castId, upcoming, bestRating, topRated, page },
+    params: { genreId, castId, nowPlaying, upcoming, bestRating, topRated, page },
   },
 }: DiscoverProps): ReactElement {
   const pathConfig = {
     default: '/dashboard/page',
     genre: `/dashboard/genre/${genreId}/page`,
     cast: `/dashboard/cast/${castId}/page`,
+    nowPlaying: '/dashboard/now-playing/true/page',
     upcoming: '/dashboard/upcoming/true/page',
     bestRating: '/dashboard/best-rating/true/page',
     topRated: '/dashboard/top-rated/true/page',
@@ -31,6 +32,7 @@ export function Discover({
   const paginatePathname = (pageNumber: number): string => {
     const path = genreId ? pathConfig.genre : 
                  castId ? pathConfig.cast : 
+                 nowPlaying ? pathConfig.nowPlaying :
                  upcoming ? pathConfig.upcoming :
                  bestRating ? pathConfig.bestRating :
                  topRated ? pathConfig.topRated :
@@ -53,12 +55,13 @@ export function Discover({
   }, [discover])
 
   useEffect(() => {
-    loadDiscoverRequest(genreId, castId, upcoming, bestRating, topRated, page)
+    loadDiscoverRequest(genreId, castId, nowPlaying, upcoming, bestRating, topRated, page)
     window.scrollTo(0, 0)
   }, [
     loadDiscoverRequest,
     genreId,
     castId,
+    nowPlaying,
     upcoming,
     bestRating,
     topRated,

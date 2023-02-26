@@ -20,6 +20,9 @@ export function InternalRoutes() {
       <Route path="/dashboard/search/:query" component={Search} exact />
       <Route path="/dashboard/search/:query/page/:page" component={Search} exact />
 
+      <Route path="/dashboard/now-playing/:nowPlaying" component={Discover} exact />
+      <Route path="/dashboard/now-playing/:nowPlaying/page/:page" component={Discover} exact />
+
       <Route path="/dashboard/upcoming/:upcoming" component={Discover} exact />
       <Route path="/dashboard/upcoming/:upcoming/page/:page" component={Discover} exact />
 

@@ -1,6 +1,7 @@
 export type DiscoverPayload = {
   genre?: number
   cast?: number
+  nowPlaying?: boolean
   upcoming?: boolean
   topRated?: boolean
   bestRating?: boolean

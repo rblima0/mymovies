@@ -7,6 +7,7 @@ export type DiscoverProps = {
   loadDiscoverRequest(
     genre?: number,
     cast?: number,
+    nowPlaying?: boolean,
     upcoming?: boolean,
     bestRating?: boolean,
     topRated?: boolean,
@@ -19,6 +20,7 @@ export type DiscoverProps = {
     params: {
       genreId: number
       castId: number
+      nowPlaying: boolean
       upcoming: boolean
       bestRating: boolean
       topRated: boolean

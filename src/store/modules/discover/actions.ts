@@ -5,6 +5,7 @@ import { DiscoverTypes } from './types'
 export const loadDiscoverRequest = (
   genre?: number,
   cast?: number,
+  nowPlaying?: boolean,
   upcoming?: boolean,
   bestRating?: boolean,
   topRated?: boolean,
@@ -13,6 +14,7 @@ export const loadDiscoverRequest = (
   action(DiscoverTypes.LOAD_DISCOVER_REQUEST, {
     genre,
     cast,
+    nowPlaying,
     upcoming,
     topRated,
     bestRating,
