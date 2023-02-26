@@ -27,7 +27,7 @@ export function* loadDiscover({ payload }: LoadDiscoverRequest) {
   const showCast = cast && `&with_cast=${cast}`
   const showNowPlaying  = nowPlaying && `&release_date.gte=${sixWeeksAgo}&release_date.lte=${today}&with_release_type=3|2&region=BR`
   const showUpcoming = upcoming && `&primary_release_date.gte=${today}`
-  const showBestRating = bestRating && '&sort_by=vote_average.desc&vote_count.gte=10000'
+  const showBestRating = bestRating && '&sort_by=vote_average.desc&vote_count.gte=5000'
   const showTopRated = topRated && '&sort_by=vote_count.desc'
 
   try {
