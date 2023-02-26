@@ -25,10 +25,34 @@ export function Preview({
     return overview
   }
 
+  const showTitle = (): string => {
+    if (preview.title) {
+      return preview.title
+    }
+
+    if (preview.name) {
+      return preview.name
+    }
+
+    return '-'
+  }
+
+  const showReleaseDate = (): string => {
+    if (preview.release_date) {
+      return formatDate(preview.release_date)
+    }
+
+    if (preview.first_air_date) {
+      return formatDate(preview.first_air_date)
+    }
+
+    return 'Data indefinida'
+  }
+
   const handleOpenMovie = (): void => {
     history.push({
-      pathname: `/dashboard/movie/${preview.id}`,
-      state: preview.title,
+      pathname: `/movies/movie/${preview.id}`,
+      state: showTitle(),
     })
   }
 
@@ -39,11 +63,11 @@ export function Preview({
 
     return (
       <>
-        {preview.genre_ids.map((item: number) => (
+        {/* {preview.genre_ids.map((item: number) => (
           <span key={item}>
             {genres.find(({ id }: Genres) => id === item).name}
           </span>
-        ))}
+        ))} */}
       </>
     )
   }
@@ -53,7 +77,7 @@ export function Preview({
       <ContentImage>
         <button type="button" onClick={handleOpenMovie}>
           <img
-            alt={preview.title}
+            alt={showTitle()}
             src={
               preview.poster_path
                 ? `https://image.tmdb.org/t/p/w185${preview.poster_path}`
@@ -68,14 +92,10 @@ export function Preview({
       </ContentImage>
 
       <ContentInfo>
-        <h5>
-          {preview.release_date
-            ? formatDate(preview.release_date)
-            : 'Data indefinida'}
-        </h5>
+        <h5>{showReleaseDate()}</h5>
 
         <button type="button" onClick={handleOpenMovie}>
-          <h3>{preview.title ? preview.title : '-'}</h3>
+          <h3>{showTitle()}</h3>
         </button>
 
         <Rating

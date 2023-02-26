@@ -25,7 +25,7 @@ export function Movie({
 }: MovieProps): ReactElement {
   const handleClickCast = (id: number, name?: string): void => {
     history.push({
-      pathname: `/dashboard/cast/${id}`,
+      pathname: `/movies/cast/${id}`,
       state: name,
     })
   }

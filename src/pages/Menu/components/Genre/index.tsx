@@ -37,7 +37,7 @@ export function Genre({
     handleCloseSidebar()
 
     history.push({
-      pathname: `/dashboard/genre/${id}`,
+      pathname: `/movies/genre/${id}`,
       state: name,
     })
   }
@@ -47,13 +47,13 @@ export function Genre({
 
     if (name === 'popular') {
       return history.push({
-        pathname: `/dashboard`,
+        pathname: `/movies`,
         state: name,
       })
     }
 
     history.push({
-      pathname: `/dashboard/${name}/true`,
+      pathname: `/movies/${name}/true`,
       state: name,
     })
   }
