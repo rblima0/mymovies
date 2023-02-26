@@ -10,22 +10,34 @@ import { loadDiscoverSuccess, loadDiscoverFailure } from './actions'
 import { DiscoverTypes, LoadDiscoverRequest } from './types'
 
 export function* loadDiscover({ payload }: LoadDiscoverRequest) {
-  const { page, genre, cast, upcoming, bestRating, topRated } = payload
+  const { 
+    page = 1, 
+    genre = '', 
+    cast = '', 
+    upcoming = false, 
+    bestRating =  false,
+    topRated = false 
+  } = payload
 
   const today = formatDate(new Date(), 'yyyy-MM-dd')
-  const showPage = page ? `&page=${page}` : '&page=1'
-  const showGenre = genre ? `&with_genres=${genre}` : ''
-  const showCast = cast ? `&with_cast=${cast}` : ''
-  const showUpcoming = upcoming ? `&primary_release_date.gte=${today}` : ''
-  const showBestRating = bestRating
-    ? `&sort_by=vote_average.desc&vote_count.gte=10000`
-    : ''
-  const showTopRated = topRated ? `&sort_by=vote_count.desc` : ''
+  const showPage = `&page=${page}`
+  const showGenre = genre && `&with_genres=${genre}`
+  const showCast = cast && `&with_cast=${cast}`
+  const showUpcoming = upcoming && `&primary_release_date.gte=${today}`
+  const showBestRating = bestRating && '&sort_by=vote_average.desc&vote_count.gte=10000'
+  const showTopRated = topRated && '&sort_by=vote_count.desc'
 
   try {
-    const url = `/discover/movie?api_key=${config.api_key}&language=pt-BR&include_adult=false${showBestRating}${showTopRated}${showGenre}${showCast}${showUpcoming}${showPage}`
-    const response = yield call(api.get, url)
+    const url = `/discover/movie?api_key=${config.api_key}&language=pt-BR&include_adult=false${[
+      showGenre,
+      showCast,
+      showUpcoming,
+      showBestRating,
+      showTopRated,
+      showPage,
+    ].filter(Boolean).join('')}`
 
+    const response = yield call(api.get, url)
     const discover = new Discover(response.data)
 
     yield put(loadDiscoverSuccess(discover))
