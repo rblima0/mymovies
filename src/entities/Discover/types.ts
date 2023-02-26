@@ -1,7 +1,10 @@
 export type DiscoverPayload = {
-  page?: number
   genre?: number
   cast?: number
+  upcoming?: boolean
+  topRated?: boolean
+  bestRating?: boolean
+  page?: number
 }
 
 export type DiscoverResponse = {

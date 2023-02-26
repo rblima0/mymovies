@@ -2,7 +2,7 @@ import React, { ReactElement } from 'react'
 
 import { Genres } from 'entities/Genre/types'
 
-import { GenreProps } from './types'
+import { GenreProps, Category } from './types'
 import { Wrapper, Button } from './styles'
 
 export function Genre({
@@ -10,6 +10,29 @@ export function Genre({
   history,
   handleCloseSidebar,
 }: GenreProps): ReactElement {
+  const categories: Category[] = [
+    {
+      title: 'Popular',
+      name: 'popular',
+    },
+    {
+      title: 'No cinema',
+      name: 'now-playing',
+    },
+    {
+      title: 'Em breve',
+      name: 'upcoming',
+    },
+    {
+      title: 'Melhor avaliados',
+      name: 'best-rating',
+    },
+    {
+      title: 'Mais votados',
+      name: 'top-rated',
+    },
+  ]
+
   const handleSelectGenre = (id: number, name?: string): void => {
     handleCloseSidebar()
 
@@ -19,12 +42,19 @@ export function Genre({
     })
   }
 
-  const handleSelectCategory = (): void => {
+  const handleSelectCategory = (name: string): void => {
     handleCloseSidebar()
 
+    if (name === 'popular') {
+      return history.push({
+        pathname: `/dashboard`,
+        state: name,
+      })
+    }
+
     history.push({
-      pathname: `/dashboard/upcoming/page/1`,
-      state: 'Upcoming',
+      pathname: `/dashboard/${name}/true`,
+      state: name,
     })
   }
 
@@ -47,15 +77,17 @@ export function Genre({
 
       <h4>Categorias</h4>
       <ul>
-        <li key="breve">
-          <Button
-            selected={history.location.state === 'Upcoming'}
-            onClick={(): void => handleSelectCategory()}
-            type="button"
-          >
-            Em Breve
-          </Button>
-        </li>
+        {categories.map((category: Category) => (
+          <li key={category.name}>
+            <Button
+              selected={history.location.state === category.name}
+              onClick={(): void => handleSelectCategory(category.name)}
+              type="button"
+            >
+              {category.title}
+            </Button>
+          </li>
+        ))}
       </ul>
     </Wrapper>
   )

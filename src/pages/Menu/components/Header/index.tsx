@@ -32,6 +32,12 @@ export function Header({
 
     if (path.match(/cast/)) return `${state ? state : 'Elenco'}`
 
+    if (path.match(/upcoming/)) return 'Em Breve'
+
+    if (path.match(/best-rating/)) return 'Melhor Avaliados'
+
+    if (path.match(/top-rated/)) return 'Mais Votados'
+
     return 'Listagem de Filmes'
   }
 
@@ -43,6 +49,13 @@ export function Header({
     if (path.match(/search/)) return 'Veja o que encontramos'
 
     if (path.match(/cast/)) return 'Buscando pelo elenco'
+
+    if (path.match(/upcoming/)) return 'Futuros lançamentos'
+
+    if (path.match(/best-rating/))
+      return 'Os filmes melhor avaliados pelo público'
+
+    if (path.match(/top-rated/)) return 'Os filmes mais votados pelo público'
 
     return 'Encontre diversas opções'
   }

@@ -11,3 +11,8 @@ export type GenreProps = {
 export type GenreStylesProps = {
   selected: boolean
 }
+
+export type Category = {
+  title: string
+  name: string
+}
