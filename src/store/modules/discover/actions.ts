@@ -3,14 +3,22 @@ import { DiscoverResponse } from 'entities/Discover/types'
 import { DiscoverTypes } from './types'
 
 export const loadDiscoverRequest = (
-  page?: number,
   genre?: number,
-  cast?: number
+  cast?: number,
+  nowPlaying?: boolean,
+  upcoming?: boolean,
+  bestRating?: boolean,
+  topRated?: boolean,
+  page?: number
 ) =>
   action(DiscoverTypes.LOAD_DISCOVER_REQUEST, {
-    page,
     genre,
     cast,
+    nowPlaying,
+    upcoming,
+    topRated,
+    bestRating,
+    page,
   })
 
 export const loadDiscoverSuccess = (data: DiscoverResponse) =>

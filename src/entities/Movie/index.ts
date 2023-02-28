@@ -11,7 +11,7 @@ import {
 export default class Movie {
   public adult: boolean
   public backdrop_path: string
-  public belongs_to_collection: null | Object
+  public belongs_to_collection: null | object
   public budget: number
   public genres: Genres[]
   public homepage: string

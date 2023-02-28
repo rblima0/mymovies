@@ -16,19 +16,29 @@ export function Discover({
   genre,
   history,
   match: {
-    params: { genreId, castId, page },
+    params: { genreId, castId, nowPlaying, upcoming, bestRating, topRated, page },
   },
 }: DiscoverProps): ReactElement {
+  const pathConfig = {
+    default: '/dashboard/page',
+    genre: `/dashboard/genre/${genreId}/page`,
+    cast: `/dashboard/cast/${castId}/page`,
+    nowPlaying: '/dashboard/now-playing/true/page',
+    upcoming: '/dashboard/upcoming/true/page',
+    bestRating: '/dashboard/best-rating/true/page',
+    topRated: '/dashboard/top-rated/true/page',
+  }
+
   const paginatePathname = (pageNumber: number): string => {
-    if (genreId) {
-      return `/dashboard/genre/${genreId}/page/${pageNumber}`
-    }
+    const path = genreId ? pathConfig.genre : 
+                 castId ? pathConfig.cast : 
+                 nowPlaying ? pathConfig.nowPlaying :
+                 upcoming ? pathConfig.upcoming :
+                 bestRating ? pathConfig.bestRating :
+                 topRated ? pathConfig.topRated :
+                 pathConfig.default
 
-    if (castId) {
-      return `/dashboard/cast/${castId}/page/${pageNumber}`
-    }
-
-    return `/dashboard/page/${pageNumber}`
+    return `${path}/${pageNumber}`
   }
 
   const handlePaginate = (pageNumber: number): void => {
@@ -45,9 +55,18 @@ export function Discover({
   }, [discover])
 
   useEffect(() => {
-    loadDiscoverRequest(page, genreId, castId)
+    loadDiscoverRequest(genreId, castId, nowPlaying, upcoming, bestRating, topRated, page)
     window.scrollTo(0, 0)
-  }, [loadDiscoverRequest, genreId, castId, page])
+  }, [
+    loadDiscoverRequest,
+    genreId,
+    castId,
+    nowPlaying,
+    upcoming,
+    bestRating,
+    topRated,
+    page,
+  ])
 
   if (discover.error) {
     return <Error title="Tivemos um problema" />
