@@ -7,7 +7,7 @@ export type MoviePayload = {
 export type MovieResponse = {
   adult: boolean
   backdrop_path: string
-  belongs_to_collection: null | Object
+  belongs_to_collection: null | object
   budget: number
   genres: Genres[]
   homepage: string

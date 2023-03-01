@@ -7,9 +7,10 @@
   "extends": [
     "eslint:recommended",
     "plugin:react/recommended",
+    "plugin:@typescript-eslint/eslint-recommended", // TODO: "plugin:@typescript-eslint/recommended"
     "prettier",
     "prettier/react",
-    "plugin:@typescript-eslint/eslint-recommended"
+    "prettier/@typescript-eslint"
   ],
   "globals": {
     "Atomics": "readonly",
@@ -23,19 +24,54 @@
     "ecmaVersion": 2018,
     "sourceType": "module"
   },
-  "plugins": ["@typescript-eslint", "jsx-a11y", "prettier", "react"],
+  "plugins": [
+    "react",
+    "react-hooks",
+    "@typescript-eslint",
+    "jsx-a11y",
+    "prettier"
+  ],
   "rules": {   
     "import/prefer-default-export": "off",
     "import/no-extraneous-dependencies": "off",
     "lines-between-class-members": "off",
     "no-unused-vars": "off",
     "import/no-unresolved": "off",
-    "prettier/prettier": "warn",
+    "prettier/prettier": 0,
     "react/jsx-filename-extension": [
       "warn",
       { "extensions": [".ts", ".tsx", ".js"] }
     ],
-    "semi": ["warn", "never"]
+    "react-hooks/rules-of-hooks": "error",
+    "react-hooks/exhaustive-deps": "warn",
+    "react/jsx-uses-react": "off",
+    "react/react-in-jsx-scope": "off",
+    "@typescript-eslint/explicit-module-boundary-types": "off",
+    "@typescript-eslint/no-explicit-any": "off",
+    "@typescript-eslint/no-empty-interface": "warn",
+    "semi": ["warn", "never"],
+    "@typescript-eslint/ban-types": [
+      "warn",
+      {
+        "types": {
+          "Object": {
+            "message": "Avoid using the `Object` type. Did you mean `object`?"
+          },
+          "Function": {
+            "message": "Avoid using the `Function` type. Prefer a specific function type, like `() => void`."
+          },
+          "Boolean": {
+            "message": "Avoid using the `Boolean` type. Did you mean `boolean`?"
+          },
+          "Number": {
+            "message": "Avoid using the `Number` type. Did you mean `number`?"
+          },
+          "String": {
+            "message": "Avoid using the `String` type. Did you mean `string`?"
+          }
+        }
+      }
+    ]
   },
   "settings": {
     "react": {

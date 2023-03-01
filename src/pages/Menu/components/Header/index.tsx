@@ -4,7 +4,7 @@ import { MdSearch, MdClose } from 'react-icons/md'
 import { colors } from 'styles/theme'
 import { Find } from '../Find'
 
-import { HeaderProps } from './types'
+import { HeaderProps, TitleMap, SubtitleMap } from './types'
 import {
   Wrapper,
   Section,
@@ -23,29 +23,46 @@ export function Header({
 
   const showSearch = pathname.indexOf('movie') > -1
 
+  const titleMap: TitleMap = {
+    'movie': `${state ? state : 'Conheça o filme'}`,
+    'genre': `${state ? state : 'Listagem por Gênero'}`,
+    'search': `${state ? state : 'Pesquisando'}`,
+    'cast': `${state ? state : 'Elenco'}`,
+    'upcoming': 'Em Breve',
+    'best-rating': 'Melhor Avaliados',
+    'top-rated': 'Mais Votados'
+  }
+  
   const showTitle = (path: string): string => {
-    if (path.match(/movie/)) return `${state ? state : 'Conheça o filme'}`
-
-    if (path.match(/genre/)) return `${state ? state : 'Listagem por Gênero'}`
-
-    if (path.match(/search/)) return `${state ? state : 'Pesquisando'}`
-
-    if (path.match(/cast/)) return `${state ? state : 'Elenco'}`
-
+    for (const regex in titleMap) {
+      if (path.match(new RegExp(regex))) {
+        return titleMap[regex]
+      }
+    }
+    
     return 'Listagem de Filmes'
   }
-
+  
+  const subtitleMap: SubtitleMap = {
+    'movie': 'Informações adicionais',
+    'genre': 'O melhor do seu gênero preferido',
+    'search': 'Veja o que encontramos',
+    'cast': 'Buscando pelo elenco',
+    'upcoming': 'Futuros lançamentos',
+    'best-rating': 'Os filmes melhor avaliados pelo público',
+    'top-rated': 'Os filmes mais votados pelo público'
+  }
+  
   const showSubtitle = (path: string): string => {
-    if (path.match(/movie/)) return 'Informações adicionais'
-
-    if (path.match(/genre/)) return 'O melhor do seu gênero preferido'
-
-    if (path.match(/search/)) return 'Veja o que encontramos'
-
-    if (path.match(/cast/)) return 'Buscando pelo elenco'
+    for (const regex in subtitleMap) {
+      if (path.match(new RegExp(regex))) {
+        return subtitleMap[regex]
+      }
+    }
 
     return 'Encontre diversas opções'
   }
+  
 
   const handleToggleFind = (): void => {
     setIsOpen(!isOpen)
