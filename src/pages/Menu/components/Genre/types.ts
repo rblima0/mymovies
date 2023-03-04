@@ -7,6 +7,7 @@ export type GenreProps = {
   genres: Genres[]
   genresSeries: Genres[]
   movieCategories?: Category[]
+  seriesCategories?: Category[]
   history: History
   handleCloseSidebar: () => void
 }

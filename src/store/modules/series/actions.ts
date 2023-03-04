@@ -4,7 +4,6 @@ import { SeriesTypes } from './types'
 
 export const loadSeriesRequest = (
   genre?: number,
-  cast?: number,
   nowPlaying?: boolean,
   upcoming?: boolean,
   bestRating?: boolean,
@@ -13,7 +12,6 @@ export const loadSeriesRequest = (
 ) =>
   action(SeriesTypes.LOAD_SERIES_REQUEST, {
     genre,
-    cast,
     nowPlaying,
     upcoming,
     topRated,

@@ -24,10 +24,10 @@ export function Discover({
     default: '/movies/page',
     genre: `/movies/genre/${genreId}/page`,
     cast: `/movies/cast/${castId}/page`,
-    nowPlaying: '/movies/now-playing/true/page',
-    upcoming: '/movies/upcoming/true/page',
-    bestRating: '/movies/best-rating/true/page',
-    topRated: '/movies/top-rated/true/page',
+    nowPlaying: '/movies/now-playing-movies/true/page',
+    upcoming: '/movies/upcoming-movies/true/page',
+    bestRating: '/movies/best-rating-movies/true/page',
+    topRated: '/movies/top-rated-movies/true/page',
   }
 
   const paginatePathname = (pageNumber: number): string => {

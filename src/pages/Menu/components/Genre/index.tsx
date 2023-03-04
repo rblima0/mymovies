@@ -10,6 +10,7 @@ export function Genre({
   genres,
   genresSeries,
   movieCategories,
+  seriesCategories,
   history,
   handleCloseSidebar,
 }: GenreProps): ReactElement {
@@ -23,27 +24,30 @@ export function Genre({
   }
 
   const handleSelectGenreMovie = (id: number, name?: string): void => {
-    handleSelectGenre(`/movies/genre/${id}`, name)
+    handleSelectGenre(`/movies/genre/${id}`, `${name}_movie`)
   }
 
   const handleSelectGenreSeries = (id: number, name?: string): void => {
-    handleSelectGenre(`/series/genre/${id}`, name)
+    handleSelectGenre(`/series/genre/${id}`, `${name}_serie`)
   }
 
-  const handleSelectCategory = (name: string): void => {
+  const handleSelectCategory = (name: string, mediaType: string): void => {
     handleCloseSidebar()
-
-    if (name === 'popular') {
-      return history.push({
-        pathname: `/movies`,
-        state: name,
-      })
-    }
-
+  
+    const path = name === "popular-movies" || name === "popular-series" ? `/${mediaType}` : `/${mediaType}/${name}/true`
+  
     history.push({
-      pathname: `/movies/${name}/true`,
+      pathname: path,
       state: name,
     })
+  }
+
+  const handleSelectCategoryMovie = (name: string): void => {
+    handleSelectCategory(name, "movies")
+  }
+  
+  const handleSelectCategorySeries = (name: string): void => {
+    handleSelectCategory(name, "series")
   }
 
   return (
@@ -53,7 +57,7 @@ export function Genre({
         {genres.map((genre: Genres) => (
           <li key={genre.id}>
             <Button
-              selected={genre.name === history.location.state}
+              selected={`${genre.name}_movie` === history.location.state}
               onClick={(): void => handleSelectGenreMovie(genre.id, genre.name)}
               type="button"
             >
@@ -71,7 +75,7 @@ export function Genre({
               <li key={category.name}>
                 <Button
                   selected={history.location.state === category.name}
-                  onClick={(): void => handleSelectCategory(category.name)}
+                  onClick={(): void => handleSelectCategoryMovie(category.name)}
                   type="button"
                 >
                   {category.title}
@@ -87,7 +91,7 @@ export function Genre({
         {genresSeries.map((genre: Genres) => (
           <li key={genre.id}>
             <Button
-              selected={genre.name === history.location.state}
+              selected={`${genre.name}_serie` === history.location.state}
               onClick={(): void => handleSelectGenreSeries(genre.id, genre.name)}
               type="button"
             >
@@ -96,6 +100,25 @@ export function Genre({
           </li>
         ))}
       </ul>
+
+      {seriesCategories && (
+        <>
+          <h4>Categorias de Séries</h4>
+          <ul>
+            {seriesCategories.map((category: Category) => (
+              <li key={category.name}>
+                <Button
+                  selected={history.location.state === category.name}
+                  onClick={(): void => handleSelectCategorySeries(category.name)}
+                  type="button"
+                >
+                  {category.title}
+                </Button>
+              </li>
+            ))}
+          </ul>
+        </>
+      )}
     </Wrapper>
   )
 }

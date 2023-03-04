@@ -17,22 +17,20 @@ export function Series({
   genre,
   history,
   match: {
-    params: { genreId, castId, nowPlaying, upcoming, bestRating, topRated, page },
+    params: { genreId, nowPlaying, upcoming, bestRating, topRated, page },
   },
 }: SeriesProps): ReactElement {
   const pathConfig = {
     default: '/series/page',
     genre: `/series/genre/${genreId}/page`,
-    cast: `/series/cast/${castId}/page`,
-    nowPlaying: '/series/now-playing/true/page',
-    upcoming: '/series/upcoming/true/page',
-    bestRating: '/series/best-rating/true/page',
-    topRated: '/series/top-rated/true/page',
+    nowPlaying: '/series/now-playing-series/true/page',
+    upcoming: '/series/upcoming-series/true/page',
+    bestRating: '/series/best-rating-series/true/page',
+    topRated: '/series/top-rated-series/true/page',
   }
 
   const paginatePathname = (pageNumber: number): string => {
-    const path = genreId ? pathConfig.genre : 
-                 castId ? pathConfig.cast : 
+    const path = genreId ? pathConfig.genre :
                  nowPlaying ? pathConfig.nowPlaying :
                  upcoming ? pathConfig.upcoming :
                  bestRating ? pathConfig.bestRating :
@@ -56,12 +54,11 @@ export function Series({
   }, [series])
 
   useEffect(() => {
-    loadSeriesRequest(genreId, castId, nowPlaying, upcoming, bestRating, topRated, page)
+    loadSeriesRequest(genreId, nowPlaying, upcoming, bestRating, topRated, page)
     window.scrollTo(0, 0)
   }, [
     loadSeriesRequest,
     genreId,
-    castId,
     nowPlaying,
     upcoming,
     bestRating,

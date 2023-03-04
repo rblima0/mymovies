@@ -6,7 +6,6 @@ import { GenreState } from 'store/modules/genre/types'
 export type SeriesProps = {
   loadSeriesRequest(
     genre?: number,
-    cast?: number,
     nowPlaying?: boolean,
     upcoming?: boolean,
     bestRating?: boolean,
@@ -19,7 +18,6 @@ export type SeriesProps = {
   match: {
     params: {
       genreId: number
-      castId: number
       nowPlaying: boolean
       upcoming: boolean
       bestRating: boolean

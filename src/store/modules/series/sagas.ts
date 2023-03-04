@@ -13,7 +13,6 @@ export function* loadSeries({ payload }: LoadSeriesRequest) {
   const { 
     page = 1, 
     genre = '', 
-    cast = '', 
     nowPlaying = false,
     upcoming = false, 
     bestRating =  false,
@@ -24,16 +23,14 @@ export function* loadSeries({ payload }: LoadSeriesRequest) {
   const sixWeeksAgo = formatDate(new Date(Date.now() - 42 * 24 * 60 * 60 * 1000), 'yyyy-MM-dd')
   const showPage = `&page=${page}`
   const showGenre = genre && `&with_genres=${genre}`
-  const showCast = cast && `&with_cast=${cast}` // TODO: validate id has this filter
-  const showNowPlaying  = nowPlaying && `&release_date.gte=${sixWeeksAgo}&release_date.lte=${today}&with_release_type=3|2&region=BR`
-  const showUpcoming = upcoming && `&primary_release_date.gte=${today}`
-  const showBestRating = bestRating && '&sort_by=vote_average.desc&vote_count.gte=5000'
+  const showNowPlaying  = nowPlaying && `&first_air_date.gte=${sixWeeksAgo}&first_air_date.lte=${today}`
+  const showUpcoming = upcoming && `&first_air_date.gte=${today}&include_null_first_air_dates=false`
+  const showBestRating = bestRating && '&sort_by=vote_average.desc&vote_count.gte=2000'
   const showTopRated = topRated && '&sort_by=vote_count.desc'
 
   try {
     const url = `/discover/tv?api_key=${config.api_key}&language=pt-BR${[
       showGenre,
-      showCast,
       showNowPlaying,
       showUpcoming,
       showBestRating,

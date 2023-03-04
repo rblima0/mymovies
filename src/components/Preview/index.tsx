@@ -63,11 +63,11 @@ export function Preview({
 
     return (
       <>
-        {/* {preview.genre_ids.map((item: number) => (
+        {preview.genre_ids.map((item: number) => (
           <span key={item}>
             {genres.find(({ id }: Genres) => id === item).name}
           </span>
-        ))} */}
+        ))}
       </>
     )
   }

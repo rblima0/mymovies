@@ -23,17 +23,17 @@ export function InternalRoutes() {
       <Route path="/movies/search/:query" component={Search} exact />
       <Route path="/movies/search/:query/page/:page" component={Search} exact />
 
-      <Route path="/movies/now-playing/:nowPlaying" component={Discover} exact />
-      <Route path="/movies/now-playing/:nowPlaying/page/:page" component={Discover} exact />
+      <Route path="/movies/now-playing-movies/:nowPlaying" component={Discover} exact />
+      <Route path="/movies/now-playing-movies/:nowPlaying/page/:page" component={Discover} exact />
 
-      <Route path="/movies/upcoming/:upcoming" component={Discover} exact />
-      <Route path="/movies/upcoming/:upcoming/page/:page" component={Discover} exact />
+      <Route path="/movies/upcoming-movies/:upcoming" component={Discover} exact />
+      <Route path="/movies/upcoming-movies/:upcoming/page/:page" component={Discover} exact />
 
-      <Route path="/movies/best-rating/:bestRating" component={Discover} exact />
-      <Route path="/movies/best-rating/:bestRating/page/:page" component={Discover} exact />
+      <Route path="/movies/best-rating-movies/:bestRating" component={Discover} exact />
+      <Route path="/movies/best-rating-movies/:bestRating/page/:page" component={Discover} exact />
 
-      <Route path="/movies/top-rated/:topRated" component={Discover} exact />
-      <Route path="/movies/top-rated/:topRated/page/:page" component={Discover} exact />
+      <Route path="/movies/top-rated-movies/:topRated" component={Discover} exact />
+      <Route path="/movies/top-rated-movies/:topRated/page/:page" component={Discover} exact />
 
 
       <Route path="/series" component={Series} exact />
@@ -42,23 +42,20 @@ export function InternalRoutes() {
       <Route path="/series/genre/:genreId" component={Series} exact />
       <Route path="/series/genre/:genreId/page/:page" component={Series} exact />
 
-      <Route path="/series/cast/:castId" component={Series} exact />
-      <Route path="/series/cast/:castId/page/:page" component={Series} exact />
-
       <Route path="/series/search/:query" component={Search} exact />
       <Route path="/series/search/:query/page/:page" component={Search} exact />
 
-      <Route path="/series/now-playing/:nowPlaying" component={Series} exact />
-      <Route path="/series/now-playing/:nowPlaying/page/:page" component={Series} exact />
+      <Route path="/series/now-playing-series/:nowPlaying" component={Series} exact />
+      <Route path="/series/now-playing-series/:nowPlaying/page/:page" component={Series} exact />
 
-      <Route path="/series/upcoming/:upcoming" component={Series} exact />
-      <Route path="/series/upcoming/:upcoming/page/:page" component={Series} exact />
+      <Route path="/series/upcoming-series/:upcoming" component={Series} exact />
+      <Route path="/series/upcoming-series/:upcoming/page/:page" component={Series} exact />
 
-      <Route path="/series/best-rating/:bestRating" component={Series} exact />
-      <Route path="/series/best-rating/:bestRating/page/:page" component={Series} exact />
+      <Route path="/series/best-rating-series/:bestRating" component={Series} exact />
+      <Route path="/series/best-rating-series/:bestRating/page/:page" component={Series} exact />
 
-      <Route path="/series/top-rated/:topRated" component={Series} exact />
-      <Route path="/series/top-rated/:topRated/page/:page" component={Series} exact />
+      <Route path="/series/top-rated-series/:topRated" component={Series} exact />
+      <Route path="/series/top-rated-series/:topRated/page/:page" component={Series} exact />
     </Switch>
   )
 }

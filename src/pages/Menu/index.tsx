@@ -11,34 +11,57 @@ import { Category, MenuProps } from './types'
 import { Container, Content } from './styles'
 
 export function Menu({
-  loadGenreRequest,
-  loadGenreSeriesRequest,
   genre,
   genreSeries,
   history,
+  loadGenreRequest,
+  loadGenreSeriesRequest,
 }: MenuProps): ReactElement {
   const [isOpen, setIsOpen] = useState(false)
 
   const moviesCategories: Category[] = [
     {
       title: 'Popular',
-      name: 'popular',
+      name: 'popular-movies',
     },
     {
       title: 'No cinema',
-      name: 'now-playing',
+      name: 'now-playing-movies',
     },
     {
       title: 'Em breve',
-      name: 'upcoming',
+      name: 'upcoming-movies',
     },
     {
       title: 'Melhor avaliados',
-      name: 'best-rating',
+      name: 'best-rating-movies',
     },
     {
       title: 'Mais votados',
-      name: 'top-rated',
+      name: 'top-rated-movies',
+    },
+  ]
+
+  const seriesCategories: Category[] = [
+    {
+      title: 'Popular',
+      name: 'popular-series',
+    },
+    {
+      title: 'Lançamentos',
+      name: 'now-playing-series',
+    },
+    {
+      title: 'Em breve',
+      name: 'upcoming-series',
+    },
+    {
+      title: 'Melhor avaliados',
+      name: 'best-rating-series',
+    },
+    {
+      title: 'Mais votados',
+      name: 'top-rated-series',
     },
   ]
 
@@ -66,9 +89,10 @@ export function Menu({
         <Genre
           genres={genre.data.genres}
           genresSeries={genreSeries.data.genres}
-          movieCategories={moviesCategories}
-          history={history}
           handleCloseSidebar={handleCloseSidebar}
+          history={history}
+          movieCategories={moviesCategories}
+          seriesCategories={seriesCategories}
         />
       </Sidebar>
       <Content>
