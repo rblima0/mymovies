@@ -1,38 +1,36 @@
 import React, { ReactElement, useEffect, useMemo } from 'react'
 import * as R from 'ramda'
 
+import { SeriesResult } from 'entities/Series/types'
 import { Preview } from 'components/Preview'
 import { Pagination } from 'components/shared/Pagination'
 import { Loader } from 'components/shared/Loader'
 import { Card } from 'components/shared/Card'
 import { Error } from 'components/shared/Error'
 
-import { DiscoverProps } from './types'
+import { SeriesProps } from './types'
 import { Section } from './styles'
-import { DiscoverResult } from 'entities/Discover/types'
 
-export function Discover({
-  loadDiscoverRequest,
-  discover,
+export function Series({
+  loadSeriesRequest,
+  series,
   genre,
   history,
   match: {
-    params: { genreId, castId, nowPlaying, upcoming, bestRating, topRated, page },
+    params: { genreId, nowPlaying, upcoming, bestRating, topRated, page },
   },
-}: DiscoverProps): ReactElement {
+}: SeriesProps): ReactElement {
   const pathConfig = {
-    default: '/movies/page',
-    genre: `/movies/genre/${genreId}/page`,
-    cast: `/movies/cast/${castId}/page`,
-    nowPlaying: '/movies/now-playing-movies/true/page',
-    upcoming: '/movies/upcoming-movies/true/page',
-    bestRating: '/movies/best-rating-movies/true/page',
-    topRated: '/movies/top-rated-movies/true/page',
+    default: '/series/page',
+    genre: `/series/genre/${genreId}/page`,
+    nowPlaying: '/series/now-playing-series/true/page',
+    upcoming: '/series/upcoming-series/true/page',
+    bestRating: '/series/best-rating-series/true/page',
+    topRated: '/series/top-rated-series/true/page',
   }
 
   const paginatePathname = (pageNumber: number): string => {
-    const path = genreId ? pathConfig.genre : 
-                 castId ? pathConfig.cast : 
+    const path = genreId ? pathConfig.genre :
                  nowPlaying ? pathConfig.nowPlaying :
                  upcoming ? pathConfig.upcoming :
                  bestRating ? pathConfig.bestRating :
@@ -52,16 +50,15 @@ export function Discover({
   }
 
   const isLoading = useMemo(() => {
-    return discover.loading || R.isEmpty(discover.data)
-  }, [discover])
+    return series.loading || R.isEmpty(series.data)
+  }, [series])
 
   useEffect(() => {
-    loadDiscoverRequest(genreId, castId, nowPlaying, upcoming, bestRating, topRated, page)
+    loadSeriesRequest(genreId, nowPlaying, upcoming, bestRating, topRated, page)
     window.scrollTo(0, 0)
   }, [
-    loadDiscoverRequest,
+    loadSeriesRequest,
     genreId,
-    castId,
     nowPlaying,
     upcoming,
     bestRating,
@@ -69,7 +66,7 @@ export function Discover({
     page,
   ])
 
-  if (discover.error) {
+  if (series.error) {
     return <Error title="Tivemos um problema" />
   }
 
@@ -80,7 +77,7 @@ export function Discover({
   return (
     <>
       <Section>
-        {discover.data.results.map((preview: DiscoverResult) => (
+        {series.data.results.map((preview: SeriesResult) => (
           <Card key={preview.id} backdrop={preview.backdrop_path}>
             <Preview
               preview={preview}
@@ -93,8 +90,8 @@ export function Discover({
 
       <Pagination
         handlePaginate={handlePaginate}
-        totalPages={discover.data.total_pages}
-        page={discover.data.page}
+        totalPages={series.data.total_pages}
+        page={series.data.page}
       />
     </>
   )

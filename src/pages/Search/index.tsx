@@ -23,7 +23,7 @@ export function Search({
     const title = history.location.state
 
     history.push({
-      pathname: `/dashboard/search/${query}/page/${pageNumber}`,
+      pathname: `/movies/search/${query}/page/${pageNumber}`,
       state: title,
     })
   }

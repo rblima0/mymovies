@@ -24,7 +24,7 @@ export function Sidebar({
         <ToggleSidebar onClick={handleToggleSidebar}>
           <MdMenu size={28} />
         </ToggleSidebar>
-        <Link to="/dashboard">
+        <Link to="/series">
           <Logo>
             <img src={popcorn} alt="logo" /> MyMovies
           </Logo>
@@ -33,7 +33,7 @@ export function Sidebar({
 
       <WrapperSidebar isOpen={isOpen}>
         <HeaderSidebar>
-          <Link to="/dashboard">
+          <Link to="/series">
             <Logo>
               <img src={popcorn} alt="logo" /> MyMovies
             </Logo>

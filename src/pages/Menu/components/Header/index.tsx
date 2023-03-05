@@ -23,14 +23,24 @@ export function Header({
 
   const showSearch = pathname.indexOf('movie') > -1
 
+  const removeAfterHyphen = (str: any) => {
+    return str.split('_')[0]
+  }
+
   const titleMap: TitleMap = {
-    'movie': `${state ? state : 'Conheça o filme'}`,
-    'genre': `${state ? state : 'Listagem por Gênero'}`,
-    'search': `${state ? state : 'Pesquisando'}`,
-    'cast': `${state ? state : 'Elenco'}`,
-    'upcoming': 'Em Breve',
-    'best-rating': 'Melhor Avaliados',
-    'top-rated': 'Mais Votados'
+    'movies/movie': `${state ? removeAfterHyphen(state) : 'Conheça o filme'}`,
+    'series/serie': `${state ? removeAfterHyphen(state) : 'Conheça a série'}`,
+    'genre/': `${state ? removeAfterHyphen(state) : 'Listagem por Gênero'}`,
+    'search/': `${state ? state : 'Pesquisando'}`,
+    'cast/': `${state ? state : 'Elenco'}`,
+    'now-playing-movies': 'No Cinema',
+    'now-playing-series': 'Lançamentos',
+    'upcoming-movies': 'Em Breve',
+    'upcoming-series': 'Em Breve',
+    'best-rating-movies': 'Melhor Avaliados',
+    'best-rating-series': 'Melhor Avaliados',
+    'top-rated-movies': 'Mais Votados',
+    'top-rated-series': 'Mais Votados',
   }
   
   const showTitle = (path: string): string => {
@@ -40,17 +50,19 @@ export function Header({
       }
     }
     
-    return 'Listagem de Filmes'
+    return 'Listagem'
   }
   
   const subtitleMap: SubtitleMap = {
-    'movie': 'Informações adicionais',
-    'genre': 'O melhor do seu gênero preferido',
-    'search': 'Veja o que encontramos',
-    'cast': 'Buscando pelo elenco',
+    'movie/': 'Informações adicionais do filme',
+    'serie/': 'Informações adicionais da série',
+    'genre/': 'O melhor do seu gênero preferido',
+    'search/': 'Veja o que encontramos',
+    'cast/': 'Buscando pelo elenco',
+    'now-playing': 'As novidades mais recentes',
     'upcoming': 'Futuros lançamentos',
-    'best-rating': 'Os filmes melhor avaliados pelo público',
-    'top-rated': 'Os filmes mais votados pelo público'
+    'best-rating': 'Os mais bem avaliados pelo público',
+    'top-rated': 'Os mais votados pelo público'
   }
   
   const showSubtitle = (path: string): string => {

@@ -8,6 +8,7 @@ import Search from 'entities/Search'
 import { loadSearchSuccess, loadSearchFailure } from './actions'
 import { SearchTypes, LoadSearchRequest } from './types'
 
+// TODO: support for search TV shows
 export function* loadSearch({ payload }: LoadSearchRequest) {
   const { page, query } = payload
 
