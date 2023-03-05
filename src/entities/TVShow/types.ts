@@ -1,36 +1,51 @@
 import { Genre } from 'entities/Genre/types'
 
-export type MoviePayload = {
+export type TVShowPayload = {
   id: number
 }
 
-export type MovieResponse = {
-  adult: boolean
+export type TVShowResponse = {
   backdrop_path: string | null
-  belongs_to_collection: unknown
-  budget: number
+  created_by: Creator[]
+  episode_run_time: number[]
+  first_air_date: Date
   genres: Genre[]
   homepage: string
   id: number
-  imdb_id: string | null
+  in_production: boolean
+  languages: string[]
+  last_air_date: Date
+  last_episode_to_air: LastEpisode
+  name: string
+  next_episode_to_air: null | any
+  networks: Network[]
+  number_of_episodes: number
+  number_of_seasons: number
+  origin_country: string[]
   original_language: string
-  original_title: string
+  original_name: string
   overview: string
   popularity: number
   poster_path: string | null
   production_companies: ProductionCompany[]
   production_countries: ProductionCountry[]
-  release_date: Date
-  revenue: number
-  runtime: number | null
-  spoken_languages: SpokenLanguage[]
-  status: string
-  tagline: string | null
-  title: string
-  video: boolean
-  vote_average: number
-  vote_count: number
+  seasons: Season[]
   credits: Credits
+}
+
+export type Creator = {
+  id: number
+  credit_id: string
+  name: string
+  gender: number
+  profile_path: string | null
+}
+
+export type Network = {
+  id: number
+  name: string
+  logo_path: string | null
+  origin_country: string
 }
 
 export type ProductionCompany = {
@@ -45,9 +60,27 @@ export type ProductionCountry = {
   name: string
 }
 
-export type SpokenLanguage = {
-  iso_639_1: string
+export type LastEpisode = {
+  air_date: Date
+  episode_number: number
+  id: number
   name: string
+  overview: string
+  production_code: string
+  season_number: number
+  still_path: string | null
+  vote_average: number
+  vote_count: number
+}
+
+export type Season = {
+  air_date: Date
+  episode_count: number
+  id: number
+  name: string
+  overview: string
+  poster_path: string | null
+  season_number: number
 }
 
 export type Credits = {

@@ -1,6 +1,6 @@
 import React, { ReactElement } from 'react'
 
-import { Genres } from 'entities/Genre/types'
+import { Genre as GenreType } from 'entities/Genre/types'
 import { Category } from 'pages/Menu/types'
 
 import { GenreProps } from './types'
@@ -54,7 +54,7 @@ export function Genre({
     <Wrapper>
       <h4>Gêneros de Filmes</h4>
       <ul>
-        {genres.map((genre: Genres) => (
+        {genres.map((genre: GenreType) => (
           <li key={genre.id}>
             <Button
               selected={`${genre.name}_movie` === history.location.state}
@@ -88,7 +88,7 @@ export function Genre({
 
       <h4>Gêneros de Series</h4>
       <ul>
-        {genresSeries.map((genre: Genres) => (
+        {genresSeries.map((genre: GenreType) => (
           <li key={genre.id}>
             <Button
               selected={`${genre.name}_serie` === history.location.state}

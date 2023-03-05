@@ -7,6 +7,7 @@ import movie from './movie/reducers'
 import search from './search/reducers'
 import series from './series/reducers'
 import trailer from './trailer/reducers'
+import tvShow from './tvShow/reducers'
 
 export default combineReducers({
   discover,
@@ -16,4 +17,5 @@ export default combineReducers({
   search,
   series,
   trailer,
+  tvShow,
 })

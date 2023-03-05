@@ -4,7 +4,7 @@ import * as R from 'ramda'
 import notFound from 'assets/images/not-found.jpg'
 import { Rating } from 'components/Rating'
 import { formatDate } from 'utils/helpers/date'
-import { Genres } from 'entities/Genre/types'
+import { Genre } from 'entities/Genre/types'
 
 import { PreviewProps } from './types'
 import { ContentImage, ContentInfo } from './styles'
@@ -65,7 +65,7 @@ export function Preview({
       <>
         {preview.genre_ids.map((item: number) => (
           <span key={item}>
-            {genres.find(({ id }: Genres) => id === item).name}
+            {genres.find(({ id }: Genre) => id === item).name}
           </span>
         ))}
       </>

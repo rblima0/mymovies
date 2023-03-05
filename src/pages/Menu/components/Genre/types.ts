@@ -1,11 +1,11 @@
 import { History } from 'history'
 
-import { Genres } from 'entities/Genre/types'
+import { Genre } from 'entities/Genre/types'
 import { Category } from 'pages/Menu/types'
 
 export type GenreProps = {
-  genres: Genres[]
-  genresSeries: Genres[]
+  genres: Genre[]
+  genresSeries: Genre[]
   movieCategories?: Category[]
   seriesCategories?: Category[]
   history: History
