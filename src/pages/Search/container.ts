@@ -8,6 +8,7 @@ import { Search } from '.'
 
 const mapStateToProps = (state: ApplicationState) => ({
   genre: state.genre,
+  genreSeries: state.genreSeries,
   search: state.search,
 })
 

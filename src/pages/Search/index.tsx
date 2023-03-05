@@ -12,6 +12,7 @@ import { Section } from './styles'
 
 export function Search({
   genre,
+  genreSeries,
   search,
   history,
   loadSearchRequest,
@@ -19,11 +20,18 @@ export function Search({
     params: { query, page },
   },
 }: SearchProps): ReactElement {
+  const array1 = genre.data.genres
+  const array2 = genreSeries.data.genres
+  
+  const genres = array1.concat(array2.filter((item) =>
+    !array1.some((el) => el.id === item.id)
+  ))
+
   const handlePaginate = (pageNumber: number): void => {
     const title = history.location.state
 
     history.push({
-      pathname: `/movies/search/${query}/page/${pageNumber}`,
+      pathname: `/dashboard/search/${query}/page/${pageNumber}`,
       state: title,
     })
   }
@@ -57,7 +65,7 @@ export function Search({
             <Preview
               preview={preview}
               history={history}
-              genres={genre.data.genres}
+              genres={genres}
             />
           </Card>
         ))}
