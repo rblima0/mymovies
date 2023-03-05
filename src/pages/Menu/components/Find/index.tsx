@@ -17,7 +17,7 @@ export function Find({ history }: FindProps): ReactElement {
   const handleSubmit = (e: FormEvent): void => {
     if (entry.length > maxLength) {
       history.push({
-        pathname: `/dashboard/search/${entry}`,
+        pathname: `/movies/search/${entry}`,
         state: entry,
       })
 

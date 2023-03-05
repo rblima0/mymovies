@@ -7,31 +7,77 @@ import { Loader } from 'components/shared/Loader'
 import { Genre } from './components/Genre'
 import { Header } from './components/Header'
 
-import { MenuProps } from './types'
+import { Category, MenuProps } from './types'
 import { Container, Content } from './styles'
 
 export function Menu({
-  loadGenreRequest,
   genre,
+  genreSeries,
   history,
+  loadGenreRequest,
+  loadGenreSeriesRequest,
 }: MenuProps): ReactElement {
   const [isOpen, setIsOpen] = useState(false)
 
-  const handleToggleSidebar = (): void => {
-    setIsOpen(!isOpen)
-  }
+  const moviesCategories: Category[] = [
+    {
+      title: 'Popular',
+      name: 'popular-movies',
+    },
+    {
+      title: 'No cinema',
+      name: 'now-playing-movies',
+    },
+    {
+      title: 'Em breve',
+      name: 'upcoming-movies',
+    },
+    {
+      title: 'Melhor avaliados',
+      name: 'best-rating-movies',
+    },
+    {
+      title: 'Mais votados',
+      name: 'top-rated-movies',
+    },
+  ]
 
-  const handleCloseSidebar = (): void => {
-    setIsOpen(false)
-  }
+  const seriesCategories: Category[] = [
+    {
+      title: 'Popular',
+      name: 'popular-series',
+    },
+    {
+      title: 'Lançamentos',
+      name: 'now-playing-series',
+    },
+    {
+      title: 'Em breve',
+      name: 'upcoming-series',
+    },
+    {
+      title: 'Melhor avaliados',
+      name: 'best-rating-series',
+    },
+    {
+      title: 'Mais votados',
+      name: 'top-rated-series',
+    },
+  ]
+
+  const handleToggleSidebar = (): void => setIsOpen(!isOpen)
+
+  const handleCloseSidebar = (): void => setIsOpen(false)
 
   const isLoading = useMemo(() => {
-    return genre.loading || R.isEmpty(genre.data)
-  }, [genre])
+    return genre.loading || genreSeries.loading 
+      || R.isEmpty(genre.data) || R.isEmpty(genreSeries.data)
+  }, [genre, genreSeries])
 
   useEffect(() => {
     loadGenreRequest()
-  }, [loadGenreRequest])
+    loadGenreSeriesRequest()
+  }, [loadGenreRequest, loadGenreSeriesRequest])
 
   if (isLoading) {
     return <Loader />
@@ -42,8 +88,11 @@ export function Menu({
       <Sidebar handleToggleSidebar={handleToggleSidebar} isOpen={isOpen}>
         <Genre
           genres={genre.data.genres}
-          history={history}
+          genresSeries={genreSeries.data.genres}
           handleCloseSidebar={handleCloseSidebar}
+          history={history}
+          movieCategories={moviesCategories}
+          seriesCategories={seriesCategories}
         />
       </Sidebar>
       <Content>
