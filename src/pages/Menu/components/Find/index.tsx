@@ -17,13 +17,13 @@ export function Find({ history }: FindProps): ReactElement {
   const handleSubmit = (e: FormEvent): void => {
     if (entry.length > maxLength) {
       history.push({
-        pathname: `/movies/search/${entry}`,
+        pathname: `/dashboard/search/${entry}`,
         state: entry,
       })
 
       setEntry('')
     }
-
+  
     e.preventDefault()
   }
 
@@ -33,7 +33,7 @@ export function Find({ history }: FindProps): ReactElement {
         type="text"
         value={entry}
         onChange={handleChange}
-        placeholder="Procure por filmes..."
+        placeholder="Digite sua busca..."
         minLength={3}
       />
 

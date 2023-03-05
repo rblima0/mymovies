@@ -8,7 +8,6 @@ import Search from 'entities/Search'
 import { loadSearchSuccess, loadSearchFailure } from './actions'
 import { SearchTypes, LoadSearchRequest } from './types'
 
-// TODO: support for search TV shows
 export function* loadSearch({ payload }: LoadSearchRequest) {
   const { page, query } = payload
 
@@ -16,7 +15,7 @@ export function* loadSearch({ payload }: LoadSearchRequest) {
   const searchQuery = `&query=${query}`
 
   try {
-    const url = `/search/movie?api_key=${config.api_key}&language=pt-BR&include_adult=false&sort_by=popularity.desc${searchQuery}${pageNumber}`
+    const url = `/search/multi?api_key=${config.api_key}&language=pt-BR&include_adult=false${searchQuery}${pageNumber}`
     const response = yield call(api.get, url)
 
     const { data } = response

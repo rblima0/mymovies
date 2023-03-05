@@ -21,7 +21,7 @@ export function Header({
 }: HeaderProps): ReactElement {
   const [isOpen, setIsOpen] = useState(false)
 
-  const showSearch = pathname.indexOf('movie') > -1
+  const showSearch = /\/(movie|serie)\//.test(pathname)
 
   const removeAfterHyphen = (str: any) => {
     return str.split('_')[0]

@@ -9,6 +9,10 @@ import Search from 'pages/Search/container'
 export function InternalRoutes() {
   return (
     <Switch>
+      <Route path="/dashboard/search/:query" component={Search} exact />
+      <Route path="/dashboard/search/:query/page/:page" component={Search} exact />
+
+
       <Route path="/movies" component={Discover} exact />
       <Route path="/movies/page/:page" component={Discover} exact />
 
@@ -19,9 +23,6 @@ export function InternalRoutes() {
 
       <Route path="/movies/cast/:castId" component={Discover} exact />
       <Route path="/movies/cast/:castId/page/:page" component={Discover} exact />
-
-      <Route path="/movies/search/:query" component={Search} exact />
-      <Route path="/movies/search/:query/page/:page" component={Search} exact />
 
       <Route path="/movies/now-playing-movies/:nowPlaying" component={Discover} exact />
       <Route path="/movies/now-playing-movies/:nowPlaying/page/:page" component={Discover} exact />
@@ -41,9 +42,6 @@ export function InternalRoutes() {
 
       <Route path="/series/genre/:genreId" component={Series} exact />
       <Route path="/series/genre/:genreId/page/:page" component={Series} exact />
-
-      <Route path="/series/search/:query" component={Search} exact />
-      <Route path="/series/search/:query/page/:page" component={Search} exact />
 
       <Route path="/series/now-playing-series/:nowPlaying" component={Series} exact />
       <Route path="/series/now-playing-series/:nowPlaying/page/:page" component={Series} exact />
