@@ -7,6 +7,7 @@ import { GenreSeriesState } from './modules/genreSeries/types'
 import { MovieState } from './modules/movie/types'
 import { SearchState } from './modules/search/types'
 import { SeriesState } from './modules/series/types'
+import { TVShowState } from './modules/tvShow/types'
 import { TrailerState } from './modules/trailer/types'
 
 import rootReducer from './modules/rootReducer'
@@ -20,6 +21,7 @@ export type ApplicationState = {
   search: SearchState
   series: SeriesState
   trailer: TrailerState
+  tvShow: TVShowState
 }
 
 const sagaMiddleware = createSagaMiddleware()

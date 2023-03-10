@@ -50,8 +50,15 @@ export function Preview({
   }
 
   const handleOpenMovie = (): void => {
+    if (history.location.pathname.includes("/movies")) {
+      return history.push({
+        pathname: `/movies/movie/${preview.id}`,
+        state: showTitle(),
+      })
+    }
+    
     history.push({
-      pathname: `/movies/movie/${preview.id}`,
+      pathname: `/tv-shows/tv-show/${preview.id}`,
       state: showTitle(),
     })
   }

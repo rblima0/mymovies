@@ -9,7 +9,7 @@ export function Routes() {
       <Redirect from="/" to="/movies" exact />
       <Route path="/dashboard" component={Menu} />
       <Route path="/movies" component={Menu} />
-      <Route path="/series" component={Menu} />
+      <Route path="/tv-shows" component={Menu} />
       <Redirect to="/not-found" />
     </Switch>
   )

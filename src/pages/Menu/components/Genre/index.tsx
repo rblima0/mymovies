@@ -28,7 +28,7 @@ export function Genre({
   }
 
   const handleSelectGenreSeries = (id: number, name?: string): void => {
-    handleSelectGenre(`/series/genre/${id}`, `${name}_serie`)
+    handleSelectGenre(`/tv-shows/genre/${id}`, `${name}_serie`)
   }
 
   const handleSelectCategory = (name: string, mediaType: string): void => {
@@ -47,7 +47,7 @@ export function Genre({
   }
   
   const handleSelectCategorySeries = (name: string): void => {
-    handleSelectCategory(name, "series")
+    handleSelectCategory(name, "tv-shows")
   }
 
   return (

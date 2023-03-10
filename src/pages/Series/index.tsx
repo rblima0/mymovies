@@ -21,12 +21,12 @@ export function Series({
   },
 }: SeriesProps): ReactElement {
   const pathConfig = {
-    default: '/series/page',
-    genre: `/series/genre/${genreId}/page`,
-    nowPlaying: '/series/now-playing-series/true/page',
-    upcoming: '/series/upcoming-series/true/page',
-    bestRating: '/series/best-rating-series/true/page',
-    topRated: '/series/top-rated-series/true/page',
+    default: '/tv-shows/page',
+    genre: `/tv-shows/genre/${genreId}/page`,
+    nowPlaying: '/tv-shows/now-playing-series/true/page',
+    upcoming: '/tv-shows/upcoming-series/true/page',
+    bestRating: '/tv-shows/best-rating-series/true/page',
+    topRated: '/tv-shows/top-rated-series/true/page',
   }
 
   const paginatePathname = (pageNumber: number): string => {
