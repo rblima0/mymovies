@@ -31,6 +31,10 @@ export type TVShowResponse = {
   production_countries: ProductionCountry[]
   seasons: Season[]
   credits: Credits
+  tagline: string | null
+  vote_average: number
+  vote_count: number
+  spoken_languages: SpokenLanguage[]
 }
 
 export type Creator = {
@@ -87,6 +91,11 @@ export type Credits = {
   id: number
   cast: Cast[]
   crew: Crew[]
+}
+
+export type SpokenLanguage = {
+  iso_639_1: string
+  name: string
 }
 
 type Cast = {

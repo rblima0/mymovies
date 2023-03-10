@@ -7,7 +7,8 @@ import {
   ProductionCompany,
   ProductionCountry,
   Season,
-  Credits
+  Credits,
+  SpokenLanguage
 } from './types'
 
 export default class TVShow {
@@ -37,6 +38,10 @@ export default class TVShow {
   public production_countries: ProductionCountry[]
   public seasons: Season[]
   public credits: Credits
+  public tagline: string | null
+  public vote_average: number
+  public vote_count: number
+  public spoken_languages: SpokenLanguage[]
 
   constructor(data: TVShowResponse) {
     this.backdrop_path = data.backdrop_path
@@ -65,5 +70,9 @@ export default class TVShow {
     this.production_countries = data.production_countries
     this.seasons = data.seasons
     this.credits = data.credits
+    this.tagline = data.tagline
+    this.vote_average = data.vote_average
+    this.vote_count = data.vote_count
+    this.spoken_languages = data.spoken_languages
   }
 }

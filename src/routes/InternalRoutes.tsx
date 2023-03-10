@@ -3,8 +3,9 @@ import { Route, Switch } from 'react-router-dom'
 
 import Discover from 'pages/Discover/container'
 import Series from 'pages/Series/container'
-import Movie from 'pages/Movie/container'
 import Search from 'pages/Search/container'
+import Movie from 'pages/Movie/container'
+import TVShow from 'pages/TVShow/container'
 
 export function InternalRoutes() {
   return (
@@ -40,7 +41,7 @@ export function InternalRoutes() {
       <Route path="/tv-shows" component={Series} exact />
       <Route path="/tv-shows/page/:page" component={Series} exact />
 
-      <Route path="/tv-shows/tv-show/:tvShowId" component={Movie} exact />
+      <Route path="/tv-shows/tv-show/:tvShowId" component={TVShow} exact />
 
       <Route path="/tv-shows/genre/:genreId" component={Series} exact />
       <Route path="/tv-shows/genre/:genreId/page/:page" component={Series} exact />
