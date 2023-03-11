@@ -3,7 +3,7 @@ import { call, put, takeLatest, all } from 'redux-saga/effects'
 import api from 'services/api'
 import config from 'utils/config'
 
-import Search from 'entities/Search'
+import Search from 'entities/search'
 
 import { loadSearchSuccess, loadSearchFailure } from './actions'
 import { SearchTypes, LoadSearchRequest } from './types'

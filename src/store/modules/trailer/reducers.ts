@@ -1,5 +1,5 @@
 import { Reducer } from 'redux'
-import { TrailerResponse } from 'entities/Trailer/types'
+import { TrailerResponse } from 'entities/trailer/types'
 import { TrailerTypes, TrailerState, TrailerActionTypes } from './types'
 
 const INITIAL_STATE: TrailerState = {

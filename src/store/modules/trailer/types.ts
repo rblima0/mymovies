@@ -1,4 +1,4 @@
-import { TrailerResponse, TrailerPayload } from 'entities/Trailer/types'
+import { TrailerResponse, TrailerPayload } from 'entities/trailer/types'
 
 /* Action types */
 
