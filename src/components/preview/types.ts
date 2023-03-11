@@ -29,4 +29,6 @@ export type Preview = {
   origin_country?: string[] // TV Shows
   name?: string // TV Shows
   original_name?:  string // TV Shows
+
+  media_type?: string // Search
 }

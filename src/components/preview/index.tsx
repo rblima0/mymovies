@@ -50,18 +50,26 @@ export function Preview({
   }
 
   const handleOpenMovie = (): void => {
-    if (history.location.pathname.includes("/movies")) {
-      return history.push({
-        pathname: `/movies/movie/${preview.id}`,
+    const isSearchPage = history.location.pathname.includes("/search")
+    const isMoviePage = history.location.pathname.includes("/movies")
+    const mediaType = preview.media_type === "tv" ? "tv-shows" : "movies"
+  
+    const navigateToPage = (path: string): void => {
+      history.push({
+        pathname: path,
         state: showTitle(),
       })
     }
-    
-    history.push({
-      pathname: `/tv-shows/tv-show/${preview.id}`,
-      state: showTitle(),
-    })
+  
+    if (isSearchPage) {
+      navigateToPage(`/${mediaType}/${mediaType.slice(0, -1)}/${preview.id}`)
+    } else if (isMoviePage) {
+      navigateToPage(`/movies/movie/${preview.id}`)
+    } else {
+      navigateToPage(`/tv-shows/tv-show/${preview.id}`)
+    }
   }
+  
 
   const renderGenres = (): ReactElement | null => {
     if (R.isEmpty(genres)) {
