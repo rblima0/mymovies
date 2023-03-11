@@ -3,7 +3,7 @@ import { call, put, takeLatest, all } from 'redux-saga/effects'
 import api from 'services/api'
 import config from 'utils/config'
 
-import Movie from 'entities/Movie'
+import Movie from 'entities/movie'
 
 import { loadMovieSuccess, loadMovieFailure } from './actions'
 import { MovieTypes, LoadMovieRequest } from './types'

@@ -3,7 +3,7 @@ import { call, put, takeLatest, all } from 'redux-saga/effects'
 import api from 'services/api'
 import config from 'utils/config'
 
-import Trailer from 'entities/Trailer'
+import Trailer from 'entities/trailer'
 
 import { loadTrailerSuccess, loadTrailerFailure } from './actions'
 import { TrailerTypes, LoadTrailerRequest } from './types'
