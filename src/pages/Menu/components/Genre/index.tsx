@@ -7,7 +7,7 @@ import { GenreProps } from './types'
 import { Wrapper, Button } from './styles'
 
 export function Genre({
-  genres,
+  genreMovies,
   genresSeries,
   movieCategories,
   seriesCategories,
@@ -54,7 +54,7 @@ export function Genre({
     <Wrapper>
       <h4>Gêneros de Filmes</h4>
       <ul>
-        {genres.map((genre: GenreType) => (
+        {genreMovies.map((genre: GenreType) => (
           <li key={genre.id}>
             <Button
               selected={`${genre.name}_movie` === history.location.state}

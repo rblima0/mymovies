@@ -11,7 +11,7 @@ import { SearchProps } from './types'
 import { Section } from './styles'
 
 export function Search({
-  genre,
+  genreMovies,
   genreSeries,
   search,
   history,
@@ -20,11 +20,11 @@ export function Search({
     params: { query, page },
   },
 }: SearchProps): ReactElement {
-  const array1 = genre.data.genres
+  const array1 = genreMovies.data.genres
   const array2 = genreSeries.data.genres
   
   const genres = array1.concat(array2.filter((item) =>
-    !array1.some((el) => el.id === item.id)
+    !array1.some((el: { id: number }) => el.id === item.id)
   ))
 
   const handlePaginate = (pageNumber: number): void => {

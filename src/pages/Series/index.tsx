@@ -14,7 +14,7 @@ import { Section } from './styles'
 export function Series({
   loadSeriesRequest,
   series,
-  genre,
+  genreSeries,
   history,
   match: {
     params: { genreId, nowPlaying, upcoming, bestRating, topRated, page },
@@ -81,7 +81,7 @@ export function Series({
           <Card key={preview.id} backdrop={preview.backdrop_path}>
             <Preview
               preview={preview}
-              genres={genre.data.genres}
+              genres={genreSeries.data.genres}
               history={history}
             />
           </Card>

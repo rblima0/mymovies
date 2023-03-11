@@ -8,7 +8,7 @@ import { Discover } from '.'
 
 const mapStateToProps = (state: ApplicationState) => ({
   discover: state.discover,
-  genre: state.genre,
+  genreMovies: state.genreMovies,
 })
 
 const mapDispatchToProps = (dispatch: Dispatch) =>

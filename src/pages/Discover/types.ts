@@ -1,7 +1,7 @@
 import { History } from 'history'
 
 import { DiscoverState } from 'store/modules/discover/types'
-import { GenreState } from 'store/modules/genre/types'
+import { GenreMoviesState } from 'store/modules/genre-movies/types'
 
 export type DiscoverProps = {
   loadDiscoverRequest(
@@ -14,7 +14,7 @@ export type DiscoverProps = {
     page?: number
   ): void
   discover: DiscoverState
-  genre: GenreState
+  genreMovies: GenreMoviesState
   history: History
   match: {
     params: {

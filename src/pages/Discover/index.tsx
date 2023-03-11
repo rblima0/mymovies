@@ -14,7 +14,7 @@ import { DiscoverResult } from 'entities/Discover/types'
 export function Discover({
   loadDiscoverRequest,
   discover,
-  genre,
+  genreMovies,
   history,
   match: {
     params: { genreId, castId, nowPlaying, upcoming, bestRating, topRated, page },
@@ -84,7 +84,7 @@ export function Discover({
           <Card key={preview.id} backdrop={preview.backdrop_path}>
             <Preview
               preview={preview}
-              genres={genre.data.genres}
+              genres={genreMovies.data.genres}
               history={history}
             />
           </Card>

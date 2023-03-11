@@ -1,31 +1,31 @@
 import { Reducer } from 'redux'
 import { GenreResponse } from 'entities/Genre/types'
-import { GenreTypes, GenreState, GenreActionTypes } from './types'
+import { GenreMoviesTypes, GenreMoviesState, GenreMoviesActionTypes } from './types'
 
-const INITIAL_STATE: GenreState = {
+const INITIAL_STATE: GenreMoviesState = {
   data: {} as GenreResponse,
   loading: false,
   error: false,
 }
 
-const reducer: Reducer<GenreState, GenreActionTypes> = (
+const reducer: Reducer<GenreMoviesState, GenreMoviesActionTypes> = (
   state = INITIAL_STATE,
   action
 ) => {
   switch (action.type) {
-    case GenreTypes.LOAD_GENRE_REQUEST:
+    case GenreMoviesTypes.LOAD_GENRE_MOVIES_REQUEST:
       return {
         ...state,
         loading: true,
       }
-    case GenreTypes.LOAD_GENRE_SUCCESS:
+    case GenreMoviesTypes.LOAD_GENRE_MOVIES_SUCCESS:
       return {
         ...state,
         data: action.payload,
         loading: false,
         error: false,
       }
-    case GenreTypes.LOAD_GENRE_FAILURE:
+    case GenreMoviesTypes.LOAD_GENRE_MOVIES_FAILURE:
       return {
         ...state,
         data: {} as GenreResponse,

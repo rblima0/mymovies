@@ -5,10 +5,10 @@ import config from 'utils/config'
 
 import Genre from 'entities/Genre'
 
-import { loadGenreSuccess, loadGenreFailure } from './actions'
-import { GenreTypes } from './types'
+import { loadGenreMoviesSuccess, loadGenreMoviesFailure } from './actions'
+import { GenreMoviesTypes } from './types'
 
-export function* loadGenre() {
+export function* loadGenreMovies() {
   try {
     const url = `/genre/movie/list?api_key=${config.api_key}&language=pt-BR`
     const response = yield call(api.get, url)
@@ -17,10 +17,10 @@ export function* loadGenre() {
 
     const genre = new Genre(data)
 
-    yield put(loadGenreSuccess(genre))
+    yield put(loadGenreMoviesSuccess(genre))
   } catch (err) {
-    yield put(loadGenreFailure())
+    yield put(loadGenreMoviesFailure())
   }
 }
 
-export default all([takeLatest(GenreTypes.LOAD_GENRE_REQUEST, loadGenre)])
+export default all([takeLatest(GenreMoviesTypes.LOAD_GENRE_MOVIES_REQUEST, loadGenreMovies)])
