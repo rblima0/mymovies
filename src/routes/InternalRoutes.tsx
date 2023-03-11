@@ -3,8 +3,9 @@ import { Route, Switch } from 'react-router-dom'
 
 import Discover from 'pages/Discover/container'
 import Series from 'pages/Series/container'
-import Movie from 'pages/Movie/container'
 import Search from 'pages/Search/container'
+import Movie from 'pages/Movie/container'
+import TVShow from 'pages/TVShow/container'
 
 export function InternalRoutes() {
   return (
@@ -37,23 +38,25 @@ export function InternalRoutes() {
       <Route path="/movies/top-rated-movies/:topRated/page/:page" component={Discover} exact />
 
 
-      <Route path="/series" component={Series} exact />
-      <Route path="/series/page/:page" component={Series} exact />
+      <Route path="/tv-shows" component={Series} exact />
+      <Route path="/tv-shows/page/:page" component={Series} exact />
 
-      <Route path="/series/genre/:genreId" component={Series} exact />
-      <Route path="/series/genre/:genreId/page/:page" component={Series} exact />
+      <Route path="/tv-shows/tv-show/:tvShowId" component={TVShow} exact />
 
-      <Route path="/series/now-playing-series/:nowPlaying" component={Series} exact />
-      <Route path="/series/now-playing-series/:nowPlaying/page/:page" component={Series} exact />
+      <Route path="/tv-shows/genre/:genreId" component={Series} exact />
+      <Route path="/tv-shows/genre/:genreId/page/:page" component={Series} exact />
 
-      <Route path="/series/upcoming-series/:upcoming" component={Series} exact />
-      <Route path="/series/upcoming-series/:upcoming/page/:page" component={Series} exact />
+      <Route path="/tv-shows/now-playing-series/:nowPlaying" component={Series} exact />
+      <Route path="/tv-shows/now-playing-series/:nowPlaying/page/:page" component={Series} exact />
 
-      <Route path="/series/best-rating-series/:bestRating" component={Series} exact />
-      <Route path="/series/best-rating-series/:bestRating/page/:page" component={Series} exact />
+      <Route path="/tv-shows/upcoming-series/:upcoming" component={Series} exact />
+      <Route path="/tv-shows/upcoming-series/:upcoming/page/:page" component={Series} exact />
 
-      <Route path="/series/top-rated-series/:topRated" component={Series} exact />
-      <Route path="/series/top-rated-series/:topRated/page/:page" component={Series} exact />
+      <Route path="/tv-shows/best-rating-series/:bestRating" component={Series} exact />
+      <Route path="/tv-shows/best-rating-series/:bestRating/page/:page" component={Series} exact />
+
+      <Route path="/tv-shows/top-rated-series/:topRated" component={Series} exact />
+      <Route path="/tv-shows/top-rated-series/:topRated/page/:page" component={Series} exact />
     </Switch>
   )
 }

@@ -1,44 +1,39 @@
-import { Genres } from 'entities/Genre/types'
+import { Genre } from 'entities/Genre/types'
 import {
-  MovieResponse,
-  MovieCompanies,
-  MovieCountries,
-  MovieLanguages,
-  MovieCast,
-  MovieCrew,
+  ProductionCompany,
+  ProductionCountry,
+  SpokenLanguage,
+  Credits,
+  MovieResponse
 } from './types'
 
 export default class Movie {
   public adult: boolean
-  public backdrop_path: string
-  public belongs_to_collection: null | object
+  public backdrop_path: string | null
+  public belongs_to_collection: unknown
   public budget: number
-  public genres: Genres[]
+  public genres: Genre[]
   public homepage: string
   public id: number
-  public imdb_id: string
+  public imdb_id: string | null
   public original_language: string
   public original_title: string
   public overview: string
   public popularity: number
-  public poster_path: string
-  public production_companies: MovieCompanies[]
-  public production_countries: MovieCountries[]
+  public poster_path: string | null
+  public production_companies: ProductionCompany[]
+  public production_countries: ProductionCountry[]
   public release_date: Date
-  public revenue: string
-  public runtime: string
-  public spoken_languages: MovieLanguages[]
+  public revenue: number
+  public runtime: number | null
+  public spoken_languages: SpokenLanguage[]
   public status: string
-  public tagline: string
+  public tagline: string | null
   public title: string
   public video: boolean
   public vote_average: number
   public vote_count: number
-  public credits: {
-    id: number
-    cast: MovieCast[]
-    crew: MovieCrew[]
-  }
+  public credits: Credits
 
   constructor(data: MovieResponse) {
     this.adult = data.adult

@@ -1,4 +1,4 @@
-import { Genres } from 'entities/Genre/types'
+import { Genre } from 'entities/Genre/types'
 
 export type MoviePayload = {
   id: number
@@ -6,71 +6,81 @@ export type MoviePayload = {
 
 export type MovieResponse = {
   adult: boolean
-  backdrop_path: string
-  belongs_to_collection: null | object
+  backdrop_path: string | null
+  belongs_to_collection: unknown
   budget: number
-  genres: Genres[]
+  genres: Genre[]
   homepage: string
   id: number
-  imdb_id: string
+  imdb_id: string | null
   original_language: string
   original_title: string
   overview: string
   popularity: number
-  poster_path: string
-  production_companies: MovieCompanies[]
-  production_countries: MovieCountries[]
+  poster_path: string | null
+  production_companies: ProductionCompany[]
+  production_countries: ProductionCountry[]
   release_date: Date
-  revenue: string
-  runtime: string
-  spoken_languages: MovieLanguages[]
+  revenue: number
+  runtime: number | null
+  spoken_languages: SpokenLanguage[]
   status: string
-  tagline: string
+  tagline: string | null
   title: string
   video: boolean
   vote_average: number
   vote_count: number
-  credits: {
-    id: number
-    cast: MovieCast[]
-    crew: MovieCrew[]
-  }
+  credits: Credits
 }
 
-export type MovieCompanies = {
+export type ProductionCompany = {
   id: number
-  logo_path: any
+  logo_path: string | null
   name: string
   origin_country: string
 }
 
-export type MovieCountries = {
+export type ProductionCountry = {
   iso_3166_1: string
   name: string
 }
 
-export type MovieLanguages = {
+export type SpokenLanguage = {
   iso_639_1: string
   name: string
 }
 
-export type MovieCast = {
+export type Credits = {
+  id: number
+  cast: Cast[]
+  crew: Crew[]
+}
+
+type Cast = {
+  adult: boolean
+  gender: number
+  id: number
+  known_for_department: string
+  name: string
+  original_name: string
+  popularity: number
+  profile_path: string | null
   cast_id: number
   character: string
   credit_id: string
-  gender: number
-  id: number
-  name: string
   order: number
-  profile_path: string
 }
 
-export type MovieCrew = {
-  credit_id: string
-  department: string
+type Crew = {
+  adult: boolean
   gender: number
   id: number
-  job: string
+  known_for_department: string
   name: string
+  original_name: string
+  popularity: number
   profile_path: string | null
+  credit_id: string
+  department: string
+  job: string
 }

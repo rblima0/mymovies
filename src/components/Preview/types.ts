@@ -1,10 +1,10 @@
 import { History } from 'history'
 
-import { Genres } from 'entities/Genre/types'
+import { Genre } from 'entities/Genre/types'
 
 export type PreviewProps = {
   preview: Preview
-  genres: Genres[] | any
+  genres: Genre[] | any
   history: History
 }
 

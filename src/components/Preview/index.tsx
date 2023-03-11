@@ -4,7 +4,7 @@ import * as R from 'ramda'
 import notFound from 'assets/images/not-found.jpg'
 import { Rating } from 'components/Rating'
 import { formatDate } from 'utils/helpers/date'
-import { Genres } from 'entities/Genre/types'
+import { Genre } from 'entities/Genre/types'
 
 import { PreviewProps } from './types'
 import { ContentImage, ContentInfo } from './styles'
@@ -50,8 +50,15 @@ export function Preview({
   }
 
   const handleOpenMovie = (): void => {
+    if (history.location.pathname.includes("/movies")) {
+      return history.push({
+        pathname: `/movies/movie/${preview.id}`,
+        state: showTitle(),
+      })
+    }
+    
     history.push({
-      pathname: `/movies/movie/${preview.id}`,
+      pathname: `/tv-shows/tv-show/${preview.id}`,
       state: showTitle(),
     })
   }
@@ -65,7 +72,7 @@ export function Preview({
       <>
         {preview.genre_ids.map((item: number) => (
           <span key={item}>
-            {genres.find(({ id }: Genres) => id === item).name}
+            {genres.find(({ id }: Genre) => id === item).name}
           </span>
         ))}
       </>

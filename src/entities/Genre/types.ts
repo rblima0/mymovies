@@ -1,8 +1,8 @@
 export type GenreResponse = {
-  genres: Genres[]
+  genres: Genre[]
 }
 
-export type Genres = {
+export type Genre = {
   id: number
   name: string
 }
