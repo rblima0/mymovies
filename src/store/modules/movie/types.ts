@@ -1,4 +1,4 @@
-import { MoviePayload, MovieResponse } from 'entities/Movie/types'
+import { MoviePayload, MovieResponse } from 'entities/movie/types'
 
 /* Action types */
 

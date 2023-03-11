@@ -1,5 +1,5 @@
 import { action } from 'typesafe-actions'
-import { TrailerResponse } from 'entities/Trailer/types'
+import { TrailerResponse } from 'entities/trailer/types'
 import { TrailerTypes } from './types'
 
 export const loadTrailerRequest = (id: number) =>

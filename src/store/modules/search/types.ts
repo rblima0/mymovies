@@ -1,4 +1,4 @@
-import { SearchPayload, SearchResponse } from 'entities/Search/types'
+import { SearchPayload, SearchResponse } from 'entities/search/types'
 
 /* Action types */
 
