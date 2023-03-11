@@ -1,12 +1,12 @@
 import { History } from 'history'
-import { GenreState } from 'store/modules/genre/types'
+import { GenreMoviesState } from 'store/modules/genre-movies/types'
 import { GenreSeriesState } from 'store/modules/genreSeries/types'
 
 export type MenuProps = {
-  genre: GenreState
+  genreMovies: GenreMoviesState
   genreSeries: GenreSeriesState
   history: History
-  loadGenreRequest(): void
+  loadGenreMoviesRequest(): void
   loadGenreSeriesRequest(): void
 }
 

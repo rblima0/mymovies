@@ -4,7 +4,7 @@ import { Genre } from 'entities/Genre/types'
 import { Category } from 'pages/Menu/types'
 
 export type GenreProps = {
-  genres: Genre[]
+  genreMovies: Genre[]
   genresSeries: Genre[]
   movieCategories?: Category[]
   seriesCategories?: Category[]

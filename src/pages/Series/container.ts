@@ -8,7 +8,7 @@ import { Series } from '.'
 
 const mapStateToProps = (state: ApplicationState) => ({
   series: state.series,
-  genre: state.genreSeries,
+  genreSeries: state.genreSeries,
 })
 
 const mapDispatchToProps = (dispatch: Dispatch) =>

@@ -6,8 +6,9 @@ import { loadSearchRequest } from 'store/modules/search/actions'
 import { ApplicationState } from 'store/index'
 import { Search } from '.'
 
+// TODO: concat genres here
 const mapStateToProps = (state: ApplicationState) => ({
-  genre: state.genre,
+  genreMovies: state.genreMovies,
   genreSeries: state.genreSeries,
   search: state.search,
 })

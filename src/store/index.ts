@@ -2,7 +2,7 @@ import { createStore, applyMiddleware, Store } from 'redux'
 import createSagaMiddleware from 'redux-saga'
 
 import { DiscoverState } from './modules/discover/types'
-import { GenreState } from './modules/genre/types'
+import { GenreMoviesState } from './modules/genre-movies/types'
 import { GenreSeriesState } from './modules/genreSeries/types'
 import { MovieState } from './modules/movie/types'
 import { SearchState } from './modules/search/types'
@@ -15,7 +15,7 @@ import rootSaga from './modules/rootSaga'
 
 export type ApplicationState = {
   discover: DiscoverState
-  genre: GenreState
+  genreMovies: GenreMoviesState
   genreSeries: GenreSeriesState
   movie: MovieState
   search: SearchState

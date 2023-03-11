@@ -11,10 +11,10 @@ import { Category, MenuProps } from './types'
 import { Container, Content } from './styles'
 
 export function Menu({
-  genre,
+  genreMovies,
   genreSeries,
   history,
-  loadGenreRequest,
+  loadGenreMoviesRequest,
   loadGenreSeriesRequest,
 }: MenuProps): ReactElement {
   const [isOpen, setIsOpen] = useState(false)
@@ -70,14 +70,14 @@ export function Menu({
   const handleCloseSidebar = (): void => setIsOpen(false)
 
   const isLoading = useMemo(() => {
-    return genre.loading || genreSeries.loading 
-      || R.isEmpty(genre.data) || R.isEmpty(genreSeries.data)
-  }, [genre, genreSeries])
+    return genreMovies.loading || genreSeries.loading 
+      || R.isEmpty(genreMovies.data) || R.isEmpty(genreSeries.data)
+  }, [genreMovies, genreSeries])
 
   useEffect(() => {
-    loadGenreRequest()
+    loadGenreMoviesRequest()
     loadGenreSeriesRequest()
-  }, [loadGenreRequest, loadGenreSeriesRequest])
+  }, [loadGenreMoviesRequest, loadGenreSeriesRequest])
 
   if (isLoading) {
     return <Loader />
@@ -87,7 +87,7 @@ export function Menu({
     <Container>
       <Sidebar handleToggleSidebar={handleToggleSidebar} isOpen={isOpen}>
         <Genre
-          genres={genre.data.genres}
+          genreMovies={genreMovies.data.genres}
           genresSeries={genreSeries.data.genres}
           handleCloseSidebar={handleCloseSidebar}
           history={history}

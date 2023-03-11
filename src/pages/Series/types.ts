@@ -1,7 +1,7 @@
 import { History } from 'history'
 
 import { SeriesState } from 'store/modules/series/types'
-import { GenreState } from 'store/modules/genre/types'
+import { GenreSeriesState } from 'store/modules/genreSeries/types'
 
 export type SeriesProps = {
   loadSeriesRequest(
@@ -13,7 +13,7 @@ export type SeriesProps = {
     page?: number
   ): void
   series: SeriesState
-  genre: GenreState
+  genreSeries: GenreSeriesState
   history: History
   match: {
     params: {
